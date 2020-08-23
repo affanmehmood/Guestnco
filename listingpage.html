@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
     <link rel='stylesheet' href='css/font-awesome1849.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/jquery.dataTables.min.css' type='text/css' media='all' />    
     <link rel='stylesheet' href='css/mainaff7.css' type='text/css' media='all' />
     <!-- <link rel='stylesheet' href='css/styling-optionsaff7.css' type='text/css' media='all' /> -->
     <link rel='stylesheet' href='css/main.css' type='text/css' media='all' />
-    <style id='guesco-style-inline-css' type='text/css'>
-    </style>
+   
 </head>
 
 <body class="">
@@ -426,11 +426,26 @@
                                 </div>
                             </div>
                             <!--start Pagination-->
-                              <div class="guesco-loadmore loadmore text-center">
-                                <a  href="#" class="btn btn-primary btn-long">
-                                    
-                                    Load More </a>
-                            </div>
+                            <ul class="pagination">
+                                <li class="disabled">
+                                    <a aria-label="Previous">
+                                        <span aria-hidden="true">
+                                            <i class="fa fa-angle-left">
+                                            </i>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="active"><a data-homeypagi="1" href="#">1 </a></li>
+                                <li><a data-homeypagi="2" href="#">2</a></li>
+                                <li><a data-homeypagi="3" href="#">3</a></li>
+                                <li><a data-homeypagi="4" href="#">4</a></li>
+                                <li>
+                                    <a data-homeypagi="2" rel="Next" href="#">
+                                        <span aria-hidden="true"><i class="fa fa-angle-right"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
                             <!--start Pagination-->
                         </div><!-- listing-wrap -->
                     </div>
@@ -920,31 +935,12 @@
     </footer>
  
  
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src='https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/owl.carousel.min.js'></script>
-    <script type="text/javascript">
-    jQuery('.featured-listing').owlCarousel({
-        loop: true,
-        margin: 10,
-        nav: true,
-        dots: true,
-        navText: ["next", "previous"],
-        autoplay: true,
-        responsive: {
-            0: {
-                items: 1
-            },
-            600: {
-                items: 2
-            },
-            1000: {
-                items: 3
-            }
-        }
-    })
-    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src='js/owl.carousel.min.js'></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/custom.js"></script>
 </body>
 
 </html>
