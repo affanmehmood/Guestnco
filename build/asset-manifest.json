@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.dc0a14bb.chunk.css",
+    "main.js": "/static/js/main.a8dad6c7.chunk.js",
+    "main.js.map": "/static/js/main.a8dad6c7.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.83c3e0c4.js",
+    "runtime-main.js.map": "/static/js/runtime-main.83c3e0c4.js.map",
+    "static/js/2.ed1522b5.chunk.js": "/static/js/2.ed1522b5.chunk.js",
+    "static/js/2.ed1522b5.chunk.js.map": "/static/js/2.ed1522b5.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.4a3414cc546f2575d55e94af7c178bc3.js": "/precache-manifest.4a3414cc546f2575d55e94af7c178bc3.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.dc0a14bb.chunk.css.map": "/static/css/main.dc0a14bb.chunk.css.map",
+    "static/js/2.ed1522b5.chunk.js.LICENSE.txt": "/static/js/2.ed1522b5.chunk.js.LICENSE.txt",
+    "static/media/appartment.jpg": "/static/media/appartment.ee66742f.jpg",
+    "static/media/breakfast.jpg": "/static/media/breakfast.d228f245.jpg",
+    "static/media/image-3.jpg": "/static/media/image-3.ae1cc67e.jpg",
+    "static/media/listing-image-2.jpg": "/static/media/listing-image-2.3a822ab6.jpg",
+    "static/media/listing-image-4.jpg": "/static/media/listing-image-4.1c81cfb1.jpg",
+    "static/media/los.png": "/static/media/los.c0d07475.png",
+    "static/media/review-image.png": "/static/media/review-image.3d54d8fe.png",
+    "static/media/sidebar-image-1.jpg": "/static/media/sidebar-image-1.28c56849.jpg",
+    "static/media/studio.jpg": "/static/media/studio.c67bc2c9.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.83c3e0c4.js",
+    "static/js/2.ed1522b5.chunk.js",
+    "static/css/main.dc0a14bb.chunk.css",
+    "static/js/main.a8dad6c7.chunk.js"
+  ]
+}
