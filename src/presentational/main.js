@@ -7,10 +7,13 @@ import Orderlisting from '../components/orderslisting.component';
 import Checkout from '../components/checkout.component';
 import Accesslisting from '../components/access-listing.component';
 import Listingpage from '../components/listingpage.component';
-import Search from '../components/search.component'
+import Search from '../components/search.component';
+import Header from './header';
 const Main = () => (
 
  <BrowserRouter>
+
+<Header></Header>
   <Switch>
     <Route exact path="/" component={Home} />
     <Route path='/services' component={Services} />

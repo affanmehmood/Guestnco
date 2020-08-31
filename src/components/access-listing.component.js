@@ -4,125 +4,37 @@ import person from '../images/person.jpg';
 import sidebar from '../images/sidebar-image-1.jpg';
 import sidebar_one from '../images/los.png';
 import sidebar_three from '../images/review-image.png';
-
-
+import { Get } from '../helpers/api.helper';
+import Skeleton from 'react-loading-skeleton';
 class Accesslisting extends Component{
 
 	constructor(){
 		super();
+		this.state = {
+			apartments:[]
+		}
 	}
 
 	componentDidMount = () => {
-		
+		this.getApartmentList();
+	}
+
+	getApartmentList = () => {
+		Get('user/getapartmentlist').then(res => {
+			if(res.status === 1){
+				this.setState({apartments:res.data});
+			}
+			else{
+				this.setState({apartments:[]});
+			}
+		}).catch(err => {return err;})
 	}
 
   render() {
+	  const { apartments } = this.state;
     return (
      <div>
       <div className="nav-area header-type-1">
-      
-      <header id="guestco_nav_sticky" className="header-nav hidden-sm hidden-xs">
-          <div className="container-fluid">
-              <div className="header-inner table-block">
-                  <div className="header-comp-logo">
-                      <h1>
-                          <a className="guestco_logo" href="javascript:void(0)">
-                              Logo
-                          </a>
-                      </h1>
-                  </div>
-                  <div className="header-comp-nav text-right">
-                      <nav className="navi">
-                          <ul id="main-menu" className="main-menu">
-                              <li><a href="javascript:void(0)">Home</a></li>
-                              <li><a href="javascript:void(0)">About</a></li>
-                              <li><a href="javascript:void(0)">Menu Item</a></li>
-                              <li><a href="javascript:void(0)">Menu Item 2</a></li>
-                              <li><a href="javascript:void(0)">Menu Item 3</a></li>
-                              <li><a href="javascript:void(0)">Menu Item 4</a></li>
-                          </ul>
-                      </nav>
-                  </div>
-                  <div className="header-comp-right">
-                      <div className="account-login">
-                          <ul className="login-register list-inline">
-                              <li><a href="javascript:void(0)" data-toggle="modal" data-target="#modal-login">Login</a></li>
-                              <li><i className="fa fa-circle-o"></i></li>
-                              <li><a href="javascript:void(0)" data-toggle="modal" data-target="#modal-register">Register</a></li>
-                          </ul>
-                          <a href="javascript:void(0)" className="btn btn-add-new-listing">Become a Host</a>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </header>
- 
-      <header className="header-nav header-mobile hidden-md hidden-lg">
-          <div className="header-mobile-wrap">
-              <div className="container">
-                  <div className="row">
-                      <div className="col-xs-3">
-                          <button type="button" className="btn btn-mobile-nav mobile-main-nav" data-toggle="collapse" data-target="#mobile-nav" aria-expanded="false">
-                              <i className="fa fa-bars" aria-hidden="true"></i>
-                          </button> 
-                      </div>
-                      <div className="col-xs-6">
-                          <div className="mobile-logo text-center">
-                              <h1>
-                                  <a href="javascript:void(0)">
-                                      Logo
-                                  </a>
-                              </h1>
-                          </div> 
-                      </div>
-                      <div className="col-xs-3">
-                          <div className="user-menu text-right">
-                              <button type="button" className="btn btn-mobile-nav user-mobile-nav" data-toggle="collapse" data-target="#user-nav" aria-expanded="false">
-                                  <i className="fa fa-user-circle-o" aria-hidden="true"></i>
-                                  <span className="user-alert"></span> </button>
-                          </div> 
-                      </div>
-                  </div> 
-              </div> 
-          </div> 
-          <div className="container">
-              <div className="row">
-                  <div className="mobile-nav-wrap">
-                      <nav id="mobile-nav" className="nav-dropdown main-nav-dropdown collapse navbar-collapse">
-                          <ul id="mobile-menu" className="mobile-menu">
-                              <li><a href="#">Home</a></li>
-                              <li><a href="#">About</a></li>
-                              <li><a href="#">Menu Item</a></li>
-                              <li><a href="#">Menu Item 2</a></li>
-                              <li><a href="#">Menu Item 3</a></li>
-                              <li><a href="#">Menu Item 4</a></li>
-                          </ul>
-                      </nav>
-                  </div> 
-              </div>
-          </div> 
-          <div className="container">
-              <div className="row">
-                  <div className="user-nav-wrap">
-                      <nav id="user-nav" className="nav-dropdown main-nav-dropdown collapse navbar-collapse">
-                          <ul>
-                              <li>
-                                  <a href="javascript:void(0)" data-toggle="modal" data-target="##">
-                                      <span data-toggle="collapse" data-target="#user-nav">Login</span>
-                                  </a>
-                              </li>
-                              <li>
-                                  <a href="javascript:void(0)" data-toggle="modal" data-target="##">
-                                      <span data-toggle="collapse" data-target="#user-nav">Register</span>
-                                  </a>
-                              </li>
-                              <li><a href="javascript:void(0)">Become a Host</a></li>
-                          </ul>
-                      </nav> 
-                  </div> 
-              </div>
-          </div> 
-       </header>
 	   <div id="guesco-main-search" className="main-search " data-sticky="0">
             <div className="container-fluid">
                 <form className="clearfix">
@@ -209,22 +121,36 @@ class Accesslisting extends Component{
 						</div>
 					</div>
 				 
-					<div id="listings_module_section" className="listing-wrap item-grid-view">
+					{apartments.length == 0?
+					<div className='row'>
+						<div className='col-md-6 col-sm-6'>
+						<Skeleton height={300} width='100%' />
+						<Skeleton count={3} height={30}/>
+						</div>
+						<div className='col-md-6 col-sm-6'>
+						
+						<Skeleton count={3} height={30} />
+						</div>
+					</div>
+					:
+					apartments.map((elmnt, i) => {
+						return (
+							<div id="listings_module_section" className="listing-wrap item-grid-view">
 						<div className="row">
 							<div className="col-md-6  item-wrap infobox_trigger guesco-matchHeight">
 								<div className="media property-item">
 									<div className="media-left">
 										<div className="item-media item-media-thumb">
 											<span className="label-wrap top-left">
-												<span className="label label-success label-featured">Featured</span>
+												{elmnt.is_featured?<span className="label label-success label-featured">Featured</span>:null}
 											</span>
 											<a className="hover-effect" href="#">
 												<img width="450" height="300" src={imgone} className="img-responsive" alt="" loading="lazy"/>
 												</a>
 												<div className="item-media-price">
 													<span className="item-price">
-														<sup>$</sup>65
-														<sub>/night</sub>
+														<sup>$</sup>{elmnt.rent_fee}
+														<sub>{'/'+elmnt.rent_frequency}</sub>
 													</span>
 												</div>
 												<div className="item-user-image">
@@ -236,21 +162,20 @@ class Accesslisting extends Component{
 												<div className="item-title-head table-block">
 													<div className="title-head-left">
 														<h2 className="title">
-															<a href="#">
-                                                                Affordable Urban Room</a>
+															<a href="#">{elmnt.apartment_name}</a>
 														</h2>
-														<address className="item-address">398 Pete Pascale Pl, New York, NY 10029</address>
+						<address className="item-address">{elmnt.adress1 + ' '+ elmnt.address2}</address>
 													</div>
 												</div>
 												<ul className="item-amenities">
 													<li>
 														<i className="fa fa-bed"></i>
-														<span className="total-beds">1</span>
+														<span className="total-beds">{elmnt.bedrooms}</span>
 														<span className="item-label">Bedrooms</span>
 													</li>
 													<li>
 														<i className="fa fa-shower"></i>
-														<span className="total-baths">1</span>
+						<span className="total-baths">{elmnt.bathrooms}</span>
 														<span className="item-label">Baths</span>
 													</li>
 													<li>
@@ -258,7 +183,7 @@ class Accesslisting extends Component{
 														<span className="total-guests">2</span>
 														<span className="item-label">Guests</span>
 													</li>
-													<li className="item-type">Bed &amp; Breakfast</li>
+													<li className="item-type">{elmnt.description}</li>
 												</ul>
 												<div className="item-user-image list-item-hidden">
 													<img width="36" height="36" src={person} className="img-responsive img-circle" alt="" loading="lazy"/>
@@ -327,20 +252,20 @@ class Accesslisting extends Component{
 																	<div className="title-head-left">
 																		<h2 className="title">
 																			<a href="#">
-                                                                Affordable Urban Room</a>
+                                                                {elmnt.apartment_name}</a>
 																		</h2>
-																		<address className="item-address">398 Pete Pascale Pl, New York, NY 10029</address>
+																		<address className="item-address">{elmnt.adress1+' '+elmnt.address2}</address>
 																	</div>
 																</div>
 																<ul className="item-amenities">
 																	<li>
 																		<i className="fa fa-bed"></i>
-																		<span className="total-beds">1</span>
+																		<span className="total-beds">{elmnt.bedrooms}</span>
 																		<span className="item-label">Bedrooms</span>
 																	</li>
 																	<li>
 																		<i className="fa fa-shower"></i>
-																		<span className="total-baths">1</span>
+																		<span className="total-baths">{elmnt.bathrooms}</span>
 																		<span className="item-label">Baths</span>
 																	</li>
 																	<li>
@@ -348,7 +273,7 @@ class Accesslisting extends Component{
 																		<span className="total-guests">2</span>
 																		<span className="item-label">Guests</span>
 																	</li>
-																	<li className="item-type">Bed &amp; Breakfast</li>
+																	<li className="item-type">{elmnt.description}</li>
 																</ul>
 																<div className="item-user-image list-item-hidden">
 																	<img width="36" height="36" src="images/person.jpg" className="img-responsive img-circle" alt="" loading="lazy"/>
@@ -399,6 +324,9 @@ class Accesslisting extends Component{
 													
 													 
 													</div>
+						)
+					})}
+
 													<div className="guesco-loadmore loadmore text-center">
 															<a href="#" className="btn btn-primary btn-long">
                                     
@@ -953,48 +881,6 @@ class Accesslisting extends Component{
     </footer>
 
 
-    <div className="modal fade custom-modal-login" id="modal-login" tabIndex="-1" role="dialog">
-        <div className="modal-dialog clearfix" role="document">
-            <div className="modal-body-left pull-left">
-                <div className="login-register-title">
-                    Welcome back Please log in </div>
-            </div>
-            <div className="modal-body-right pull-right">
-                <div className="modal-content">
-                    <div className="modal-header">
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 className="modal-title">Login</h4>
-                    </div>
-                    <div className="modal-body">
-                        <div className="homey_login_messages message"></div>
-                        <button type="button" className="btn btn-facebook-lined btn-full-width"><i className="fa fa-facebook" aria-hidden="true"></i> Login with Facebook</button>
-                        <button type="button" className="btn btn-google-plus-lined btn-full-width"><i className="fa fa-google-plus" aria-hidden="true"></i> Login with Google</button>
-                        <div className="modal-login-form">
-                            <p className="text-center"><strong>Log in</strong></p>
-                            <form>
-                                <div className="form-group">
-                                    <input type="text" name="username" className="form-control email-input-1" placeholder="Username or Email"/>
-                                </div>
-                                <div className="form-group">
-                                    <input type="password" name="password" className="form-control password-input-2" placeholder="Password"/>
-                                </div>
-                                <div className="checkbox pull-left">
-                                    <label>
-                                        <input name="remember" type="checkbox"/>Remember me </label>
-                                </div>
-                                <div className="forgot-password-text pull-right">
-                                    <a href="#" data-toggle="modal" data-target="#modal-login-forgot-password" data-dismiss="modal">Forgot password?</a>
-                                </div>
-
-                                <button type="submit" className="btn btn-primary btn-full-width">Log In</button>
-                            </form>
-                            <p className="text-center">Don&#039;t you have an account? <a href="#" data-toggle="modal" data-target="#modal-register" data-dismiss="modal">Register</a></p>
-                        </div>
-                    </div> 
-                </div> 
-            </div>
-        </div>
-    </div> 
 
 
  </div>
