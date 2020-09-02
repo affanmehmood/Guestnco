@@ -19,12 +19,12 @@ const header = (props) => {
                   <div className="header-comp-nav text-right">
                       <nav className="navi">
                           <ul id="main-menu" className="main-menu">
-                            <li><Link to="search.html">Search Page</Link></li>
-                            <li><Link to="orders-listing.html">Order Listing Page</Link></li>
-                            <li><Link to="access-listing.html">Access Appartment Listing</Link></li>
-                            <li><Link to="order-summary.html">Order Summary</Link></li>
-                            <li><Link to="checkout.html">Checkout</Link></li>
-                            <li><Link to="services-aquired.html">Services Acquired</Link></li>         
+                            <li><Link to="/search">Search Page</Link></li>
+                            <li><Link to="/orderlisting">Order Listing Page</Link></li>
+                            <li><Link to="/access-listing">Access Appartment Listing</Link></li>
+                            <li><Link to="/order-summary">Order Summary</Link></li>
+                            <li><Link to="/checkout">Checkout</Link></li>
+                            <li><Link to="/servicesaquired">Services Acquired</Link></li>         
                           </ul>
                       </nav>
                   </div>

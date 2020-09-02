@@ -1764,3 +1764,12 @@ top: 130px;
         display: block;
         font-weight: 500;
     }
+
+
+    .mainbanner-bg{
+        background: url(../images/banner.jpg);
+    }
+
+    .payment-homepage{
+        background-image: url(../images/payment-banner.jpg);
+    }

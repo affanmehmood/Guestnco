@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import imgone from '../images/appartment.jpg';
 import imgtwo from '../images/breakfast.jpg';
-import imgthree from '../images/image-3.jpg';
-import imgfour from '../images/image-3.jpg';
-import imgfive from '../images/image-3.jpg';
-import imgsix from '../images/studio.jpg';
 import imgeight from '../images/person.jpg';
 import propertyimage from '../images/listing-image-2.jpg';
 import propertyimage1 from '../images/listing-image-1.jpg';
@@ -12,6 +8,13 @@ import propertyimage3 from '../images/listing-image-3.jpg';
 import propertyimage4 from '../images/listing-image-4.jpg';
 import appartment from '../images/appartment.jpg';
 import breakfast from '../images/breakfast.jpg';
+import image3 from '../images/image-3.jpg';
+import homeimg from '../images/home.jpg';
+import loft from '../images/loft.jpg';
+import studio from '../images/studio.jpg';
+import payment1 from '../images/payment-icon-1.png';
+import payment2 from '../images/payment-icon-2.png';
+import payment3 from '../images/payment-icon-3.png';
 
 
 
@@ -26,7 +29,7 @@ class Home extends Component{
      <div>
 
 <div id="section-body">
-<section class="top-banner-wrap">
+<section class="top-banner-wrap mainbanner-bg">
             <div class="banner-caption ">
                 <div class="search-wrap search-banner search-banner-desktop hidden-xs">
                     <form class="clearfix" action="" method="GET">
@@ -562,7 +565,7 @@ class Home extends Component{
                                 <div className="taxonomy-item taxonomy-card">
                                     <Link className="taxonomy-link hover-effect" to="listingpage.html">
                                         <div className="taxonomy-title">Apartment</div>
-                                        <img className="img-responsive" src="../images/appartment.jpg" width="555" height="262" alt="listing_type"/>
+                                        <img className="img-responsive" src={appartment} width="555" height="262" alt="listing_type"/>
                                     </Link>
                                 </div>
                             </div>
@@ -570,7 +573,7 @@ class Home extends Component{
                                 <div className="taxonomy-item taxonomy-card">
                                     <Link className="taxonomy-link hover-effect" to="listingpage.html">
                                         <div className="taxonomy-title">Bed &amp; Breakfast</div>
-                                        <img className="img-responsive" src="../images/breakfast.jpg" width="360" height="360" alt="listing_type"/>
+                                        <img className="img-responsive" src={breakfast} width="360" height="360" alt="listing_type"/>
                                     </Link>
                                 </div>
                             </div>
@@ -578,7 +581,7 @@ class Home extends Component{
                                 <div className="taxonomy-item taxonomy-card">
                                     <Link className="taxonomy-link hover-effect" to="listingpage.html">
                                         <div className="taxonomy-title">Condo</div>
-                                        <img className="img-responsive" src="../images/image-3.jpg" width="360" height="360" alt="listing_type"/>
+                                        <img className="img-responsive" src={image3} width="360" height="360" alt="listing_type"/>
                                     </Link>
                                 </div>
                             </div>
@@ -586,7 +589,7 @@ class Home extends Component{
                                 <div className="taxonomy-item taxonomy-card">
                                     <Link className="taxonomy-link hover-effect" to="listingpage.html">
                                         <div className="taxonomy-title">House</div>
-                                        <img className="img-responsive" src="../images/home.jpg" width="360" height="360" alt="listing_type"/>
+                                        <img className="img-responsive" src={homeimg} width="360" height="360" alt="listing_type"/>
                                     </Link>
                                 </div>
                             </div>
@@ -594,7 +597,7 @@ class Home extends Component{
                                 <div className="taxonomy-item taxonomy-card">
                                     <Link className="taxonomy-link hover-effect" to="listingpage.html">
                                         <div className="taxonomy-title">Loft</div>
-                                        <img className="img-responsive" src="../images/loft.jpg" width="360" height="360" alt="listing_type"/>
+                                        <img className="img-responsive" src={loft} width="360" height="360" alt="listing_type"/>
                                     </Link>
                                 </div>
                             </div>
@@ -602,7 +605,7 @@ class Home extends Component{
                                 <div className="taxonomy-item taxonomy-card">
                                     <Link className="taxonomy-link hover-effect" to="listingpage.html">
                                         <div className="taxonomy-title">Studio</div>
-                                        <img className="img-responsive" src="../images/studio.jpg" width="555" height="262" alt="listing_type"/>
+                                        <img className="img-responsive" src={studio} width="555" height="262" alt="listing_type"/>
                                     </Link>
                                 </div>
                                 
@@ -622,7 +625,7 @@ class Home extends Component{
                         <div className="row no-margin">
                             <div className="module-item">
                                 <div className="service-block">
-                                    <div className="block-icon"><img width="60" height="60" src="../images/payment-icon-1.png" className="attachment-thumbnail size-thumbnail" alt="" loading="lazy"/></div>
+                                    <div className="block-icon"><img width="60" height="60" src={payment1} className="attachment-thumbnail size-thumbnail" alt="" loading="lazy"/></div>
                                     <div className="block-content">
                                         <h3>Payment Gateways</h3>
                                         <p>Receive reservation payments with PayPal and Stripe. Homey fully supports popular payment solutions.</p><Link to="#" className="read-more">Find More</Link>
@@ -631,7 +634,7 @@ class Home extends Component{
                             </div>
                             <div className="module-item">
                                 <div className="service-block">
-                                    <div className="block-icon"><img width="60" height="60" src="../images/payment-icon-2.png" className="attachment-thumbnail size-thumbnail" alt="" loading="lazy"/></div>
+                                    <div className="block-icon"><img width="60" height="60" src={payment2} className="attachment-thumbnail size-thumbnail" alt="" loading="lazy"/></div>
                                     <div className="block-content">
                                         <h3>PayPal Integration</h3>
                                         <p>Connect to your PayPal account (with just a few clicks) and you are ready to receive money with no hassle.</p><Link to="#" className="read-more">Find More</Link>
@@ -640,7 +643,7 @@ class Home extends Component{
                             </div>
                             <div className="module-item">
                                 <div className="service-block">
-                                    <div className="block-icon"><img width="60" height="60" src="../images/payment-icon-3.png" className="attachment-thumbnail size-thumbnail" alt="" loading="lazy"/></div>
+                                    <div className="block-icon"><img width="60" height="60" src={payment3} className="attachment-thumbnail size-thumbnail" alt="" loading="lazy"/></div>
                                     <div className="block-content">
                                         <h3>Stripe Integration</h3>
                                         <p>Start accepting customer payments with Stripe and start processing credit and debit cards professionally.</p><Link to="#" className="read-more">Find More</Link>
@@ -790,7 +793,7 @@ class Home extends Component{
         </section>
     </div>
 
-    <footer className="footer-wrap footer">
+    <footer className="footer-wrap footer whitebg">
         <div className="footer-top-wrap">
             <div className="container">
                 <div className="row">
