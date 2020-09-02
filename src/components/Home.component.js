@@ -12,7 +12,7 @@ import propertyimage3 from '../images/listing-image-3.jpg';
 import propertyimage4 from '../images/listing-image-4.jpg';
 import appartment from '../images/appartment.jpg';
 import breakfast from '../images/breakfast.jpg';
-import image3 from '../images/image3.jpg';
+
 
 
 
