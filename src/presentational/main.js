@@ -5,10 +5,11 @@ import Services from "../components/servicesaquired.component";
 import Ordersumary from "../components/order-summary.component";
 import Orderlisting from "../components/orderslisting.component";
 import Checkout from "../components/checkout.component";
-import Accesslisting from "../components/access-listing.component";
+import AccesslistingNew from "../components/access-listing.component";
 import Listingpage from "../components/listingpage.component";
 import Search from "../components/search.component";
 import Header from "./header";
+import Details2 from "../components/Details2.component";
 const Main = () => (
   <BrowserRouter>
     <Header></Header>
@@ -18,9 +19,10 @@ const Main = () => (
       <Route path="/ordersummary" component={Ordersumary} />
       <Route path="/orderlisting" component={Orderlisting} />
       <Route path="/checkout" component={Checkout} />
-      <Route path="/accesslisting" component={Accesslisting} />
+      <Route path="/accesslisting" component={AccesslistingNew} />
       <Route path="/listing" component={Listingpage} />
       <Route path="/search" component={Search} />
+      <Route path="/details-2" component={Details2} />
     </Switch>
   </BrowserRouter>
 );
