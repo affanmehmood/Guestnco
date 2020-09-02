@@ -36,3 +36,42 @@
     transform: rotate(360deg);
   }
 }
+.false {
+  width: 250px;
+  float: right;
+}
+.mdb-datatable-filter {
+  margin-top: 10px;
+}
+.mdb-datatable {
+  padding-block-start: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.datatable-pagination {
+  height: 60px;
+}
+.mdb-dataTables_paginate {
+  height: 60px;
+}
+.pagination {
+  height: 50px;
+  margin: 0;
+}
+.mdb-datatable-info {
+  padding-bottom: 0rem;
+}
+.mdb-datatable,
+.mdb-datatable-info,
+.mdb-datatable,
+.mdb-dataTables_paginate,
+.mdb-datatable,
+.mdb-datatable-entries {
+  padding-top: 0rem;
+  padding-bottom: 1rem;
+  font-weight: 400;
+  font-size: 0.9rem;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+}
