@@ -4152,7 +4152,7 @@ button {
 
 .testimonial-thumb img {
     margin: 0 auto;
-    width: 48px;
+    width: 48px !important;
     border-radius: 50% !important;
 }
 
@@ -6835,6 +6835,8 @@ button {
 
 .listing-slider-variable-width img {
     height: 500px;
+    width: 100%;
+    object-fit: cover;
 }
 
 @media (max-width: 768px) {

@@ -1,38 +1,41 @@
 import React from 'react';
+import logo from '../images/logo.png';
+import whitelogo from '../images/white-logo.png';
 import { Link } from 'react-router-dom';
 const header = (props) => {
     return(
-        <div>
+        <div className="home">
               <header id="guestco_nav_sticky" className="header-nav hidden-sm hidden-xs">
           <div className="container-fluid">
               <div className="header-inner table-block">
                   <div className="header-comp-logo">
                       <h1>
-                          <a className="guestco_logo" href="javascript:void(0)">
-                              Logo
-                          </a>
+                      <Link className="guestco_logo" href="index.html">
+                                <img src={whitelogo} alt="" className="transparentlogo"/>
+                                <img src={logo} alt="" className="blacklogo"/>
+                            </Link>
                       </h1>
                   </div>
                   <div className="header-comp-nav text-right">
                       <nav className="navi">
                           <ul id="main-menu" className="main-menu">
-                              <li><Link to="/">Home</Link></li>
-                              <li><Link to="/about">About</Link></li>
-                              <li><Link to="/">Menu Item </Link></li>
-                              <li><Link to="/">Menu Item 2</Link></li>
-                              <li><Link to="/">Menu Item 3</Link></li>
-                              <li><Link to="/">Menu Item 4</Link></li>
+                            <li><Link to="search.html">Search Page</Link></li>
+                            <li><Link to="orders-listing.html">Order Listing Page</Link></li>
+                            <li><Link to="access-listing.html">Access Appartment Listing</Link></li>
+                            <li><Link to="order-summary.html">Order Summary</Link></li>
+                            <li><Link to="checkout.html">Checkout</Link></li>
+                            <li><Link to="services-aquired.html">Services Acquired</Link></li>         
                           </ul>
                       </nav>
                   </div>
                   <div className="header-comp-right">
                       <div className="account-login">
                           <ul className="login-register list-inline">
-                              <li><a href="javascript:void(0)" data-toggle="modal" data-target="#modal-login">Login</a></li>
+                              <li><Link to="javascript:void(0)" data-toggle="modal" data-target="#modal-login">Login</Link></li>
                               <li><i className="fa fa-circle-o"></i></li>
-                              <li><a href="javascript:void(0)" data-toggle="modal" data-target="#modal-register">Register</a></li>
+                              <li><Link to="javascript:void(0)" data-toggle="modal" data-target="#modal-register">Register</Link></li>
                           </ul>
-                          <a href="javascript:void(0)" className="btn btn-add-new-listing">Become a Host</a>
+                          <Link to="javascript:void(0)" className="btn btn-add-new-listing">Become a Host</Link>
                       </div>
                   </div>
               </div>
@@ -51,9 +54,9 @@ const header = (props) => {
                       <div className="col-xs-6">
                           <div className="mobile-logo text-center">
                               <h1>
-                                  <a href="javascript:void(0)">
+                                  <Link to="javascript:void(0)">
                                       Logo
-                                  </a>
+                                  </Link>
                               </h1>
                           </div> 
                       </div>
@@ -72,12 +75,12 @@ const header = (props) => {
                   <div className="mobile-nav-wrap">
                       <nav id="mobile-nav" className="nav-dropdown main-nav-dropdown collapse navbar-collapse">
                           <ul id="mobile-menu" className="mobile-menu">
-                              <li><a href="#">Home</a></li>
-                              <li><a href="#">About</a></li>
-                              <li><a href="#">Menu Item</a></li>
-                              <li><a href="#">Menu Item 2</a></li>
-                              <li><a href="#">Menu Item 3</a></li>
-                              <li><a href="#">Menu Item 4</a></li>
+                              <li><Link to="#">Home</Link></li>
+                              <li><Link to="#">About</Link></li>
+                              <li><Link to="#">Menu Item</Link></li>
+                              <li><Link to="#">Menu Item 2</Link></li>
+                              <li><Link to="#">Menu Item 3</Link></li>
+                              <li><Link to="#">Menu Item 4</Link></li>
                           </ul>
                       </nav>
                   </div> 
@@ -89,16 +92,16 @@ const header = (props) => {
                       <nav id="user-nav" className="nav-dropdown main-nav-dropdown collapse navbar-collapse">
                           <ul>
                               <li>
-                                  <a href="javascript:void(0)" data-toggle="modal" data-target="##">
+                                  <Link to="javascript:void(0)" data-toggle="modal" data-target="##">
                                       <span data-toggle="collapse" data-target="#user-nav">Login</span>
-                                  </a>
+                                  </Link>
                               </li>
                               <li>
-                                  <a href="javascript:void(0)" data-toggle="modal" data-target="##">
+                                  <Link to="javascript:void(0)" data-toggle="modal" data-target="##">
                                       <span data-toggle="collapse" data-target="#user-nav">Register</span>
-                                  </a>
+                                  </Link>
                               </li>
-                              <li><a href="javascript:void(0)">Become a Host</a></li>
+                              <li><Link to="javascript:void(0)">Become a Host</Link></li>
                           </ul>
                       </nav> 
                   </div> 
@@ -137,12 +140,12 @@ const header = (props) => {
                                         <input name="remember" type="checkbox"/>Remember me </label>
                                 </div>
                                 <div className="forgot-password-text pull-right">
-                                    <a href="#" data-toggle="modal" data-target="#modal-login-forgot-password" data-dismiss="modal">Forgot password?</a>
+                                    <Link to="#" data-toggle="modal" data-target="#modal-login-forgot-password" data-dismiss="modal">Forgot password?</Link>
                                 </div>
 
                                 <button type="submit" className="btn btn-primary btn-full-width">Log In</button>
                             </form>
-                            <p className="text-center">Don&#039;t you have an account? <a href="#" data-toggle="modal" data-target="#modal-register" data-dismiss="modal">Register</a></p>
+                            <p className="text-center">Don&#039;t you have an account? <Link to="#" data-toggle="modal" data-target="#modal-register" data-dismiss="modal">Register</Link></p>
                         </div>
                     </div> 
                 </div> 
