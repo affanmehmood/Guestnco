@@ -1,12 +1,12 @@
 import React from "react";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
-import Home from "../components/Home.component";
+import Home from "../components/Home/Home.component";
 import Services from "../components/servicesaquired.component";
-import Ordersumary from "../components/order-summary.component";
+import Ordersumary from "../components/OrderSummary/order-summary.component";
 import Orderlisting from "../components/orderslisting.component";
 import Checkout from "../components/checkout.component";
 import AccesslistingNew from "../components/access-listing.component";
-import Listingpage from "../components/listingpage.component";
+import Listingpage from "../components/AppartmentListing/listingpage.component";
 import Search from "../components/search.component";
 import Header from "./header";
 import Details2 from "../components/Details2.component";

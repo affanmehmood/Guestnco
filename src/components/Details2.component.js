@@ -11,8 +11,107 @@ import imgPerson from "../images/person.jpg";
 import imgListing from "../images/listing-image.jpg";
 import imgMain from "../images/detail-slider-1.jpg";
 import imgGallery1 from "../images/gallery-1.jpg";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 
 export default function Details() {
+  const AppartmentDetails = {
+    name: "Modern Apartment With Pool",
+    featured: true,
+    address: "984 1st Avenue, New York, NY 10022",
+    stars: 4,
+    adminImage:
+      "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
+    appartmentImage: "https://wallpaperaccess.com/full/1142283.jpg",
+    appartmentGallery: [
+      "https://wallpaperaccess.com/full/1142283.jpg",
+      "https://www.thespruce.com/thmb/nyUHOEdrQ586q53hT3i-Tnv0qJA=/450x0/filters:no_upscale():max_bytes(150000):strip_icc()/scandinavian-style-living-and-dining-room-1172217300-84a8acf6b9bb4c8ea555216c8aa8b581.jpg",
+      "https://i.ytimg.com/vi/ctYAOqDdqa8/maxresdefault.jpg",
+    ],
+    noRooms: 1,
+    noBaths: 1,
+    noGuests: 2,
+    type: "Appartment",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi est quam, volutpat et arcu eu, pharetra congue augue. Integer vel nibh eu eros interdum commodo. Vivamus finibus fringilla libero, id consectetur purus sollicitudin vel. Proin dapibus ante et pharetra luctus. Ut lacinia ante ut nunc pellentesque auctor. Proin laoreet erat sed ornare molestie. Fusce vehicula ut nulla facilisis vulputate. Quisque vel purus ac lectus tempus viverra. Maecenas at sem at erat pellentesque hendrerit nec in massa. Vestibulum nec lacinia dui, a congue ex. Vivamus ac ultri",
+    id: 122,
+    size: "1500",
+    checkInTime: "10:00 AM",
+    gallery: [
+      "https://doisneaupavia.com/wp-content/uploads/2020/04/Decorating-Your-Apartment.jpg",
+      "https://doisneaupavia.com/wp-content/uploads/2020/04/Decorating-Your-Apartment.jpg",
+      "https://doisneaupavia.com/wp-content/uploads/2020/04/Decorating-Your-Apartment.jpg",
+      "https://doisneaupavia.com/wp-content/uploads/2020/04/Decorating-Your-Apartment.jpg",
+      "https://doisneaupavia.com/wp-content/uploads/2020/04/Decorating-Your-Apartment.jpg",
+      "https://doisneaupavia.com/wp-content/uploads/2020/04/Decorating-Your-Apartment.jpg",
+      "https://doisneaupavia.com/wp-content/uploads/2020/04/Decorating-Your-Apartment.jpg",
+    ],
+  };
+  function getGalleryImages() {
+    const items = [];
+    for (var i = 0; i < AppartmentDetails.appartmentGallery.length; i++) {
+      items.push(
+        <img
+          src={AppartmentDetails.appartmentGallery[i]}
+          className="sliderimg"
+        />
+      );
+    }
+    return items;
+  }
+  function getGalleryImages2() {
+    const items = [];
+    for (var i = 0; i < AppartmentDetails.gallery.length; i++) {
+      items.push(
+        <a href=".#" class="swipebox">
+          <img src={AppartmentDetails.gallery[i]} />
+        </a>
+      );
+    }
+    return items;
+  }
+  function checkFeatured() {
+    if (AppartmentDetails.featured == true) {
+      return (
+        <span
+          class="label label-success label-featured"
+          style={{
+            marginLeft: "5px",
+          }}
+        >
+          Featured
+        </span>
+      );
+    }
+  }
+
+  function forStar() {
+    const items = [];
+    for (var i = 0; i < AppartmentDetails.stars; i++) {
+      items.push(<li className="fa fa-star"></li>);
+    }
+    for (var i = 0; i < 5 - AppartmentDetails.stars; i++) {
+      items.push(<li className="fa fa-star-o"></li>);
+    }
+    return items;
+  }
+
+  function qualityCheck() {
+    switch (AppartmentDetails.stars) {
+      case 0:
+        return "Very Poor";
+      case 1:
+        return "Poor";
+      case 2:
+        return "Below Average";
+      case 3:
+        return "Average";
+      case 4:
+        return "Good";
+      case 5:
+        return "Excellet";
+    }
+  }
   return (
     <div>
       <link
@@ -20,288 +119,16 @@ export default function Details() {
         rel="stylesheet"
       />
       <div>
-        <meta charset="UTF-8" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-        />
-        <link
-          rel="icon"
-          href="images/favicon.png"
-          type="image/png"
-          sizes="16x16"
-        />
-
         <title>Detail Page</title>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap"
-          rel="stylesheet"
-        />
-        <link rel="stylesheet" href="css/bootstrap.min.css" />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="css/owl.carousel.min.css"
-        />
-        <link
-          rel="stylesheet"
-          href="css/font-awesome1849.css"
-          type="text/css"
-          media="all"
-        />
-        <link
-          rel="stylesheet"
-          href="css/jquery.dataTables.min.css"
-          type="text/css"
-          media="all"
-        />
-        <link
-          rel="stylesheet"
-          href="css/mainaff7.css"
-          type="text/css"
-          media="all"
-        />
-        <link
-          rel="stylesheet"
-          href="css/main.css"
-          type="text/css"
-          media="all"
-        />
       </div>
 
-      <body class="">
-        <div class="nav-area header-type-1">
-          <header class="header-nav header-mobile hidden-md hidden-lg">
-            <div class="header-mobile-wrap">
-              <div class="container">
-                <div class="row">
-                  <div class="col-xs-3">
-                    <Button
-                      type="button"
-                      class="btn btn-mobile-nav mobile-main-nav"
-                      data-toggle="collapse"
-                      data-target="#mobile-nav"
-                      aria-expanded="false"
-                    >
-                      <i class="fa fa-bars" aria-hidden="true"></i>
-                    </Button>
-                  </div>
-                  <div class="col-xs-6">
-                    <div class="mobile-logo text-center">
-                      <h1>
-                        <a href="index.html"> Logo </a>
-                      </h1>
-                    </div>
-                  </div>
-                  <div class="col-xs-3">
-                    <div class="user-menu text-right">
-                      <Button
-                        type="button"
-                        class="btn btn-mobile-nav user-mobile-nav"
-                        data-toggle="collapse"
-                        data-target="#user-nav"
-                        aria-expanded="false"
-                      >
-                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-                        <span
-                          class="user-alert"
-                          style={{ display: "none" }}
-                        ></span>
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="container">
-              <div class="row">
-                <div class="mobile-nav-wrap">
-                  <nav
-                    id="mobile-nav"
-                    class="nav-dropdown main-nav-dropdown collapse navbar-collapse"
-                  >
-                    <ul id="mobile-menu" class="mobile-menu">
-                      <li>
-                        <a href="#">Home</a>
-                      </li>
-                      <li>
-                        <a href="#">About</a>
-                      </li>
-                      <li>
-                        <a href="#">Menu Item</a>
-                      </li>
-                      <li>
-                        <a href="#">Menu Item 2</a>
-                      </li>
-                      <li>
-                        <a href="#">Menu Item 3</a>
-                      </li>
-                      <li>
-                        <a href="#">Menu Item 4</a>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
-              </div>
-            </div>
-            <div class="container">
-              <div class="row">
-                <div class="user-nav-wrap">
-                  <nav
-                    id="user-nav"
-                    class="nav-dropdown main-nav-dropdown collapse navbar-collapse"
-                  >
-                    <ul>
-                      <li>
-                        <a href="#" data-toggle="modal" data-target="##">
-                          <span data-toggle="collapse" data-target="#user-nav">
-                            Login
-                          </span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" data-toggle="modal" data-target="##">
-                          <span data-toggle="collapse" data-target="#user-nav">
-                            Register
-                          </span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="become-a-host/index.html">Become a Host</a>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
-              </div>
-            </div>
-          </header>
-          <div id="guesco-main-search" class="main-search" data-sticky="0">
-            <div class="container-fluid">
-              <form
-                class="clearfix"
-                action="https://demo01.getguesco.io/search-results/"
-                method="GET"
-              >
-                <div
-                  id="search-desktop"
-                  class="search-wrap hidden-sm hidden-xs"
-                >
-                  <div class="search-destination">
-                    <input
-                      type="text"
-                      name="location_search"
-                      autocomplete="off"
-                      value=""
-                      class="form-control input-search"
-                      placeholder="City"
-                    />
-                  </div>
-                  <div class="search-guests search-budget-js">
-                    <input
-                      type="text"
-                      name=""
-                      autocomplete="off"
-                      value=""
-                      class="form-control"
-                      placeholder="Budget"
-                    />
-                  </div>
-                  <div class="search-date-range main-search-date-range-js">
-                    <div class="search-date-range-arrive">
-                      <input
-                        type="text"
-                        autocomplete="off"
-                        name="arrive"
-                        value=""
-                        class="form-control"
-                        placeholder="Check In"
-                      />
-                    </div>
-                    <div class="search-date-range-depart">
-                      <input
-                        type="text"
-                        autocomplete="off"
-                        name="depart"
-                        value=""
-                        class="form-control"
-                        placeholder="Check Out"
-                      />
-                    </div>
-                  </div>
-                  <div class="search-button">
-                    <button type="submit" class="btn btn-primary">
-                      Search
-                    </button>
-                  </div>
-                </div>
-                <div class="search-wrap search-banner-mobile">
-                  <div class="search-destination">
-                    <input
-                      value=""
-                      type="text"
-                      class="form-control"
-                      placeholder="Where to go?"
-                      onfocus="blur();"
-                    />
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
+      <body style={{ paddingTop: "130px" }}>
         <div id="section-body">
           <section class="detail-property-page-header-area detail-property-page-header-area-v4">
             <div class="top-gallery-section top-gallery-variable-width-section">
-              <div class="listing-slider-variable-width ">
-                <div>
-                  <a
-                    href="#"
-                    class="swipebox imgMain"
-                  >
-                    <img class="img-responsive" src={imgMain} />
-                  </a>
-                </div>
-                <div>
-                  <a href="#" class="swipebox imgMain ">
-                    <img class="img-responsive" src={imgMain} />
-                  </a>
-                </div>
-                <div>
-                  <a href="#" class="swipebox imgMain ">
-                    <img class="img-responsive" src={imgMain} />
-                  </a>
-                </div>
-                <div>
-                  <a href="#" class="swipebox imgMain ">
-                    <img class="img-responsive" src={imgMain} />
-                  </a>
-                </div>
-                <div>
-                  <a href="#" class="swipebox imgMain ">
-                    <img class="img-responsive" src={imgMain} />
-                  </a>
-                </div>
-                <div>
-                  <a href="#" class="swipebox imgMain ">
-                    <img class="img-responsive" src={imgMain} />
-                  </a>
-                </div>
-                <div>
-                  <a href="#" class="swipebox imgMain ">
-                    <img class="img-responsive" src={imgMain} />
-                  </a>
-                </div>
-                <div>
-                  <a href="#" class="swipebox imgMain ">
-                    <img class="img-responsive" src={imgMain} />
-                  </a>
-                </div>
-                <div>
-                  <a href="#" class="swipebox imgMain ">
-                    <img class="img-responsive" src={imgMain} />
-                  </a>
-                </div>
-              </div>
+              <AliceCarousel autoPlay autoPlayInterval="3000">
+                {getGalleryImages()}
+              </AliceCarousel>
             </div>
           </section>
           <section class="main-content-area whitebg">
@@ -323,17 +150,15 @@ export default function Details() {
                                 <span>Apartment</span>
                               </a>
                             </li>
-                            <li class="active">Modern Apartment With Pool</li>
+                            <li class="active">{AppartmentDetails.name}</li>
                           </ol>
                           <h1 class="listing-title">
-                            Modern Apartment With Pool
-                            <span class="label label-success label-featured">
-                              Featured
-                            </span>
+                            {AppartmentDetails.name}
+                            {checkFeatured()}
                           </h1>
                           <address>
                             <i class="fa fa-map-marker" aria-hidden="true"></i>{" "}
-                            984 1st Avenue, New York, NY 10022
+                            {AppartmentDetails.address}
                           </address>
                           <div class="host-avatar-wrap avatar">
                             <span class="super-host-icon">
@@ -342,19 +167,15 @@ export default function Details() {
                             <img
                               width="70"
                               height="70"
-                              src={imgPerson}
+                              src={AppartmentDetails.adminImage}
                               class="img-circle media-object"
                             />
                           </div>
                           <div class="list-inline rating hidden-xs">
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <i class="fa fa-star-o" aria-hidden="true"></i>
-
-                            <i class="fa fa-star-o" aria-hidden="true"></i>
-
-                            <span class="star-text-right">Average</span>
+                            {forStar()}
+                            <span class="star-text-right">
+                              {qualityCheck()}
+                            </span>
                           </div>
                         </div>
                       </div>
@@ -367,7 +188,7 @@ export default function Details() {
                           </div>
                           <div>Type</div>
                           <div>
-                            <strong> Entire Place / Apartment </strong>
+                            <strong> {AppartmentDetails.type} </strong>
                           </div>
                         </div>
                         <div class="block-col block-col-25">
@@ -376,7 +197,7 @@ export default function Details() {
                           </div>
                           <div>Accomodation</div>
                           <div>
-                            <strong>4 Guests</strong>
+                            <strong>{AppartmentDetails.noGuests} Guests</strong>
                           </div>
                         </div>
                         <div class="block-col block-col-25">
@@ -385,7 +206,10 @@ export default function Details() {
                           </div>
                           <div>Bedrooms</div>
                           <div>
-                            <strong>2 Bedrooms / 2 Beds</strong>
+                            <strong>
+                              {AppartmentDetails.noRooms} Bedrooms /{" "}
+                              {AppartmentDetails.noRooms} Beds
+                            </strong>
                           </div>
                         </div>
                         <div class="block-col block-col-25">
@@ -394,27 +218,14 @@ export default function Details() {
                           </div>
                           <div>Bathrooms</div>
                           <div>
-                            <strong>2 Full </strong>
+                            <strong>{AppartmentDetails.noBaths} Full </strong>
                           </div>
                         </div>
                       </div>
                       <div class="block">
                         <div class="block-body">
                           <h2>About this listing</h2>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Morbi est quam, volutpat et arcu eu, pharetra
-                            congue augue. Integer vel nibh eu eros interdum
-                            commodo. Vivamus finibus fringilla libero, id
-                            consectetur purus sollicitudin vel. Proin dapibus
-                            ante et pharetra luctus. Ut lacinia ante ut nunc
-                            pellentesque auctor. Proin laoreet erat sed ornare
-                            molestie. Fusce vehicula ut nulla facilisis
-                            vulputate. Quisque vel purus ac lectus tempus
-                            viverra. Maecenas at sem at erat pellentesque
-                            hendrerit nec in massa. Vestibulum nec lacinia dui,
-                            a congue ex. Vivamus ac ultri
-                          </p>
+                          <p>{AppartmentDetails.description}</p>
                         </div>
                       </div>
                     </div>
@@ -432,42 +243,49 @@ export default function Details() {
                                     class="fa fa-angle-right"
                                     aria-hidden="true"
                                   ></i>
-                                  ID: <strong>267</strong>
+                                  ID: <strong>{AppartmentDetails.id}</strong>
                                 </li>
                                 <li>
                                   <i
                                     class="fa fa-angle-right"
                                     aria-hidden="true"
                                   ></i>
-                                  Guests: <strong>4</strong>
+                                  Guests:{" "}
+                                  <strong>{AppartmentDetails.noGuests}</strong>
                                 </li>
                                 <li>
                                   <i
                                     class="fa fa-angle-right"
                                     aria-hidden="true"
                                   ></i>
-                                  Bedrooms: <strong>2</strong>
+                                  Bedrooms:{" "}
+                                  <strong>{AppartmentDetails.noRooms}</strong>
                                 </li>
                                 <li>
                                   <i
                                     class="fa fa-angle-right"
                                     aria-hidden="true"
                                   ></i>
-                                  Beds: <strong>2</strong>
+                                  Beds:{" "}
+                                  <strong>{AppartmentDetails.noRooms}</strong>
                                 </li>
                                 <li>
                                   <i
                                     class="fa fa-angle-right"
                                     aria-hidden="true"
                                   ></i>
-                                  Bathrooms: <strong>2</strong>
+                                  Bathrooms:{" "}
+                                  <strong>{AppartmentDetails.noBaths}</strong>
                                 </li>
                                 <li>
                                   <i
                                     class="fa fa-angle-right"
                                     aria-hidden="true"
                                   ></i>
-                                  Check-in After: <strong>10:00 AM</strong>
+                                  Check-in After:{" "}
+                                  <strong>
+                                    {AppartmentDetails.checkInTime}
+                                  </strong>
                                 </li>
                                 <li>
                                   <i
@@ -475,14 +293,15 @@ export default function Details() {
                                     aria-hidden="true"
                                   ></i>
                                   Type:{" "}
-                                  <strong>Entire Place / Apartment </strong>
+                                  <strong>{AppartmentDetails.type} </strong>
                                 </li>
                                 <li>
                                   <i
                                     class="fa fa-angle-right"
                                     aria-hidden="true"
                                   ></i>
-                                  Size: <strong>1500 SqFt</strong>
+                                  Size:{" "}
+                                  <strong>{AppartmentDetails.size} SqFt</strong>
                                 </li>
                               </ul>
                             </div>
@@ -493,30 +312,7 @@ export default function Details() {
                     <div id="gallery-section" class="gallery-section">
                       <div class="block">
                         <div class="featured-image-wrap featured-slide-gallery-wrap clearfix">
-                          <a href=".#" class="swipebox">
-                            <img src={imgGallery1} />
-                          </a>
-                          <a href=".#" class="swipebox">
-                            <img src={imgGallery1} />
-                          </a>
-                          <a href=".#" class="swipebox">
-                            <img src={imgGallery1} />
-                          </a>
-                          <a href=".#" class="swipebox">
-                            <img src={imgGallery1} />
-                          </a>
-                          <a href=".#" class="swipebox">
-                            <img src={imgGallery1} />
-                          </a>
-                          <a href=".#" class="swipebox">
-                            <img src={imgGallery1} />
-                          </a>
-                          <a href=".#" class="swipebox">
-                            <img src={imgGallery1} />
-                          </a>
-                          <a href=".#" class="swipebox">
-                            <img src={imgGallery1} />
-                          </a>
+                          {getGalleryImages2()}
                         </div>
                       </div>
                     </div>
@@ -1549,8 +1345,126 @@ export default function Details() {
                     </div>
                   </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 guesco_sticky">
-                  <div class="sidebar right-sidebar">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 homey_sticky">
+                  <div class="sidebar right-sidebar fixedscroll-sidebar">
+                    <div
+                      id="guesco_remove_on_mobile"
+                      class="sidebar-booking-module hidden-sm hidden-xs"
+                    >
+                      <div class="block">
+                        <div class="sidebar-booking-module-header">
+                          <div class="block-body-sidebar">
+                            <span class="item-price">
+                              <sup>$</sup>525<sub>/night</sub>
+                            </span>
+                          </div>
+                        </div>
+                        <div class="sidebar-booking-module-body">
+                          <div class="guesco_notification block-body-sidebar">
+                            <div
+                              id="single-listing-date-range"
+                              class="search-date-range"
+                            >
+                              <div class="search-date-range-arrive">
+                                <input
+                                  name="arrive"
+                                  value=""
+                                  readonly
+                                  type="text"
+                                  class="form-control check_in_date"
+                                  autocomplete="off"
+                                  placeholder="Arrive"
+                                />
+                              </div>
+                              <div class="search-date-range-depart">
+                                <input
+                                  name="depart"
+                                  value=""
+                                  readonly
+                                  type="text"
+                                  class="form-control check_out_date"
+                                  autocomplete="off"
+                                  placeholder="Depart"
+                                />
+                              </div>
+                            </div>
+                            <div class="search-guests search-budget-js">
+                              <input
+                                type="text"
+                                name=""
+                                autocomplete="off"
+                                value=""
+                                class="form-control"
+                                placeholder="Budget"
+                              />
+                            </div>
+                            <div class="search-extra-services">
+                              <strong>Extra services</strong>
+                              <ul class="extra-services-list list-unstyled clearfix">
+                                <li>
+                                  <label class="homey_extra_price control control--checkbox">
+                                    <input
+                                      type="checkbox"
+                                      name="extra_price[]"
+                                      data-name="Breakfast"
+                                      data-price="16"
+                                      data-type="per_guest"
+                                    />
+                                    <span class="control-text">Breakfast</span>
+                                    <span class="control__indicator"></span>
+                                  </label>
+                                  <span>$16.00</span>
+                                </li>
+                                <li>
+                                  <label class="homey_extra_price control control--checkbox">
+                                    <input
+                                      type="checkbox"
+                                      name="extra_price[]"
+                                      data-name="Lunch"
+                                      data-price="24"
+                                      data-type="per_guest"
+                                    />
+                                    <span class="control-text">Lunch</span>
+                                    <span class="control__indicator"></span>
+                                  </label>
+                                  <span>$24.00</span>
+                                </li>
+                                <li>
+                                  <label class="homey_extra_price control control--checkbox">
+                                    <input
+                                      type="checkbox"
+                                      name="extra_price[]"
+                                      data-name="Dinner"
+                                      data-price="24"
+                                      data-type="per_guest"
+                                    />
+                                    <span class="control-text">Dinner</span>
+                                    <span class="control__indicator"></span>
+                                  </label>
+                                  <span>$24.00</span>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="search-message">
+                              <textarea
+                                name="message"
+                                class="form-control"
+                                rows="3"
+                                placeholder="Introduce yourself to the host"
+                              ></textarea>
+                            </div>
+                            <div style={{ height: "15px" }}></div>
+                            <a
+                              href="checkout.html"
+                              type="button"
+                              class="btn btn-full-width btn-primary"
+                            >
+                              Instant Booking
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     <div class="sidebar-booking-module-footer">
                       <div class="block-body-sidebar">
                         <button
@@ -1558,8 +1472,8 @@ export default function Details() {
                           data-listid="267"
                           class="add_fav btn btn-full-width btn-grey-outlined"
                         >
-                          <i class="fa fa-star-o" aria-hidden="true"></i> Add to
-                          Favorite
+                          <i class="fa fa-heart-o" aria-hidden="true"></i> Add
+                          to Favorite
                         </button>
                         <button
                           type="button"
@@ -1576,12 +1490,24 @@ export default function Details() {
                           data-listing-id="267"
                         >
                           <i class="fa fa-print" aria-hidden="true"></i> Print
-                          this page
+                          this page{" "}
                         </button>
                       </div>
-                      <div class="text-center">
-                        <a href="#" class="btn btn-primary btn-long">
-                          Cancel Booking
+                      <div class="social-icons social-round">
+                        <a class="btn-bg-facebook" href="#">
+                          <i class="fa fa-facebook"></i>
+                        </a>
+                        <a class="btn-bg-facebook" href="#">
+                          <i class="fa fa-facebook"></i>
+                        </a>
+                        <a class="btn-bg-facebook" href="#">
+                          <i class="fa fa-facebook"></i>
+                        </a>
+                        <a class="btn-bg-facebook" href="#">
+                          <i class="fa fa-facebook"></i>
+                        </a>
+                        <a class="btn-bg-facebook" href="#">
+                          <i class="fa fa-facebook"></i>
                         </a>
                       </div>
                     </div>
