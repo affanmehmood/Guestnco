@@ -18,7 +18,7 @@ const Home = () => {
       <div id="section-body">
         <Search />
         <section className="main-content-area">
-          <OurFeaturedHomes featuredHomes={this.featuredHomes} />
+          <OurFeaturedHomes />
           <FindPlace />
           <PaymentInfo />
           <HearFromHosts />

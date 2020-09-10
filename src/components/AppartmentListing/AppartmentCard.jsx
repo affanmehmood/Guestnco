@@ -89,7 +89,7 @@ const AppartmentCard = (props) => {
           <div class="item-title-head table-block">
             <div class="title-head-left">
               <h2 class="title">
-                <a href="detailpage.html">Modern Apartment With Pool</a>
+                <a href="detail-2">{name}</a>
               </h2>
               <address class="item-address">{address}</address>
             </div>

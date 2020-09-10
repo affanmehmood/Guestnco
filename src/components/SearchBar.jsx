@@ -1,11 +1,11 @@
 import React from "react";
 
-const Search = () => {
+const SearchBar = () => {
   return (
-    <section className="top-banner-wrap mainbanner-bg">
-      <div className="banner-caption ">
-        <div className="search-wrap search-banner search-banner-desktop hidden-xs">
-          <form className="clearfix" action="" method="GET">
+    <div id="guesco-main-search" className="main-search " data-sticky="0">
+      <div className="container-fluid">
+        <form className="clearfix">
+          <div id="search-desktop" className="search-wrap hidden-sm hidden-xs">
             <div className="search-destination">
               <input
                 type="text"
@@ -48,27 +48,27 @@ const Search = () => {
                 />
               </div>
             </div>
+
             <div className="search-button">
               <button type="submit" className="btn btn-primary">
                 Search
               </button>
             </div>
-          </form>
-        </div>
-        <div className="search-wrap search-banner search-banner-mobile">
-          <form className="clearfix">
+          </div>
+          <div className="search-wrap search-banner-mobile">
             <div className="search-destination">
               <input
                 value=""
                 type="text"
                 className="form-control"
-                placeholder="City?"
+                placeholder="Where to go?"
+                onfocus="blur();"
               />
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
-    </section>
+    </div>
   );
 };
-export default Search;
+export default SearchBar;

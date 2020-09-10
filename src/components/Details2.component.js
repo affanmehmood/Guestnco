@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import { Link as link } from "react-router";
 import imgAppartment from "../images/appartment.jpg";
@@ -13,6 +13,9 @@ import imgMain from "../images/detail-slider-1.jpg";
 import imgGallery1 from "../images/gallery-1.jpg";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
+
+import AppartmentCard from "./AppartmentListing/AppartmentCard";
+import Footer from "./Footer";
 
 export default function Details() {
   const AppartmentDetails = {
@@ -46,7 +49,212 @@ export default function Details() {
       "https://doisneaupavia.com/wp-content/uploads/2020/04/Decorating-Your-Apartment.jpg",
       "https://doisneaupavia.com/wp-content/uploads/2020/04/Decorating-Your-Apartment.jpg",
     ],
+    prices: {
+      nightly: "550",
+      weekends: "580",
+      weekly: "525",
+      monthly: "1500",
+      secuerityDeposit: "1000",
+      allowAdditionalGuests: "Yes",
+      additionalGuests: "525",
+      cleaningFee: "1050",
+      cityFee: "25",
+      minDays: "1",
+      maxDays: "60",
+    },
+    accomodation: [
+      {
+        roomName: "Master Room",
+        kingSize: 1,
+        queenSize: 0,
+        noGuests: 2,
+      },
+      {
+        roomName: "Bedroom 1",
+        kingSize: 0,
+        queenSize: 1,
+        noGuests: 2,
+      },
+      {
+        roomName: "Bedroom 1",
+        kingSize: 0,
+        queenSize: 1,
+        noGuests: 2,
+      },
+      {
+        roomName: "Bedroom 1",
+        kingSize: 0,
+        queenSize: 1,
+        noGuests: 2,
+      },
+    ],
+    features: {
+      amenities: ["Gym", "TV Cable", "Laundry", "Wi-Fi"],
+      facilities: ["Farmacy", "Reception", "Free Parking", "Security"],
+    },
+    map: {
+      nearby: {
+        artsEntertainment: [
+          {
+            name: "Sutton Place Frame Shop",
+            distance: "0.04",
+            stars: 4,
+            noReviews: "4",
+          },
+          {
+            name: "Time & Again Galleries",
+            distance: "0.02",
+            stars: 3,
+            noReviews: "8",
+          },
+          {
+            name: "A La Mode Shoppe",
+            distance: "0.09",
+            stars: 5,
+            noReviews: "15",
+          },
+        ],
+        food: [
+          {
+            name: "First Avenue Vintner",
+            distance: "0.01",
+            stars: 5,
+            noReviews: "15",
+          },
+          {
+            name: "Simchick Meats",
+            distance: "0.09",
+            stars: 2,
+            noReviews: "3",
+          },
+          {
+            name: "Marinara Pizza",
+            distance: "0.02",
+            stars: 4,
+            noReviews: "15",
+          },
+        ],
+        health: [
+          {
+            name: "Stefan Kantrowitz M.D. ",
+            distance: "0.02",
+            stars: 4,
+            noReviews: "15",
+          },
+          {
+            name: "George Vincent Lombardi, MD",
+            distance: "0.02",
+            stars: 4,
+            noReviews: "15",
+          },
+          {
+            name: "HealthSource Pharmacy",
+            distance: "0.02",
+            stars: 4,
+            noReviews: "15",
+          },
+        ],
+        nightlife: [
+          {
+            name: "The Greats Of Craft",
+            distance: "0.02",
+            stars: 4,
+            noReviews: "15",
+          },
+          {
+            name: "Parnell's Pub & Restaurant",
+            distance: "0.02",
+            stars: 4,
+            noReviews: "15",
+          },
+          {
+            name: "Yara",
+            distance: "0.02",
+            stars: 4,
+            noReviews: "15",
+          },
+        ],
+      },
+    },
+    termsRules: {
+      smoking: "No",
+      pets: "Yes",
+      party: "Yes",
+      children: "Yes",
+      additionalInfo:
+        "Vivamus finibus fringilla libero, id consectetur purus sollicitudin vel. Proin dapibus ante et pharetra luctus. Ut lacinia ante ut nunc pellentesque auctor.",
+    },
+    videoUrl: "https://www.youtube.com/embed/cuGfG0J1aIw?feature=oembed",
+    hostInfo: {
+      name: "Jerry Coleman",
+      type: "Super Host",
+      country: "United States",
+      languages: ["English", "French", "German"],
+      verified: true,
+      stars: 4,
+      hostImage:
+        "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
+    },
+    reviews: [
+      {
+        userImage:
+          "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
+        userName: "Adil Cooper",
+        stars: 3,
+        date: "Oct 13 2016",
+        time: "12:18 PM",
+        text:
+          "Sed pellentesque posuere tincidunt. In consectetur justo eu dolor blandit condimentum. Quisque congue nisi in mi aliquam, ac lacinia nulla posuere. Nam vitae neque nisl. Nulla finibus eros in dolor accumsan, nec hendrerit velit fermentum. Proin quis eros ac elit sodales ullamcorper sed ac nisl. Morbi dolor massa, lacinia ut arcu eu, feugiat posuere diam. Nunc tristique convallis dolor. Nullam quis ipsum vel nulla rutrum euismod. Nulla consequat ut odio non imperdiet. Suspendisse consectetur erat vitae pulvinar consequat.",
+      },
+      {
+        userImage:
+          "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
+        userName: "Diana Cooper",
+        stars: 3,
+        date: "Oct 13 2016",
+        time: "12:18 PM",
+        text:
+          "Sed pellentesque posuere tincidunt. In consectetur justo eu dolor blandit condimentum. Quisque congue nisi in mi aliquam, ac lacinia nulla posuere. Nam vitae neque nisl. Nulla finibus eros in dolor accumsan, nec hendrerit velit fermentum. Proin quis eros ac elit sodales ullamcorper sed ac nisl. Morbi dolor massa, lacinia ut arcu eu, feugiat posuere diam. Nunc tristique convallis dolor. Nullam quis ipsum vel nulla rutrum euismod. Nulla consequat ut odio non imperdiet. Suspendisse consectetur erat vitae pulvinar consequat.",
+      },
+    ],
+
+    similarListings: [
+      {
+        featured: false,
+        imageUrl: "https://wallpaperaccess.com/full/1142283.jpg",
+        price: "65",
+        adminImageUrl:
+          "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
+        name: "Affordable Urban Room",
+        address: "386 Pete pascale Pl, NY",
+        noRooms: 1,
+        noBaths: 1,
+        noGuests: 2,
+        type: "Appartment",
+        stars: 4,
+        hostName: "Adnan Javed",
+      },
+      {
+        featured: true,
+        imageUrl: "https://wallpaperaccess.com/full/1142283.jpg",
+        price: "65",
+        adminImageUrl:
+          "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
+        name: "Beach House",
+        address: "386 Pete pascale Pl, NY",
+        noRooms: 3,
+        noBaths: 2,
+        noGuests: 4,
+        type: "House",
+        stars: 4,
+        hostName: "Adnan Rasheed",
+      },
+    ],
+    priceBreakfast: "25",
+    priceLunch: "35",
+    priceDinner: "40",
   };
+
   function getGalleryImages() {
     const items = [];
     for (var i = 0; i < AppartmentDetails.appartmentGallery.length; i++) {
@@ -70,8 +278,8 @@ export default function Details() {
     }
     return items;
   }
-  function checkFeatured() {
-    if (AppartmentDetails.featured == true) {
+  function checkFeatured(featured) {
+    if (featured == true) {
       return (
         <span
           class="label label-success label-featured"
@@ -85,21 +293,21 @@ export default function Details() {
     }
   }
 
-  function forStar() {
+  function forStar(stars) {
     const items = [];
-    for (var i = 0; i < AppartmentDetails.stars; i++) {
+    for (var i = 0; i < stars; i++) {
       items.push(<li className="fa fa-star"></li>);
     }
-    for (var i = 0; i < 5 - AppartmentDetails.stars; i++) {
+    for (var i = 0; i < 5 - stars; i++) {
       items.push(<li className="fa fa-star-o"></li>);
     }
     return items;
   }
 
-  function qualityCheck() {
-    switch (AppartmentDetails.stars) {
+  function qualityCheck(stars) {
+    switch (stars) {
       case 0:
-        return "Very Poor";
+        return "Unrated";
       case 1:
         return "Poor";
       case 2:
@@ -111,6 +319,58 @@ export default function Details() {
       case 5:
         return "Excellet";
     }
+  }
+  function tickCross(check) {
+    switch (check) {
+      case "Yes": {
+        return <i class="fa fa-check" aria-hidden="true"></i>;
+      }
+      case "No": {
+        return <i class="fa fa-times" aria-hidden="true"></i>;
+      }
+    }
+  }
+  const [instantBookingState, setInstantBookingState] = useState({
+    arrival: "",
+    depart: "",
+    budget: "",
+    breakfast: false,
+    lunch: false,
+    dinner: false,
+    text: "",
+  });
+  const InputEvent = (event) => {
+    const { name, value } = event.target;
+    setInstantBookingState((preVal) => {
+      return {
+        ...preVal,
+        [name]: value,
+      };
+    });
+  };
+  const ToggleEvent = (event) => {
+    const name = event.target.name;
+    const value = event.target.checked;
+    setInstantBookingState((preVal) => {
+      return {
+        ...preVal,
+        [name]: value,
+      };
+    });
+  };
+  function instantBoking(event) {
+    console.log("SAVEDD");
+    const obj = {
+      arrival: instantBookingState.arrival,
+      depart: instantBookingState.depart,
+      budget: instantBookingState.arrival,
+      breakfast: instantBookingState.breakfast,
+      lunch: instantBookingState.lunch,
+      dinner: instantBookingState.dinner,
+      text: instantBookingState.text,
+    };
+    //use redux here
+    sessionStorage.setItem("instantBoking", JSON.stringify(obj));
   }
   return (
     <div>
@@ -154,7 +414,7 @@ export default function Details() {
                           </ol>
                           <h1 class="listing-title">
                             {AppartmentDetails.name}
-                            {checkFeatured()}
+                            {checkFeatured(AppartmentDetails.featured)}
                           </h1>
                           <address>
                             <i class="fa fa-map-marker" aria-hidden="true"></i>{" "}
@@ -172,9 +432,9 @@ export default function Details() {
                             />
                           </div>
                           <div class="list-inline rating hidden-xs">
-                            {forStar()}
+                            {forStar(AppartmentDetails.stars)}
                             <span class="star-text-right">
-                              {qualityCheck()}
+                              {qualityCheck(AppartmentDetails.stars)}
                             </span>
                           </div>
                         </div>
@@ -331,7 +591,9 @@ export default function Details() {
                                     aria-hidden="true"
                                   ></i>
                                   Nightly:
-                                  <strong>$525</strong>
+                                  <strong>
+                                    ${AppartmentDetails.prices.nightly}
+                                  </strong>
                                 </li>
                                 <li>
                                   <i
@@ -339,7 +601,9 @@ export default function Details() {
                                     aria-hidden="true"
                                   ></i>
                                   Weekends (Sat &amp; Sun):
-                                  <strong>$535</strong>
+                                  <strong>
+                                    ${AppartmentDetails.prices.weekends}
+                                  </strong>
                                 </li>
                                 <li>
                                   <i
@@ -347,7 +611,9 @@ export default function Details() {
                                     aria-hidden="true"
                                   ></i>
                                   Weekly (7d+):
-                                  <strong>$515</strong>
+                                  <strong>
+                                    ${AppartmentDetails.prices.weekly}
+                                  </strong>
                                 </li>
                                 <li>
                                   <i
@@ -355,7 +621,9 @@ export default function Details() {
                                     aria-hidden="true"
                                   ></i>
                                   Monthly (30d+):
-                                  <strong>$505</strong>
+                                  <strong>
+                                    ${AppartmentDetails.prices.monthly}
+                                  </strong>
                                 </li>
                                 <li>
                                   <i
@@ -363,7 +631,9 @@ export default function Details() {
                                     aria-hidden="true"
                                   ></i>
                                   Security deposit:
-                                  <strong>$1,050</strong>
+                                  <strong>
+                                    ${AppartmentDetails.prices.secuerityDeposit}
+                                  </strong>
                                 </li>
                                 <li>
                                   <i
@@ -371,7 +641,9 @@ export default function Details() {
                                     aria-hidden="true"
                                   ></i>
                                   Additional guests:
-                                  <strong>$525</strong>
+                                  <strong>
+                                    ${AppartmentDetails.prices.additionalGuests}
+                                  </strong>
                                 </li>
                                 <li>
                                   <i
@@ -379,7 +651,12 @@ export default function Details() {
                                     aria-hidden="true"
                                   ></i>
                                   Allow additional guests:
-                                  <strong>Yes</strong>
+                                  <strong>
+                                    {
+                                      AppartmentDetails.prices
+                                        .allowAdditionalGuests
+                                    }
+                                  </strong>
                                 </li>
                                 <li>
                                   <i
@@ -387,7 +664,10 @@ export default function Details() {
                                     aria-hidden="true"
                                   ></i>
                                   Cleaning fee:
-                                  <strong>$1,050</strong> Per Stay
+                                  <strong>
+                                    ${AppartmentDetails.prices.cleaningFee}
+                                  </strong>{" "}
+                                  Per Stay
                                 </li>
                                 <li>
                                   <i
@@ -395,7 +675,10 @@ export default function Details() {
                                     aria-hidden="true"
                                   ></i>
                                   City fee:
-                                  <strong>$25</strong> Per Stay
+                                  <strong>
+                                    ${AppartmentDetails.prices.cityFee}
+                                  </strong>{" "}
+                                  Per Stay
                                 </li>
                                 <li>
                                   <i
@@ -403,7 +686,9 @@ export default function Details() {
                                     aria-hidden="true"
                                   ></i>
                                   Minimum number of days:
-                                  <strong>1</strong>
+                                  <strong>
+                                    {AppartmentDetails.prices.minDays}
+                                  </strong>
                                 </li>
                                 <li>
                                   <i
@@ -411,7 +696,9 @@ export default function Details() {
                                     aria-hidden="true"
                                   ></i>
                                   Maximum number of days:
-                                  <strong>60</strong>
+                                  <strong>
+                                    {AppartmentDetails.prices.maxDays}
+                                  </strong>
                                 </li>
                               </ul>
                             </div>
@@ -427,26 +714,23 @@ export default function Details() {
                               <h3 class="title">Accomodation</h3>
                             </div>
                             <div class="block-right">
-                              <div class="block-col block-col-33 block-accomodation">
-                                <div class="block-icon">
-                                  <i class="fa fa-bed"></i>
-                                </div>
-                                <dl>
-                                  <dt>Master Room</dt>
-                                  <dd>1 King Size</dd>
-                                  <dd>2 Guests</dd>
-                                </dl>
-                              </div>
-                              <div class="block-col block-col-33 block-accomodation">
-                                <div class="block-icon">
-                                  <i class="fa fa-bed"></i>
-                                </div>
-                                <dl>
-                                  <dt>Bedroom 1</dt>
-                                  <dd>1 Queen Size</dd>
-                                  <dd>2 Guests</dd>
-                                </dl>
-                              </div>
+                              {AppartmentDetails.accomodation.map(
+                                (val, inx) => {
+                                  return (
+                                    <div class="block-col block-col-33 block-accomodation">
+                                      <div class="block-icon">
+                                        <i class="fa fa-bed"></i>
+                                      </div>
+                                      <dl>
+                                        <dt>{val.roomName}</dt>
+                                        <dd>{val.kingSize} King Size</dd>
+                                        <dd>{val.queenSize} Queen Size</dd>
+                                        <dd>{val.noGuests} Guests</dd>
+                                      </dl>
+                                    </div>
+                                  );
+                                }
+                              )}
                             </div>
                           </div>
                         </div>
@@ -464,67 +748,37 @@ export default function Details() {
                                 <strong>Amenities</strong>
                               </p>
                               <ul class="detail-list detail-list-2-cols">
-                                <li>
-                                  <i
-                                    class="fa fa-angle-right"
-                                    aria-hidden="true"
-                                  ></i>
-                                  Gym
-                                </li>
-                                <li>
-                                  <i
-                                    class="fa fa-angle-right"
-                                    aria-hidden="true"
-                                  ></i>
-                                  Laundry
-                                </li>
-                                <li>
-                                  <i
-                                    class="fa fa-angle-right"
-                                    aria-hidden="true"
-                                  ></i>
-                                  TV Cable
-                                </li>
-                                <li>
-                                  <i
-                                    class="fa fa-angle-right"
-                                    aria-hidden="true"
-                                  ></i>
-                                  Wi-Fi
-                                </li>
+                                {AppartmentDetails.features.amenities.map(
+                                  (val, index) => {
+                                    return (
+                                      <li>
+                                        <i
+                                          class="fa fa-angle-right"
+                                          aria-hidden="true"
+                                        ></i>
+                                        {val}
+                                      </li>
+                                    );
+                                  }
+                                )}
                               </ul>
                               <p>
                                 <strong>Facilities</strong>
                               </p>
                               <ul class="detail-list detail-list-2-cols">
-                                <li>
-                                  <i
-                                    class="fa fa-angle-right"
-                                    aria-hidden="true"
-                                  ></i>
-                                  Farmacy
-                                </li>
-                                <li>
-                                  <i
-                                    class="fa fa-angle-right"
-                                    aria-hidden="true"
-                                  ></i>
-                                  Free Parking
-                                </li>
-                                <li>
-                                  <i
-                                    class="fa fa-angle-right"
-                                    aria-hidden="true"
-                                  ></i>
-                                  Reception
-                                </li>
-                                <li>
-                                  <i
-                                    class="fa fa-angle-right"
-                                    aria-hidden="true"
-                                  ></i>
-                                  Security
-                                </li>
+                                {AppartmentDetails.features.facilities.map(
+                                  (val, ind) => {
+                                    return (
+                                      <li>
+                                        <i
+                                          class="fa fa-angle-right"
+                                          aria-hidden="true"
+                                        ></i>
+                                        {val}
+                                      </li>
+                                    );
+                                  }
+                                )}
                               </ul>
                             </div>
                           </div>
@@ -559,382 +813,142 @@ export default function Details() {
                                     <i class="fa fa-picture-o"></i> Arts &amp;
                                     Entertainment
                                   </dt>
-                                  <dd>
-                                    <div class="what-nearby-left">
-                                      Sutton Place Frame Shop
-                                      <span class="time-review">
-                                        {" "}
-                                        (0.04 mi){" "}
-                                      </span>
-                                    </div>
-                                    <div class="what-nearby-right">
-                                      <div class="rating-wrap">
-                                        <div class="rating-container">
-                                          <div class="rating">
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="label label-success">
-                                              Excellent
-                                            </span>
+                                  {AppartmentDetails.map.nearby.artsEntertainment.map(
+                                    (val, ind) => {
+                                      return (
+                                        <dd>
+                                          <div class="what-nearby-left">
+                                            {val.name}
                                             <span class="time-review">
-                                              4 reviews
+                                              {" "}
+                                              ({val.distance} mi){" "}
                                             </span>
                                           </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </dd>
-                                  <dd>
-                                    <div class="what-nearby-left">
-                                      Time &amp; Again Galleries
-                                      <span class="time-review">
-                                        {" "}
-                                        (0.04 mi){" "}
-                                      </span>
-                                    </div>
-                                    <div class="what-nearby-right">
-                                      <div class="rating-wrap">
-                                        <div class="rating-container">
-                                          <div class="rating">
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star-half-o"></span>
-                                            <i
-                                              class="far fa-star"
-                                              aria-hidden
-                                            ></i>
-                                            <span class="label label-success">
-                                              Good
-                                            </span>
-                                            <span class="time-review">
-                                              3 reviews
-                                            </span>
+                                          <div class="what-nearby-right">
+                                            <div class="rating-wrap">
+                                              <div class="rating-container">
+                                                <div class="rating">
+                                                  {forStar(val.stars)}
+                                                  <span class="label label-success">
+                                                    {qualityCheck(val.stars)}
+                                                  </span>
+                                                  <span class="time-review">
+                                                    {val.noReviews} reviews
+                                                  </span>
+                                                </div>
+                                              </div>
+                                            </div>
                                           </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </dd>
-                                  <dd>
-                                    <div class="what-nearby-left">
-                                      A La Mode Shoppe
-                                      <span class="time-review">
-                                        {" "}
-                                        (0.05 mi){" "}
-                                      </span>
-                                    </div>
-                                    <div class="what-nearby-right">
-                                      <div class="rating-wrap">
-                                        <div class="rating-container">
-                                          <div class="rating">
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star-half-o"></span>
-                                            <span class="label label-success">
-                                              Excellent
-                                            </span>
-                                            <span class="time-review">
-                                              90 reviews
-                                            </span>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </dd>
+                                        </dd>
+                                      );
+                                    }
+                                  )}
                                 </dl>
                                 <dl>
                                   <dt>
                                     <i class="fa fa-shopping-basket"></i> Food
                                   </dt>
-                                  <dd>
-                                    <div class="what-nearby-left">
-                                      First Avenue Vintner
-                                      <span class="time-review">
-                                        {" "}
-                                        (0.01 mi){" "}
-                                      </span>
-                                    </div>
-                                    <div class="what-nearby-right">
-                                      <div class="rating-wrap">
-                                        <div class="rating-container">
-                                          <div class="rating">
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star-half-o"></span>
-                                            <i
-                                              class="far fa-star"
-                                              aria-hidden
-                                            ></i>
-                                            <span class="label label-success">
-                                              Good
-                                            </span>
+                                  {AppartmentDetails.map.nearby.food.map(
+                                    (val, ind) => {
+                                      return (
+                                        <dd>
+                                          <div class="what-nearby-left">
+                                            {val.name}
                                             <span class="time-review">
-                                              16 reviews
+                                              {" "}
+                                              ({val.distance} mi){" "}
                                             </span>
                                           </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </dd>
-                                  <dd>
-                                    <div class="what-nearby-left">
-                                      Simchick Meats
-                                      <span class="time-review">
-                                        {" "}
-                                        (0.01 mi){" "}
-                                      </span>
-                                    </div>
-                                    <div class="what-nearby-right">
-                                      <div class="rating-wrap">
-                                        <div class="rating-container">
-                                          <div class="rating">
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <i
-                                              class="far fa-star"
-                                              aria-hidden
-                                            ></i>
-                                            <i
-                                              class="far fa-star"
-                                              aria-hidden
-                                            ></i>
-                                            <span class="label label-success">
-                                              Average
-                                            </span>
-                                            <span class="time-review">
-                                              35 reviews
-                                            </span>
+                                          <div class="what-nearby-right">
+                                            <div class="rating-wrap">
+                                              <div class="rating-container">
+                                                <div class="rating">
+                                                  {forStar(val.stars)}
+                                                  <span class="label label-success">
+                                                    {qualityCheck(val.stars)}
+                                                  </span>
+                                                  <span class="time-review">
+                                                    {val.noReviews} reviews
+                                                  </span>
+                                                </div>
+                                              </div>
+                                            </div>
                                           </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </dd>
-                                  <dd>
-                                    <div class="what-nearby-left">
-                                      Marinara Pizza
-                                      <span class="time-review">
-                                        {" "}
-                                        (0.02 mi){" "}
-                                      </span>
-                                    </div>
-                                    <div class="what-nearby-right">
-                                      <div class="rating-wrap">
-                                        <div class="rating-container">
-                                          <div class="rating">
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star-half-o"></span>
-                                            <i
-                                              class="far fa-star"
-                                              aria-hidden
-                                            ></i>
-                                            <span class="label label-success">
-                                              Good
-                                            </span>
-                                            <span class="time-review">
-                                              97 reviews
-                                            </span>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </dd>
+                                        </dd>
+                                      );
+                                    }
+                                  )}
                                 </dl>
                                 <dl>
                                   <dt>
                                     <i class="fa fa-medkit"></i> Health &amp;
                                     Medical
                                   </dt>
-                                  <dd>
-                                    <div class="what-nearby-left">
-                                      Stefan Kantrowitz M.D.
-                                      <span class="time-review">
-                                        {" "}
-                                        (0.02 mi){" "}
-                                      </span>
-                                    </div>
-                                    <div class="what-nearby-right">
-                                      <div class="rating-wrap">
-                                        <div class="rating-container">
-                                          <div class="rating">
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="label label-success">
-                                              Excellent
-                                            </span>
+                                  {AppartmentDetails.map.nearby.health.map(
+                                    (val, ind) => {
+                                      return (
+                                        <dd>
+                                          <div class="what-nearby-left">
+                                            {val.name}
                                             <span class="time-review">
-                                              1 reviews
+                                              {" "}
+                                              ({val.distance} mi){" "}
                                             </span>
                                           </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </dd>
-                                  <dd>
-                                    <div class="what-nearby-left">
-                                      George Vincent Lombardi, MD
-                                      <span class="time-review">
-                                        {" "}
-                                        (0.02 mi){" "}
-                                      </span>
-                                    </div>
-                                    <div class="what-nearby-right">
-                                      <div class="rating-wrap">
-                                        <div class="rating-container">
-                                          <div class="rating">
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star-half-o"></span>
-                                            <i
-                                              class="far fa-star"
-                                              aria-hidden
-                                            ></i>
-                                            <span class="label label-success">
-                                              Good
-                                            </span>
-                                            <span class="time-review">
-                                              2 reviews
-                                            </span>
+                                          <div class="what-nearby-right">
+                                            <div class="rating-wrap">
+                                              <div class="rating-container">
+                                                <div class="rating">
+                                                  {forStar(val.stars)}
+                                                  <span class="label label-success">
+                                                    {qualityCheck(val.stars)}
+                                                  </span>
+                                                  <span class="time-review">
+                                                    1 reviews
+                                                  </span>
+                                                </div>
+                                              </div>
+                                            </div>
                                           </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </dd>
-                                  <dd>
-                                    <div class="what-nearby-left">
-                                      HealthSource Pharmacy
-                                      <span class="time-review">
-                                        {" "}
-                                        (0.03 mi){" "}
-                                      </span>
-                                    </div>
-                                    <div class="what-nearby-right">
-                                      <div class="rating-wrap">
-                                        <div class="rating-container">
-                                          <div class="rating">
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <i
-                                              class="far fa-star"
-                                              aria-hidden
-                                            ></i>
-                                            <span class="label label-success">
-                                              Good
-                                            </span>
-                                            <span class="time-review">
-                                              8 reviews
-                                            </span>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </dd>
+                                        </dd>
+                                      );
+                                    }
+                                  )}
                                 </dl>
                                 <dl>
                                   <dt>
                                     <i class="fa fa-glass"></i> Nightlife
                                   </dt>
-                                  <dd>
-                                    <div class="what-nearby-left">
-                                      The Greats Of Craft
-                                      <span class="time-review">
-                                        {" "}
-                                        (0.02 mi){" "}
-                                      </span>
-                                    </div>
-                                    <div class="what-nearby-right">
-                                      <div class="rating-wrap">
-                                        <div class="rating-container">
-                                          <div class="rating">
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star-half-o"></span>
-                                            <span class="label label-success">
-                                              Excellent
-                                            </span>
+                                  {AppartmentDetails.map.nearby.nightlife.map(
+                                    (val, ind) => {
+                                      return (
+                                        <dd>
+                                          <div class="what-nearby-left">
+                                            {val.name}
                                             <span class="time-review">
-                                              46 reviews
+                                              {" "}
+                                              ({val.distance} mi){" "}
                                             </span>
                                           </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </dd>
-                                  <dd>
-                                    <div class="what-nearby-left">
-                                      Parnell&#039;s Pub &amp; Restaurant
-                                      <span class="time-review">
-                                        {" "}
-                                        (0.07 mi){" "}
-                                      </span>
-                                    </div>
-                                    <div class="what-nearby-right">
-                                      <div class="rating-wrap">
-                                        <div class="rating-container">
-                                          <div class="rating">
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star-half-o"></span>
-                                            <i
-                                              class="far fa-star"
-                                              aria-hidden
-                                            ></i>
-                                            <span class="label label-success">
-                                              Good
-                                            </span>
-                                            <span class="time-review">
-                                              92 reviews
-                                            </span>
+                                          <div class="what-nearby-right">
+                                            <div class="rating-wrap">
+                                              <div class="rating-container">
+                                                <div class="rating">
+                                                  {forStar(val.stars)}
+                                                  <span class="label label-success">
+                                                    {qualityCheck(val.stars)}
+                                                  </span>
+                                                  <span class="time-review">
+                                                    {val.noReviews} reviews
+                                                  </span>
+                                                </div>
+                                              </div>
+                                            </div>
                                           </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </dd>
-                                  <dd>
-                                    <div class="what-nearby-left">
-                                      Yara
-                                      <span class="time-review">
-                                        {" "}
-                                        (0.11 mi){" "}
-                                      </span>
-                                    </div>
-                                    <div class="what-nearby-right">
-                                      <div class="rating-wrap">
-                                        <div class="rating-container">
-                                          <div class="rating">
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star-half-o"></span>
-                                            <span class="label label-success">
-                                              Excellent
-                                            </span>
-                                            <span class="time-review">
-                                              115 reviews
-                                            </span>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </dd>
+                                        </dd>
+                                      );
+                                    }
+                                  )}
                                 </dl>
                               </div>
                               <div class="nearby-logo">
@@ -957,24 +971,38 @@ export default function Details() {
                             <div class="block-right">
                               <ul class="rules_list detail-list">
                                 <li>
-                                  <i class="fa fa-times" aria-hidden="true"></i>
+                                  {tickCross(
+                                    AppartmentDetails.termsRules.smoking
+                                  )}
                                   Smoking allowed:
-                                  <strong>No</strong>
+                                  <strong>
+                                    {AppartmentDetails.termsRules.smoking}
+                                  </strong>
                                 </li>
                                 <li>
-                                  <i class="fa fa-check" aria-hidden="true"></i>
+                                  {tickCross(AppartmentDetails.termsRules.pets)}
                                   Pets allowed:
-                                  <strong>Yes</strong>
+                                  <strong>
+                                    {AppartmentDetails.termsRules.pets}
+                                  </strong>
                                 </li>
                                 <li>
-                                  <i class="fa fa-check" aria-hidden="true"></i>
+                                  {tickCross(
+                                    AppartmentDetails.termsRules.party
+                                  )}
                                   Party allowed:
-                                  <strong>Yes</strong>
+                                  <strong>
+                                    {AppartmentDetails.termsRules.party}
+                                  </strong>
                                 </li>
                                 <li>
-                                  <i class="fa fa-check" aria-hidden="true"></i>
+                                  {tickCross(
+                                    AppartmentDetails.termsRules.children
+                                  )}
                                   Children allowed:
-                                  <strong>Yes</strong>
+                                  <strong>
+                                    {AppartmentDetails.termsRules.children}
+                                  </strong>
                                 </li>
                               </ul>
                               <ul class="detail-list">
@@ -982,10 +1010,7 @@ export default function Details() {
                                   <strong>Additional rules information</strong>
                                 </li>
                                 <li>
-                                  Vivamus finibus fringilla libero, id
-                                  consectetur purus sollicitudin vel. Proin
-                                  dapibus ante et pharetra luctus. Ut lacinia
-                                  ante ut nunc pellentesque auctor.
+                                  {AppartmentDetails.termsRules.additionalInfo}
                                 </li>
                               </ul>
                             </div>
@@ -1006,7 +1031,7 @@ export default function Details() {
                                   title="Things to Check Before Moving Into an Apartment : Real Estate Tips"
                                   width="1170"
                                   height="658"
-                                  src="https://www.youtube.com/embed/cuGfG0J1aIw?feature=oembed"
+                                  src={AppartmentDetails.videoUrl}
                                   frameborder="0"
                                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                   allowfullscreen
@@ -1025,17 +1050,19 @@ export default function Details() {
                               <img
                                 width="70"
                                 height="70"
-                                src={imgPerson}
+                                src={AppartmentDetails.hostInfo.hostImage}
                                 class="img-circle media-object"
                               />
                             </div>
                             <div class="media-body">
                               <h2 class="title">
-                                Hosted by <span>Jerry Coleman</span>
+                                Hosted by{" "}
+                                <span>{AppartmentDetails.hostInfo.name}</span>
                               </h2>
                               <ul class="list-inline profile-host-info">
                                 <li class="super-host-flag">
-                                  <i class="fa fa-bookmark"></i> Super Host
+                                  <i class="fa fa-bookmark"></i>{" "}
+                                  {AppartmentDetails.hostInfo.type}
                                 </li>
                                 <li>
                                   <address>
@@ -1043,7 +1070,7 @@ export default function Details() {
                                       class="fa fa-map-marker"
                                       aria-hidden="true"
                                     ></i>
-                                    United States
+                                    {AppartmentDetails.hostInfo.country}
                                   </address>
                                 </li>
                               </ul>
@@ -1055,15 +1082,36 @@ export default function Details() {
                             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                               <dl>
                                 <dt>Languages</dt>
-                                <dd>English, Spanish, German</dd>
+                                <dd>
+                                  {AppartmentDetails.hostInfo.languages.map(
+                                    (val, ind) => {
+                                      if (
+                                        ind ==
+                                        AppartmentDetails.hostInfo.languages
+                                          .length -
+                                          1
+                                      )
+                                        return val;
+                                      else return val + ", ";
+                                    }
+                                  )}
+                                </dd>
                               </dl>
                             </div>
                             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                               <dl>
                                 <dt>Profile Status</dt>
-                                <dd class="text-success">
-                                  <i class="fa fa-check-circle-o"></i> Verified
-                                </dd>
+                                {AppartmentDetails.hostInfo.verified ? (
+                                  <dd class="text-success">
+                                    <i class="fa fa-check-circle-o"></i>{" "}
+                                    Verified
+                                  </dd>
+                                ) : (
+                                  <dd class="text-failure">
+                                    <i class="fa fa-window-close"></i> Not
+                                    Verified
+                                  </dd>
+                                )}
                               </dl>
                             </div>
                             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
@@ -1071,16 +1119,13 @@ export default function Details() {
                                 <dt>Host rating</dt>
                                 <dd>
                                   <div class="rating">
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star-half-o"></span>
-                                    <i
-                                      class="fa fa-star-o"
-                                      aria-hidden="true"
-                                    ></i>
+                                    {forStar(AppartmentDetails.hostInfo.stars)}
 
-                                    <span class="star-text-right">Good</span>
+                                    <span class="star-text-right">
+                                      {qualityCheck(
+                                        AppartmentDetails.hostInfo.stars
+                                      )}
+                                    </span>
                                   </div>
                                 </dd>
                               </dl>
@@ -1108,7 +1153,7 @@ export default function Details() {
                     <div id="reviews-section" class="reviews-section">
                       <div class="sort-wrap clearfix">
                         <div class="pull-left">
-                          <h2>1 Review</h2>
+                          <h2>{AppartmentDetails.reviews.length} Review</h2>
                         </div>
                       </div>
                       <div class="alert alert-info" role="alert">
@@ -1140,66 +1185,46 @@ export default function Details() {
                         value=""
                       />
                       <ul id="guesco_reviews" class="list-unstyled">
-                        <li id="review-808" class="review-block">
-                          <div class="media">
-                            <div class="media-left">
-                              <a class="media-object">
-                                <img
-                                  width="70"
-                                  height="70"
-                                  src={imgPerson}
-                                  class="img-circle media-object"
-                                />
-                              </a>
-                            </div>
-                            <div class="media-body media-middle">
-                              <div class="msg-user-info">
-                                <div class="msg-user-left">
-                                  <div>
-                                    <strong>Diana Cooper</strong>
-                                    <span class="rating">
-                                      <span class="fa fa-star"></span>
-                                      <span class="fa fa-star"></span>
-                                      <span class="fa fa-star"></span>
-                                      <i
-                                        class="fa fa-star-o"
-                                        aria-hidden="true"
-                                      ></i>
-
-                                      <i
-                                        class="fa fa-star-o"
-                                        aria-hidden="true"
-                                      ></i>
-
-                                      <span class="label label-success">
-                                        Average
-                                      </span>
-                                    </span>
+                        {AppartmentDetails.reviews.map((review, index) => {
+                          return (
+                            <li id="review-808" class="review-block">
+                              <div class="media">
+                                <div class="media-left">
+                                  <a class="media-object">
+                                    <img
+                                      width="70"
+                                      height="70"
+                                      src={review.userImage}
+                                      class="img-circle media-object"
+                                    />
+                                  </a>
+                                </div>
+                                <div class="media-body media-middle">
+                                  <div class="msg-user-info">
+                                    <div class="msg-user-left">
+                                      <div>
+                                        <strong>{review.userName}</strong>
+                                        <span class="rating">
+                                          {forStar(review.stars)}
+                                          <span class="label label-success">
+                                            Average
+                                          </span>
+                                        </span>
+                                      </div>
+                                      <div class="message-date">
+                                        <i class="fa fa-calendar"></i>
+                                        {review.date}
+                                        <i class="fa fa-clock-o"></i>
+                                        {review.time}
+                                      </div>
+                                    </div>
                                   </div>
-                                  <div class="message-date">
-                                    <i class="fa fa-calendar"></i> October 22,
-                                    2018
-                                    <i class="fa fa-clock-o"></i> 5:18 pm
-                                  </div>
+                                  <p>{review.text}</p>
                                 </div>
                               </div>
-                              <p>
-                                Sed pellentesque posuere tincidunt. In
-                                consectetur justo eu dolor blandit condimentum.
-                                Quisque congue nisi in mi aliquam, ac lacinia
-                                nulla posuere. Nam vitae neque nisl. Nulla
-                                finibus eros in dolor accumsan, nec hendrerit
-                                velit fermentum. Proin quis eros ac elit sodales
-                                ullamcorper sed ac nisl. Morbi dolor massa,
-                                lacinia ut arcu eu, feugiat posuere diam. Nunc
-                                tristique convallis dolor. Nullam quis ipsum vel
-                                nulla rutrum euismod. Nulla consequat ut odio
-                                non imperdiet. Suspendisse consectetur erat
-                                vitae pulvinar consequat.
-                              </p>
-                            </div>
-                          </div>
-                        </li>
+                            </li>
+                          );
+                        })}
                       </ul>
                     </div>
                     <div
@@ -1209,137 +1234,24 @@ export default function Details() {
                       <h2 class="title">Similar listings</h2>
                       <div class="item-row item-list-view">
                         <div class="item-wrap infobox_trigger guesco-matchHeight">
-                          <div class="media property-item">
-                            <div class="media-left">
-                              <div class="item-media item-media-thumb">
-                                <span class="label-wrap top-left">
-                                  <span class="label label-success label-featured">
-                                    Featured
-                                  </span>
-                                </span>
-                                <a class="hover-effect" href="#">
-                                  <img
-                                    width="450"
-                                    height="300"
-                                    src={imgListing}
-                                    class="img-responsive wp-post-image"
-                                  />
-                                </a>
-                                <div class="item-media-price">
-                                  <span class="item-price">
-                                    <sup>$</sup>525<sub>/night</sub>
-                                  </span>
-                                </div>
-                                <div class="item-user-image">
-                                  <img
-                                    width="36"
-                                    height="36"
-                                    src={imgPerson}
-                                    class="img-responsive img-circle"
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                            <div class="media-body item-body clearfix">
-                              <div class="item-title-head table-block">
-                                <div class="title-head-left">
-                                  <h2 class="title">
-                                    <a href="#"> Modern Apartment With Pool</a>
-                                  </h2>
-                                  <address class="item-address">
-                                    984 1st Avenue, New York, NY 10022
-                                  </address>
-                                </div>
-                              </div>
-                              <ul class="item-amenities">
-                                <li>
-                                  <i class="fa fa-bed"></i>
-                                  <span class="total-beds">2</span>
-                                  <span class="item-label">Bedrooms</span>
-                                </li>
-                                <li>
-                                  <i class="fa fa-shower"></i>
-                                  <span class="total-baths">2</span>
-                                  <span class="item-label">Baths</span>
-                                </li>
-                                <li>
-                                  <i class="fa fa-user"></i>
-                                  <span class="total-guests">4</span>
-                                  <span class="item-label">Guests</span>
-                                </li>
-                                <li class="item-type">Apartment</li>
-                              </ul>
-                              <div class="item-user-image list-item-hidden">
-                                <img
-                                  width="36"
-                                  height="36"
-                                  src={imgPerson}
-                                  class="img-responsive img-circle"
-                                />
-                                <span class="item-user-info">
-                                  Hosted by
-                                  <br />
-                                  Jerry Coleman
-                                </span>
-                              </div>
-                              <div class="item-footer">
-                                <div class="footer-right">
-                                  <div class="item-tools">
-                                    <div class="btn-group dropup">
-                                      <button
-                                        class="btn-item-tools dropdown-toggle"
-                                        type="button"
-                                        data-toggle="dropdown"
-                                        aria-haspopup="true"
-                                        aria-expanded="false"
-                                      >
-                                        <i
-                                          class="fa fa-ellipsis-v"
-                                          aria-hidden="true"
-                                        ></i>
-                                      </button>
-                                      <ul class="dropdown-menu">
-                                        <li>
-                                          <a
-                                            class="guesco_compare compare-267"
-                                            href="#"
-                                            data-listing_id="267"
-                                          >
-                                            Compare
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a
-                                            href="#"
-                                            class="add_fav"
-                                            data-listid="267"
-                                          >
-                                            Add to Favorite
-                                          </a>
-                                        </li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="footer-left">
-                                  <div class="stars">
-                                    <ul class="list-inline rating">
-                                      <li class="fa fa-star"></li>
-                                      <li class="fa fa-star"></li>
-                                      <li class="fa fa-star"></li>
-                                      <li class="fa fa-star-o"></li>
-                                      <li class="fa fa-star-o"></li>
-                                      <li>
-                                        <span class="star-text-right">
-                                          Average
-                                        </span>
-                                      </li>
-                                    </ul>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                          {AppartmentDetails.similarListings.map((val, ind) => {
+                            return (
+                              <AppartmentCard
+                                featured={val.featured}
+                                imageUrl={val.imageUrl}
+                                price={val.price}
+                                adminImageUrl={val.adminImageUrl}
+                                name={val.name}
+                                address={val.address}
+                                noRooms={val.noRooms}
+                                noBaths={val.noBaths}
+                                noGuests={val.noGuests}
+                                type={val.type}
+                                stars={val.stars}
+                                hostName={val.hostName}
+                              />
+                            );
+                          })}
                         </div>
                       </div>
                     </div>
@@ -1355,45 +1267,55 @@ export default function Details() {
                         <div class="sidebar-booking-module-header">
                           <div class="block-body-sidebar">
                             <span class="item-price">
-                              <sup>$</sup>525<sub>/night</sub>
+                              <sup>$</sup>
+                              {AppartmentDetails.prices.nightly}
+                              <sub>/night</sub>
                             </span>
                           </div>
                         </div>
                         <div class="sidebar-booking-module-body">
-                          <div class="guesco_notification block-body-sidebar">
+                          <form class="guesco_notification block-body-sidebar">
                             <div
                               id="single-listing-date-range"
                               class="search-date-range"
                             >
                               <div class="search-date-range-arrive">
                                 <input
-                                  name="arrive"
-                                  value=""
-                                  readonly
-                                  type="text"
-                                  class="form-control check_in_date"
-                                  autocomplete="off"
+                                  required
+                                  type="name"
+                                  className="form-control"
+                                  id="exampleFormControlInput1"
+                                  name="arrival"
+                                  value={instantBookingState.arrival}
+                                  onChange={InputEvent}
                                   placeholder="Arrive"
                                 />
                               </div>
                               <div class="search-date-range-depart">
                                 <input
+                                  required
+                                  type="name"
+                                  className="form-control"
+                                  id="exampleFormControlInput1"
                                   name="depart"
-                                  value=""
-                                  readonly
+                                  value={instantBookingState.depart}
+                                  onChange={InputEvent}
                                   type="text"
                                   class="form-control check_out_date"
-                                  autocomplete="off"
                                   placeholder="Depart"
                                 />
                               </div>
                             </div>
                             <div class="search-guests search-budget-js">
                               <input
+                                required
+                                type="name"
+                                className="form-control"
+                                id="exampleFormControlInput1"
+                                name="budget"
+                                value={instantBookingState.budget}
+                                onChange={InputEvent}
                                 type="text"
-                                name=""
-                                autocomplete="off"
-                                value=""
                                 class="form-control"
                                 placeholder="Budget"
                               />
@@ -1405,63 +1327,75 @@ export default function Details() {
                                   <label class="homey_extra_price control control--checkbox">
                                     <input
                                       type="checkbox"
-                                      name="extra_price[]"
-                                      data-name="Breakfast"
+                                      name="breakfast"
+                                      data-name="breakfast"
                                       data-price="16"
                                       data-type="per_guest"
+                                      value={instantBookingState.breakfast}
+                                      onChange={ToggleEvent}
                                     />
                                     <span class="control-text">Breakfast</span>
                                     <span class="control__indicator"></span>
                                   </label>
-                                  <span>$16.00</span>
+                                  <span>
+                                    ${AppartmentDetails.priceBreakfast}
+                                  </span>
                                 </li>
                                 <li>
                                   <label class="homey_extra_price control control--checkbox">
                                     <input
                                       type="checkbox"
-                                      name="extra_price[]"
-                                      data-name="Lunch"
+                                      name="lunch"
+                                      data-name="lunch"
                                       data-price="24"
                                       data-type="per_guest"
+                                      value={instantBookingState.lunch}
+                                      onChange={ToggleEvent}
                                     />
                                     <span class="control-text">Lunch</span>
                                     <span class="control__indicator"></span>
                                   </label>
-                                  <span>$24.00</span>
+                                  <span>${AppartmentDetails.priceLunch}</span>
                                 </li>
                                 <li>
                                   <label class="homey_extra_price control control--checkbox">
                                     <input
                                       type="checkbox"
-                                      name="extra_price[]"
-                                      data-name="Dinner"
+                                      name="dinner"
+                                      data-name="dinner"
                                       data-price="24"
                                       data-type="per_guest"
+                                      value={instantBookingState.dinner}
+                                      onChange={ToggleEvent}
                                     />
                                     <span class="control-text">Dinner</span>
                                     <span class="control__indicator"></span>
                                   </label>
-                                  <span>$24.00</span>
+                                  <span>${AppartmentDetails.priceDinner}</span>
                                 </li>
                               </ul>
                             </div>
                             <div class="search-message">
                               <textarea
-                                name="message"
+                                name="text"
                                 class="form-control"
                                 rows="3"
                                 placeholder="Introduce yourself to the host"
+                                onChange={InputEvent}
+                                value={instantBookingState.text}
                               ></textarea>
                             </div>
                             <div style={{ height: "15px" }}></div>
+
                             <a
-                              href="checkout.html"
-                              type="button"
+                              href="checkout"
+                              onSubmit={instantBoking}
+                              type="submit button"
                               class="btn btn-full-width btn-primary"
                             >
                               Instant Booking
                             </a>
-                          </div>
+                          </form>
                         </div>
                       </div>
                     </div>
@@ -4668,196 +4602,7 @@ export default function Details() {
             </div>
           </div>
         </div>
-        <footer class="footer-wrap footer">
-          <div class="footer-top-wrap">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-                  <div
-                    id="guesco_about_widget-7"
-                    class="widget footer-widget widget-about"
-                  >
-                    <div class="widget-body">
-                      <p>Logo</p>
-                      <p>
-                        guesco is a powerful booking platform that lets you run
-                        a residential or commercial rental business online with
-                        no hassle
-                      </p>
-                      <p class="read">
-                        <a href="#">
-                          Read more <i class="fa fa-caret-right"></i>
-                        </a>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-                  <div
-                    id="guesco_taxonomies-7"
-                    class="widget footer-widget widget-categories"
-                  >
-                    <div class="widget-top">
-                      <h3 class="widget-title">Explore</h3>
-                    </div>
-                    <div class="widget-body">
-                      <ul class="list-unstyled">
-                        <li>
-                          <a href="../../type/apartment/index.html">
-                            Apartment
-                          </a>
-                        </li>
-                        <li>
-                          <a href="../../type/bed-breakfast/index.html">
-                            Bed &amp; Breakfast
-                          </a>
-                        </li>
-                        <li>
-                          <a href="../../type/condo/index.html">Condo</a>
-                        </li>
-                        <li>
-                          <a href="../../type/house/index.html">House</a>
-                        </li>
-                        <li>
-                          <a href="../../type/loft/index.html">Loft</a>
-                        </li>
-                        <li>
-                          <a href="../../type/studio/index.html">Studio</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-                  <div
-                    id="nav_menu-2"
-                    class="widget footer-widget widget_nav_menu"
-                  >
-                    <div class="widget-top">
-                      <h3 class="widget-title">Company</h3>
-                    </div>
-                    <div class="menu-footer-nav-container">
-                      <ul id="menu-footer-nav" class="menu">
-                        <li
-                          id="menu-item-1829"
-                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1829"
-                        >
-                          <a href="../../index.html">Home</a>
-                        </li>
-                        <li
-                          id="menu-item-1363"
-                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1363"
-                        >
-                          <a href="../../about-guesco/index.html">About</a>
-                        </li>
-                        <li
-                          id="menu-item-1364"
-                          class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-1364"
-                        >
-                          <a href="../../blog/index.html">Blog and Press</a>
-                        </li>
-                        <li
-                          id="menu-item-1830"
-                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1830"
-                        >
-                          <a href="../../half-map/index.html">Listings</a>
-                        </li>
-                        <li
-                          id="menu-item-1362"
-                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1362"
-                        >
-                          <a href="../../frequently-asked-questions/index.html">
-                            Help
-                          </a>
-                        </li>
-                        <li
-                          id="menu-item-1361"
-                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1361"
-                        >
-                          <a href="../../contact-us/index.html">Contact us</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-                  <div
-                    id="guesco_contact-7"
-                    class="widget footer-widget widget-contact"
-                  >
-                    <div class="widget-top">
-                      <h3 class="widget-title">Contact Us</h3>
-                    </div>
-                    <div class="widget-body">
-                      <div class="contact_text"></div>
-                      <ul class="list-unstyled">
-                        <li>
-                          <i class="fa fa-map-marker"></i> 142 Bay Rd, Miami
-                          Beach, FL 33139
-                        </li>
-                        <li>
-                          <i class="fa fa-phone-square"></i> 800 987 6543
-                        </li>
-                        <li>
-                          <i class="fa fa-fax"></i> 876 654 2362
-                        </li>
-                        <li>
-                          <i class="fa fa-envelope-o"></i>
-                          <a href="mailto:guesco@email.com">guesco@email.com</a>
-                        </li>
-                        <li>
-                          <i class="fa fa-arrow-circle-o-right"></i>
-                          <a href="#">Contact us</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="footer-bottom-wrap">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                  <div class="footer-copyright">
-                    guesco - All rights reserved
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                  <div class="social-footer">
-                    <div class="social-icons social-round">
-                      <a class="btn-bg-facebook" target="_blank" href="#">
-                        <i class="fa fa-facebook"></i>
-                      </a>
-                      <a class="btn-bg-twitter" target="_blank" href="#">
-                        <i class="fa fa-twitter"></i>
-                      </a>
-                      <a class="btn-bg-linkedin" target="_blank" href="#">
-                        <i class="fa fa-linkedin"></i>
-                      </a>
-                      <a class="btn-bg-google-plus" target="_blank" href="#">
-                        <i class="fa fa-google-plus"></i>
-                      </a>
-                      <a class="btn-bg-instagram" target="_blank" href="#">
-                        <i class="fa fa-instagram"></i>
-                      </a>
-                      <a class="btn-bg-pinterest" target="_blank" href="#">
-                        <i class="fa fa-pinterest"></i>
-                      </a>
-                      <a class="btn-bg-yelp" target="_blank" href="#">
-                        <i class="fa fa-yelp"></i>
-                      </a>
-                      <a class="btn-bg-youtube" target="_blank" href="#">
-                        <i class="fa fa-youtube"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <Footer />
 
         <script src="js/jquery.min.js"></script>
         <script src="js/popper.min.js"></script>

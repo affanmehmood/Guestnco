@@ -5,7 +5,6 @@ const FeaturedItemCard = (props) => {
   const imageUrl = props.imageUrl;
   const price = props.price;
   const name = props.name;
-  const address = props.address;
   const noRooms = props.noRooms;
   const noBaths = props.noBaths;
   const noGuests = props.noGuests;

@@ -4,7 +4,7 @@ import Home from "../components/Home/Home.component";
 import Services from "../components/servicesaquired.component";
 import Ordersumary from "../components/OrderSummary/order-summary.component";
 import Orderlisting from "../components/orderslisting.component";
-import Checkout from "../components/checkout.component";
+import Checkout from "../components/Checkout/checkout.component";
 import AccesslistingNew from "../components/access-listing.component";
 import Listingpage from "../components/AppartmentListing/listingpage.component";
 import Search from "../components/search.component";

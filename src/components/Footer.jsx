@@ -138,7 +138,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <i className="fa fa-envelope-o"></i>{" "}
-                      <Link to="mailto:${email}">{email}</Link>
+                      <Link to="mailto:$email">{email}</Link>
                     </li>
                     <li>
                       <i className="fa fa-arrow-circle-o-right"></i>{" "}
