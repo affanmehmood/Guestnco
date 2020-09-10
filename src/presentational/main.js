@@ -10,6 +10,11 @@ import Listingpage from "../components/AppartmentListing/listingpage.component";
 import Search from "../components/search.component";
 import Header from "./header";
 import Details2 from "../components/Details2.component";
+import AppaertmentListingOwner from "../components/Owner/ApartmentListingOwner/AppartmentListingOwner";
+import DashboardOwner from "../components/Owner/Dashboard/Dashboard";
+import ProfileViews from "../components/User/ProfileViews";
+import AppartmentEntryForm from "../components/Owner/AppartmentEntery/AppartmentEntryForm";
+
 const Main = () => (
   <BrowserRouter>
     <Header></Header>
@@ -23,6 +28,10 @@ const Main = () => (
       <Route path="/listing" component={Listingpage} />
       <Route path="/search" component={Search} />
       <Route path="/details-2" component={Details2} />
+      <Route path="/listing-owner" component={AppaertmentListingOwner} />
+      <Route path="/dashboard-owner" component={DashboardOwner} />
+      <Route path="/profileviews" component={ProfileViews} />
+      <Route path="/appartmententry" component={AppartmentEntryForm} />
     </Switch>
   </BrowserRouter>
 );

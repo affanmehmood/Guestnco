@@ -11,10 +11,6 @@ import Search from "./Search";
 const Home = () => {
   return (
     <div>
-      <link
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
-        rel="stylesheet"
-      />
       <div id="section-body">
         <Search />
         <section className="main-content-area">

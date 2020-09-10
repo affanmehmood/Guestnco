@@ -15,7 +15,7 @@ export default function Ordersumary() {
   const [totalAmount, setTotalAmount] = React.useState("45000");
   const datatable = orderSummaryTable();
   return (
-    <div>
+    <div style={{ paddingTop: "130px" }}>
       <div id="guesco-main-search" className="main-search " data-sticky="0">
         <div className="container-fluid">
           <form className="clearfix">

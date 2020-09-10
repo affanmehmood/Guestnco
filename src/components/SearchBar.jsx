@@ -8,7 +8,7 @@ const SearchBar = () => {
           <div id="search-desktop" className="search-wrap hidden-sm hidden-xs">
             <div className="search-destination">
               <input
-                type="text"
+                type="name"
                 name="location_search"
                 autocomplete="off"
                 value=""
@@ -18,7 +18,7 @@ const SearchBar = () => {
             </div>
             <div className="search-guests search-budget-js">
               <input
-                type="text"
+                type="name"
                 name=""
                 autocomplete="off"
                 value=""
@@ -29,7 +29,7 @@ const SearchBar = () => {
             <div className="search-date-range main-search-date-range-js">
               <div className="search-date-range-arrive">
                 <input
-                  type="text"
+                  type="name"
                   autocomplete="off"
                   name="arrive"
                   value=""
@@ -39,7 +39,7 @@ const SearchBar = () => {
               </div>
               <div className="search-date-range-depart">
                 <input
-                  type="text"
+                  type="name"
                   autocomplete="off"
                   name="depart"
                   value=""
@@ -59,7 +59,7 @@ const SearchBar = () => {
             <div className="search-destination">
               <input
                 value=""
-                type="text"
+                type="name"
                 className="form-control"
                 placeholder="Where to go?"
                 onfocus="blur();"

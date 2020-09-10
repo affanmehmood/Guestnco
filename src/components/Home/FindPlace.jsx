@@ -22,10 +22,7 @@ const FindPlace = () => {
           <div className="row">
             <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
               <div className="taxonomy-item taxonomy-card">
-                <Link
-                  className="taxonomy-link hover-effect"
-                  to="listingpage.html"
-                >
+                <Link className="taxonomy-link hover-effect" to="listing">
                   <div className="taxonomy-title">Apartment</div>
                   <img
                     className="img-responsive"
@@ -39,10 +36,7 @@ const FindPlace = () => {
             </div>
             <div className="col-lg-3 col-md-3 col-sm-3 col-xs-6">
               <div className="taxonomy-item taxonomy-card">
-                <Link
-                  className="taxonomy-link hover-effect"
-                  to="listingpage.html"
-                >
+                <Link className="taxonomy-link hover-effect" to="listing">
                   <div className="taxonomy-title">Bed &amp; Breakfast</div>
                   <img
                     className="img-responsive"
@@ -56,10 +50,7 @@ const FindPlace = () => {
             </div>
             <div className="col-lg-3 col-md-3 col-sm-3 col-xs-6">
               <div className="taxonomy-item taxonomy-card">
-                <Link
-                  className="taxonomy-link hover-effect"
-                  to="listingpage.html"
-                >
+                <Link className="taxonomy-link hover-effect" to="listing">
                   <div className="taxonomy-title">Condo</div>
                   <img
                     className="img-responsive"
@@ -73,10 +64,7 @@ const FindPlace = () => {
             </div>
             <div className="col-lg-3 col-md-3 col-sm-3 col-xs-6">
               <div className="taxonomy-item taxonomy-card">
-                <Link
-                  className="taxonomy-link hover-effect"
-                  to="listingpage.html"
-                >
+                <Link className="taxonomy-link hover-effect" to="listing">
                   <div className="taxonomy-title">House</div>
                   <img
                     className="img-responsive"
@@ -90,10 +78,7 @@ const FindPlace = () => {
             </div>
             <div className="col-lg-3 col-md-3 col-sm-3 col-xs-6">
               <div className="taxonomy-item taxonomy-card">
-                <Link
-                  className="taxonomy-link hover-effect"
-                  to="listingpage.html"
-                >
+                <Link className="taxonomy-link hover-effect" to="listing">
                   <div className="taxonomy-title">Loft</div>
                   <img
                     className="img-responsive"
@@ -107,10 +92,7 @@ const FindPlace = () => {
             </div>
             <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
               <div className="taxonomy-item taxonomy-card">
-                <Link
-                  className="taxonomy-link hover-effect"
-                  to="listingpage.html"
-                >
+                <Link className="taxonomy-link hover-effect" to="listing">
                   <div className="taxonomy-title">Studio</div>
                   <img
                     className="img-responsive"

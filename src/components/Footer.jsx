@@ -1,5 +1,6 @@
 import React from "react";
 
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -12,7 +13,7 @@ const Footer = () => {
   return (
     <footer className="footer-wrap footer whitebg">
       <div className="footer-top-wrap">
-        <div className="container">
+        <div style={{ background: "white" }} className="container">
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-3 col-lg-3">
               <div
@@ -62,7 +63,10 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+            <div
+              style={{ background: "white" }}
+              className="col-xs-12 col-sm-12 col-md-3 col-lg-3"
+            >
               <div
                 id="nav_menu-2"
                 className="widget footer-widget widget_nav_menu"
@@ -116,7 +120,10 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+            <div
+              style={{ background: "white" }}
+              className="col-xs-12 col-sm-12 col-md-3 col-lg-3"
+            >
               <div
                 id="guestco_contact-7"
                 className="widget footer-widget widget-contact"
@@ -151,8 +158,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="footer-bottom-wrap">
-        <div className="container">
+      <div style={{ background: "white" }} className="container">
+        <div style={{ background: "white" }} className="footer-bottom-wrap">
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
               <div className="footer-copyright">

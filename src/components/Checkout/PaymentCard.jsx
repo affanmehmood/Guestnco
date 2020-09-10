@@ -17,9 +17,9 @@ const PartnerCard = () => {
           Select Your Payment Method
         </h5>
       </div>
-      <div class="container payment-container">
-        <div class="row mainRow">
-          <div class="paymentCont d-flex justify-content-center">
+      <div style={{ background: "white" }} class="container payment-container">
+        <div class="row">
+          <div class=" d-flex justify-content-center">
             <div class="paymentWrap">
               <div
                 class="btn-group paymentBtnGroup btn-group-justified"

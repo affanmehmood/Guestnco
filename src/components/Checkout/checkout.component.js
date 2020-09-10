@@ -53,16 +53,16 @@ const Checkout = () => {
   return (
     <div style={{ paddingTop: "130px" }}>
       <SearchBar />
-      <div id="section-body">
-        <section className="main-content-area whitebg">
-          <div className="container">
+      <div style={{ background: "white" }} id="section-body">
+        <section className="main-content-area">
+          <div style={{ background: "white" }} className="container">
             <div className="row">
               <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div className="page-title">
                   <div className="block-top-title">
-                    <ol className="breadcrumb">
+                    <ol style={{ background: "white" }} className="breadcrumb">
                       <li>
-                        <a href="../index.html">
+                        <a>
                           <span>Home</span>
                         </a>
                       </li>
@@ -74,7 +74,7 @@ const Checkout = () => {
               </div>
             </div>
           </div>
-          <div className="container">
+          <div style={{ background: "white" }} className="container">
             <div className="">
               <div className="checkout-wrapper">
                 <form className="row">
@@ -223,7 +223,10 @@ const Checkout = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-4 col-xs-12">
+                  <div
+                    style={{ background: "white" }}
+                    className="col-md-4 col-xs-12"
+                  >
                     <div className="checkout-right-wrapper">
                       <h3>Checkout Details</h3>
                       <div className="checkout-table">

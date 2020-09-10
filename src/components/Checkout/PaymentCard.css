@@ -3,8 +3,8 @@
 }
 
 .paymentWrap .paymentBtnGroup {
-  max-width: 350px;
-  margin: auto;
+  max-width: 400px;
+  margin: 0;
 }
 
 .paymentWrap .paymentBtnGroup .paymentMethod {
@@ -60,6 +60,6 @@
   border-color: #4cd264;
   outline: none !important;
 }
-.paymentCont {
-  width: 400px;
+.paymentBtnGroup .btn-group .btn-group-justified {
+  margin: 0px;
 }

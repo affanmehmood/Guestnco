@@ -1300,7 +1300,6 @@ export default function Details() {
                                   name="depart"
                                   value={instantBookingState.depart}
                                   onChange={InputEvent}
-                                  type="text"
                                   class="form-control check_out_date"
                                   placeholder="Depart"
                                 />
@@ -1315,7 +1314,6 @@ export default function Details() {
                                 name="budget"
                                 value={instantBookingState.budget}
                                 onChange={InputEvent}
-                                type="text"
                                 class="form-control"
                                 placeholder="Budget"
                               />
