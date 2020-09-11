@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
+import axios from "axios";
 
 import AppartmentCard from "../../AppartmentListing/AppartmentCard";
 import Footer from "../../Reusable/Footer";
@@ -259,7 +260,45 @@ export default function Details() {
     priceLunch: "35",
     priceDinner: "40",
   });
+  axios
+    .get(`http://18.223.32.178:3000/user/singleaptdetails/1`)
+    .then((res) => {
+      console.log(res.data.data);
+      const d = res.data.data;
+
+      setAppartmentDetails((AppartmentDetails) => {
+        AppartmentDetails.name = "Affan";
+        return AppartmentDetails;
+      });
+
+      /*
+        AppartmentDetails.address = d.address1 + " " + d.address2;
+        AppartmentDetails.name = d.apartment_name;
+        AppartmentDetails.type = d.apartment_type;
+        AppartmentDetails.noRooms = d.bedrooms;
+        AppartmentDetails.noBaths = d.bathrooms;
+        AppartmentDetails.description = d.description;
+        AppartmentDetails.featured = d.is_featured;
+        AppartmentDetails.prices.nightly = d.rent_fee;
+        AppartmentDetails.prices.cleaningFee = d.service_fee;
+        AppartmentDetails.features.amenities = [];
+        for (var i = 0; i < d.amenities.length; i++) {
+          AppartmentDetails.features.amenities.push(d.amenities[i].name);
+        }
+        const url = "http://18.223.32.178:3000/";
+        AppartmentDetails.gallery = [];
+        AppartmentDetails.appartmentGallery = [];
+        for (var i = 0; i < d.imagaes.length; i++) {
+          AppartmentDetails.gallery.push(url + d.imagaes[i]);
+
+          AppartmentDetails.appartmentGallery.push(url + d.imagaes[i]);
+        }*/
+    })
+    .then(() => {
+      console.log("APP NAME", AppartmentDetails.name);
+    });
   // Dummy data starts
+  /*
   AppartmentDetails.appartmentGallery = [
     image1,
     image2,
@@ -281,6 +320,7 @@ export default function Details() {
   AppartmentDetails.description =
     "studio marina Guests&Co  is proud to offe ryou, in Dubi Marina , this cosy studio of 360 sqft ,newly design it will offer you a coconing atmosphere in the middle of this very busy and touristic area. The building is close to the metro station , who will help you to have accees to all the major dubai attraction and with a simple walk you can will discovered the amazing marina walk wih all this restaurant and activities.  This apartement offer you a pleasant queen size bed , with a Tv 43 inch, the kitchen with all appliances. Be part of Giests&co Community and let yourself try our property. Guests&co Familly";
   AppartmentDetails.address = "UAE";
+*/
 
   function getGalleryImages() {
     const items = [];
@@ -357,7 +397,6 @@ export default function Details() {
       }
     }
   }
-
   return (
     <div>
       <link
