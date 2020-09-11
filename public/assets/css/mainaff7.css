@@ -4301,7 +4301,8 @@ button {
 }
 
 .services-module .service-block .read-more {
-    font-weight: 700;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 @media (max-width: 480px) {
@@ -14876,4 +14877,30 @@ div.wpcf7-response-output {
     .host-section {
         page-break-after: always;
     }
+}
+
+
+.partner-thumb img {
+    height: 130px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+
+.widget li a {
+    font-size: 15px;
+}
+
+.widget-about a {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+
+html .sliderimg {
+    height: 210px;
+}
+
+.scrolledbody.listing-nav .container {
+    padding: 0;
 }

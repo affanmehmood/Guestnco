@@ -19,7 +19,9 @@ body, address, li, dt, dd {
     letter-spacing: 0;
   }
 }
-
+.container {
+    background: transparent !important;
+}
 /* headings
 /* ----------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6 {
@@ -613,6 +615,7 @@ section.top-banner-wrap {
 
     .home .navi>.main-menu>li>a,.home  .header-mobile .btn-mobile-nav{
         color: #ffffff;
+        font-size: 13px;
     }
     .home .login-register a, .home .account-loggedin,.home .account-login .login-register .fa {
         color: #ffffff;
