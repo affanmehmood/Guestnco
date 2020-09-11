@@ -5,7 +5,7 @@ import FindPlace from "./FindPlace";
 import PaymentInfo from "./PaymentInfo";
 import HearFromHosts from "./HearFromHosts";
 import OurPartners from "./OurPartners";
-import Footer from "../Footer";
+import Footer from "../Reusable/Footer";
 import Search from "./Search";
 
 const Home = () => {

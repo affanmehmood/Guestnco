@@ -223,9 +223,6 @@
     max-width: 100%;
 }
 
-.max-full-height {
-    height-width: 100%;
-}
 
 /* positions
 /* ------------------------------------------------------------------------ */
@@ -1600,10 +1597,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-body.modal-open {
-    /*overflow: auto !important;*/
-    /*padding-right: 0px !important;*/
-}
 
 h1,
 h2,
@@ -4152,7 +4145,7 @@ button {
 
 .testimonial-thumb img {
     margin: 0 auto;
-    width: 48px;
+    width: 48px !important;
     border-radius: 50% !important;
 }
 
@@ -4302,6 +4295,7 @@ button {
 
 .services-module .service-block .read-more {
     font-weight: 700;
+    font-size: 14px;
 }
 
 @media (max-width: 480px) {
@@ -6835,6 +6829,8 @@ button {
 
 .listing-slider-variable-width img {
     height: 500px;
+    width: 100%;
+    object-fit: cover;
 }
 
 @media (max-width: 768px) {
@@ -7325,6 +7321,7 @@ button {
     padding-bottom: 0;
     margin-left: -10px;
     font-weight: 700;
+    font-size: 14px;
 }
 
 .widget li a:before {

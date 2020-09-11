@@ -15,9 +15,24 @@ import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 
 import AppartmentCard from "./AppartmentListing/AppartmentCard";
-import Footer from "./Footer";
+import Footer from "./Reusable/Footer";
+
+import image1 from "./gallery/image1.jpg";
+import image2 from "./gallery/2.jpg";
+import image3 from "./gallery/3.jpg";
+import image4 from "./gallery/4.jpg";
+import image5 from "./gallery/5.jpg";
+import image6 from "./gallery/6.jpg";
+import image7 from "./gallery/7.jpg";
+import image8 from "./gallery/8.jpg";
+import image9 from "./gallery/9.jpg";
+import image10 from "./gallery/10.jpg";
+import image11 from "./gallery/11.jpg";
+import image12 from "./gallery/12.jpg";
+import image13 from "./gallery/13.jpg";
 
 export default function Details() {
+  // The main object
   const AppartmentDetails = {
     name: "Modern Apartment With Pool",
     featured: true,
@@ -254,6 +269,28 @@ export default function Details() {
     priceLunch: "35",
     priceDinner: "40",
   };
+  // Dummy data starts
+  AppartmentDetails.appartmentGallery = [
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image6,
+    image7,
+    image8,
+    image9,
+    image10,
+    image11,
+    image12,
+    image13,
+  ];
+  AppartmentDetails.gallery = AppartmentDetails.appartmentGallery;
+  AppartmentDetails.name = "Studio marina";
+  AppartmentDetails.type = "GUESTCO HOLIDAY HOME";
+  AppartmentDetails.description =
+    "studio marina Guests&Co  is proud to offe ryou, in Dubi Marina , this cosy studio of 360 sqft ,newly design it will offer you a coconing atmosphere in the middle of this very busy and touristic area. The building is close to the metro station , who will help you to have accees to all the major dubai attraction and with a simple walk you can will discovered the amazing marina walk wih all this restaurant and activities.  This apartement offer you a pleasant queen size bed , with a Tv 43 inch, the kitchen with all appliances. Be part of Giests&co Community and let yourself try our property. Guests&co Familly";
+  AppartmentDetails.address = "UAE";
 
   function getGalleryImages() {
     const items = [];

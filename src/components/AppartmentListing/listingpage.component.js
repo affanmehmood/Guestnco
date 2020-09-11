@@ -6,7 +6,7 @@ import Featured from "./Featured";
 import Explore from "./Explore";
 import LatestReviews from "./LatestReviews";
 import LatestPosts from "./LatestPosts";
-import Footer from "../Footer";
+import Footer from "../Reusable/Footer";
 
 const Listingpage = () => {
   return (

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import Footer from "../Footer";
-import SearchBar from "../SearchBar";
+import Footer from "../Reusable/Footer";
+import SearchBar from "../Reusable/SearchBar";
 import PaymentCard from "./PaymentCard";
 
 const Checkout = () => {

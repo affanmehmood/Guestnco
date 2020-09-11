@@ -58,7 +58,7 @@ const AppartmentCard = (props) => {
         <div class="media-left">
           <div class="item-media item-media-thumb">
             {checkFeatured()}
-            <a class="hover-effect" href="detailpage.html">
+            <a class="hover-effect" href="detail-2">
               <img
                 width="450"
                 height="300"
@@ -89,7 +89,7 @@ const AppartmentCard = (props) => {
           <div class="item-title-head table-block">
             <div class="title-head-left">
               <h2 class="title">
-                <a href="detail-2">{name}</a>
+                <a href="details-2">{name}</a>
               </h2>
               <address class="item-address">{address}</address>
             </div>

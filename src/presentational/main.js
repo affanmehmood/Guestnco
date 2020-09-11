@@ -15,6 +15,7 @@ import DashboardOwner from "../components/Owner/Dashboard/Dashboard";
 import ProfileViews from "../components/User/ProfileViews";
 import AppartmentEntryForm from "../components/Owner/AppartmentEntery/AppartmentEntryForm";
 
+import "@fortawesome/fontawesome-free/css/all.min.css";
 const Main = () => (
   <BrowserRouter>
     <Header></Header>
