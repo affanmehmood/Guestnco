@@ -58,7 +58,7 @@ const AppartmentCard = (props) => {
         <div class="media-left">
           <div class="item-media item-media-thumb">
             {checkFeatured()}
-            <a class="hover-effect" href="detail-2">
+            <a class="hover-effect" href="details-2">
               <img
                 width="450"
                 height="300"

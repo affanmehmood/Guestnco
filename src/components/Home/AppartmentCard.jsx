@@ -92,7 +92,7 @@ const AppartmentCard = (props) => {
             <div className="item-title-head table-block">
               <div className="title-head-left">
                 <h2 className="title">
-                  <Link to="detail-2">{name}</Link>
+                  <Link to="details-2">{name}</Link>
                 </h2>
                 <address className="item-address">{address}</address>
               </div>

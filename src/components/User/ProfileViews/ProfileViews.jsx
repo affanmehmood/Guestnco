@@ -1,7 +1,7 @@
 import React from "react";
 
-import SearchBar from "../Reusable/SearchBar";
-import Footer from "../Reusable/Footer";
+import SearchBar from "../../Reusable/SearchBar";
+import Footer from "../../Reusable/Footer";
 
 import "./ProfileViews.css";
 const ProfileViews = () => {

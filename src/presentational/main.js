@@ -9,10 +9,10 @@ import AccesslistingNew from "../components/access-listing.component";
 import Listingpage from "../components/AppartmentListing/listingpage.component";
 import Search from "../components/search.component";
 import Header from "./header";
-import Details2 from "../components/Details2.component";
+import Details2 from "../components/User/AppartmentDetails/Details2.component";
 import AppaertmentListingOwner from "../components/Owner/ApartmentListingOwner/AppartmentListingOwner";
 import DashboardOwner from "../components/Owner/Dashboard/Dashboard";
-import ProfileViews from "../components/User/ProfileViews";
+import ProfileViews from "../components/User/ProfileViews/ProfileViews";
 import AppartmentEntryForm from "../components/Owner/AppartmentEntery/AppartmentEntryForm";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
