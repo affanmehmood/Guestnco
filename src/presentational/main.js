@@ -14,6 +14,7 @@ import AppaertmentListingOwner from "../components/Owner/ApartmentListingOwner/A
 import DashboardOwner from "../components/Owner/Dashboard/Dashboard";
 import ProfileViews from "../components/User/ProfileViews/ProfileViews";
 import AppartmentEntryForm from "../components/Owner/AppartmentEntery/AppartmentEntryForm";
+import GalleryUploader from "../components/Owner/AppartmentEntery/GalleryUploader";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
 const Main = () => (
@@ -33,6 +34,7 @@ const Main = () => (
       <Route path="/dashboard-owner" component={DashboardOwner} />
       <Route path="/profileviews" component={ProfileViews} />
       <Route path="/appartmententry" component={AppartmentEntryForm} />
+      <Route path="/galleryuploader" component={GalleryUploader} />
     </Switch>
   </BrowserRouter>
 );

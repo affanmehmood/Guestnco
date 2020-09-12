@@ -1,10 +1,19 @@
 import React, { Component } from "react";
+
+import axios from "axios";
+
+import { useHistory } from "react-router-dom";
 export default class MultipleImageUploadComponent extends Component {
+  appartment_id = 0;
   fileObj = [];
   fileArray = [];
   j = 0;
   constructor(props) {
     super(props);
+
+    this.appartment_id = sessionStorage.getItem("appartment_id");
+    console.log("APPARTMENT_ID", this.appartment_id);
+
     this.state = {
       file: [null],
     };
@@ -17,23 +26,41 @@ export default class MultipleImageUploadComponent extends Component {
     for (let i = 0; i < this.fileObj[this.j].length; i++) {
       this.fileArray.push(URL.createObjectURL(this.fileObj[this.j][i]));
     }
-    this.j++;
     this.setState({ file: this.fileArray });
+
+    let formData = new FormData(); //formdata object
+    formData.append("apartment_id", this.appartment_id); //append the values with key, value pair
+    formData.append("image", e.target.files[0]);
+    axios
+      .post("http://18.223.32.178:3000/admin/postimage", formData)
+      .then((response) => {
+        console.log("Response from upload", response);
+      });
+
+    console.log("FILE", this.fileObj[this.j]);
+
+    this.j++;
   }
 
   uploadFiles(e) {
     e.preventDefault();
     //console.log(this.state.file);
-    console.log("Upload Files", this.fileArray);
+    alert("Files uploaded!");
   }
 
   render() {
     return (
       <form>
-        <div className="form-group multi-preview">
-          {this.fileArray.map((url, i) => (
-            <img key={i} src={url} alt="..." />
-          ))}
+        <div id="gallery-section" class="gallery-section">
+          <div class="block">
+            <div class="featured-image-wrap featured-slide-gallery-wrap clearfix">
+              {this.fileArray.map((url, i) => (
+                <a href=".#" className="swipebox">
+                  <img key={i} src={url} alt="..." />
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
 
         <div className="form-group">
