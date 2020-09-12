@@ -25,6 +25,7 @@ import image13 from "../../gallery/13.jpg";
 export default function Details() {
   // The main object
   const [AppartmentDetails, setAppartmentDetails] = useState({
+    id: 0,
     name: "Modern Apartment With Pool",
     featured: true,
     address: "984 1st Avenue, New York, NY 10022",
@@ -260,68 +261,253 @@ export default function Details() {
     priceLunch: "35",
     priceDinner: "40",
   });
-  axios
-    .get(`http://18.223.32.178:3000/user/singleaptdetails/1`)
-    .then((res) => {
-      console.log(res.data.data);
-      const d = res.data.data;
 
-      setAppartmentDetails((AppartmentDetails) => {
-        AppartmentDetails.name = "Affan";
-        return AppartmentDetails;
-      });
-
-      /*
-        AppartmentDetails.address = d.address1 + " " + d.address2;
-        AppartmentDetails.name = d.apartment_name;
-        AppartmentDetails.type = d.apartment_type;
-        AppartmentDetails.noRooms = d.bedrooms;
-        AppartmentDetails.noBaths = d.bathrooms;
-        AppartmentDetails.description = d.description;
-        AppartmentDetails.featured = d.is_featured;
-        AppartmentDetails.prices.nightly = d.rent_fee;
-        AppartmentDetails.prices.cleaningFee = d.service_fee;
-        AppartmentDetails.features.amenities = [];
+  useEffect(() => {
+    axios
+      .get(`http://18.223.32.178:3000/user/singleaptdetails/1`)
+      .then((res) => {
+        console.log(res.data.data);
+        const d = res.data.data;
+        var amenities = [];
         for (var i = 0; i < d.amenities.length; i++) {
-          AppartmentDetails.features.amenities.push(d.amenities[i].name);
+          amenities.push(d.amenities[i].name);
         }
         const url = "http://18.223.32.178:3000/";
-        AppartmentDetails.gallery = [];
-        AppartmentDetails.appartmentGallery = [];
+        var gallery = [];
+        var appartmentGallery = [];
         for (var i = 0; i < d.imagaes.length; i++) {
-          AppartmentDetails.gallery.push(url + d.imagaes[i]);
+          gallery.push(url + d.imagaes[i]);
 
-          AppartmentDetails.appartmentGallery.push(url + d.imagaes[i]);
-        }*/
-    })
-    .then(() => {
-      console.log("APP NAME", AppartmentDetails.name);
-    });
-  // Dummy data starts
-  /*
-  AppartmentDetails.appartmentGallery = [
-    image1,
-    image2,
-    image3,
-    image4,
-    image5,
-    image6,
-    image7,
-    image8,
-    image9,
-    image10,
-    image11,
-    image12,
-    image13,
-  ];
-  AppartmentDetails.gallery = AppartmentDetails.appartmentGallery;
-  AppartmentDetails.name = "Studio marina";
-  AppartmentDetails.type = "GUESTCO HOLIDAY HOME";
-  AppartmentDetails.description =
-    "studio marina Guests&Co  is proud to offe ryou, in Dubi Marina , this cosy studio of 360 sqft ,newly design it will offer you a coconing atmosphere in the middle of this very busy and touristic area. The building is close to the metro station , who will help you to have accees to all the major dubai attraction and with a simple walk you can will discovered the amazing marina walk wih all this restaurant and activities.  This apartement offer you a pleasant queen size bed , with a Tv 43 inch, the kitchen with all appliances. Be part of Giests&co Community and let yourself try our property. Guests&co Familly";
-  AppartmentDetails.address = "UAE";
-*/
+          appartmentGallery.push(url + d.imagaes[i]);
+        }
+        setAppartmentDetails({
+          id: d.id,
+          name: d.apartment_name,
+          featured: d.is_featured,
+          address: d.adress1 + " " + d.address2,
+          stars: 4,
+          adminImage:
+            "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
+          appartmentImage: "https://wallpaperaccess.com/full/1142283.jpg",
+          appartmentGallery: appartmentGallery,
+          noRooms: d.bedrooms,
+          noBaths: d.bathrooms,
+          noGuests: 2,
+          type: d.apartment_type,
+          description: d.description,
+          size: "1500",
+          checkInTime: "10:00 AM",
+          gallery: gallery,
+          prices: {
+            nightly: d.rent_fee,
+            weekends: "580",
+            weekly: "525",
+            monthly: "1500",
+            secuerityDeposit: "1000",
+            allowAdditionalGuests: "Yes",
+            additionalGuests: "525",
+            cleaningFee: d.service_fee,
+            cityFee: "25",
+            minDays: "1",
+            maxDays: "60",
+          },
+          accomodation: [
+            {
+              roomName: "Master Room",
+              kingSize: 1,
+              queenSize: 0,
+              noGuests: 2,
+            },
+            {
+              roomName: "Bedroom 1",
+              kingSize: 0,
+              queenSize: 1,
+              noGuests: 2,
+            },
+            {
+              roomName: "Bedroom 1",
+              kingSize: 0,
+              queenSize: 1,
+              noGuests: 2,
+            },
+            {
+              roomName: "Bedroom 1",
+              kingSize: 0,
+              queenSize: 1,
+              noGuests: 2,
+            },
+          ],
+          features: {
+            amenities: amenities,
+            facilities: ["Farmacy", "Reception", "Free Parking", "Security"],
+          },
+          map: {
+            nearby: {
+              artsEntertainment: [
+                {
+                  name: "Sutton Place Frame Shop",
+                  distance: "0.04",
+                  stars: 4,
+                  noReviews: "4",
+                },
+                {
+                  name: "Time & Again Galleries",
+                  distance: "0.02",
+                  stars: 3,
+                  noReviews: "8",
+                },
+                {
+                  name: "A La Mode Shoppe",
+                  distance: "0.09",
+                  stars: 5,
+                  noReviews: "15",
+                },
+              ],
+              food: [
+                {
+                  name: "First Avenue Vintner",
+                  distance: "0.01",
+                  stars: 5,
+                  noReviews: "15",
+                },
+                {
+                  name: "Simchick Meats",
+                  distance: "0.09",
+                  stars: 2,
+                  noReviews: "3",
+                },
+                {
+                  name: "Marinara Pizza",
+                  distance: "0.02",
+                  stars: 4,
+                  noReviews: "15",
+                },
+              ],
+              health: [
+                {
+                  name: "Stefan Kantrowitz M.D. ",
+                  distance: "0.02",
+                  stars: 4,
+                  noReviews: "15",
+                },
+                {
+                  name: "George Vincent Lombardi, MD",
+                  distance: "0.02",
+                  stars: 4,
+                  noReviews: "15",
+                },
+                {
+                  name: "HealthSource Pharmacy",
+                  distance: "0.02",
+                  stars: 4,
+                  noReviews: "15",
+                },
+              ],
+              nightlife: [
+                {
+                  name: "The Greats Of Craft",
+                  distance: "0.02",
+                  stars: 4,
+                  noReviews: "15",
+                },
+                {
+                  name: "Parnell's Pub & Restaurant",
+                  distance: "0.02",
+                  stars: 4,
+                  noReviews: "15",
+                },
+                {
+                  name: "Yara",
+                  distance: "0.02",
+                  stars: 4,
+                  noReviews: "15",
+                },
+              ],
+            },
+          },
+          termsRules: {
+            smoking: "No",
+            pets: "Yes",
+            party: "Yes",
+            children: "Yes",
+            additionalInfo:
+              "Vivamus finibus fringilla libero, id consectetur purus sollicitudin vel. Proin dapibus ante et pharetra luctus. Ut lacinia ante ut nunc pellentesque auctor.",
+          },
+          videoUrl: "https://www.youtube.com/embed/cuGfG0J1aIw?feature=oembed",
+          hostInfo: {
+            name: "Jerry Coleman",
+            type: "Super Host",
+            country: "United States",
+            languages: ["English", "French", "German"],
+            verified: true,
+            stars: 4,
+            hostImage:
+              "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
+          },
+          reviews: [
+            {
+              userImage:
+                "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
+              userName: "Adil Cooper",
+              stars: 3,
+              date: "Oct 13 2016",
+              time: "12:18 PM",
+              text:
+                "Sed pellentesque posuere tincidunt. In consectetur justo eu dolor blandit condimentum. Quisque congue nisi in mi aliquam, ac lacinia nulla posuere. Nam vitae neque nisl. Nulla finibus eros in dolor accumsan, nec hendrerit velit fermentum. Proin quis eros ac elit sodales ullamcorper sed ac nisl. Morbi dolor massa, lacinia ut arcu eu, feugiat posuere diam. Nunc tristique convallis dolor. Nullam quis ipsum vel nulla rutrum euismod. Nulla consequat ut odio non imperdiet. Suspendisse consectetur erat vitae pulvinar consequat.",
+            },
+            {
+              userImage:
+                "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
+              userName: "Diana Cooper",
+              stars: 3,
+              date: "Oct 13 2016",
+              time: "12:18 PM",
+              text:
+                "Sed pellentesque posuere tincidunt. In consectetur justo eu dolor blandit condimentum. Quisque congue nisi in mi aliquam, ac lacinia nulla posuere. Nam vitae neque nisl. Nulla finibus eros in dolor accumsan, nec hendrerit velit fermentum. Proin quis eros ac elit sodales ullamcorper sed ac nisl. Morbi dolor massa, lacinia ut arcu eu, feugiat posuere diam. Nunc tristique convallis dolor. Nullam quis ipsum vel nulla rutrum euismod. Nulla consequat ut odio non imperdiet. Suspendisse consectetur erat vitae pulvinar consequat.",
+            },
+          ],
 
+          similarListings: [
+            {
+              featured: false,
+              imageUrl: "https://wallpaperaccess.com/full/1142283.jpg",
+              price: "65",
+              adminImageUrl:
+                "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
+              name: "Affordable Urban Room",
+              address: "386 Pete pascale Pl, NY",
+              noRooms: 1,
+              noBaths: 1,
+              noGuests: 2,
+              type: "Appartment",
+              stars: 4,
+              hostName: "Adnan Javed",
+            },
+            {
+              featured: true,
+              imageUrl: "https://wallpaperaccess.com/full/1142283.jpg",
+              price: "65",
+              adminImageUrl:
+                "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
+              name: "Beach House",
+              address: "386 Pete pascale Pl, NY",
+              noRooms: 3,
+              noBaths: 2,
+              noGuests: 4,
+              type: "House",
+              stars: 4,
+              hostName: "Adnan Rasheed",
+            },
+          ],
+          priceBreakfast: "25",
+          priceLunch: "35",
+          priceDinner: "40",
+        });
+      })
+      .then(() => {
+        console.log("APP NAME", AppartmentDetails.name);
+      });
+  }, [AppartmentDetails.name]);
   function getGalleryImages() {
     const items = [];
     for (var i = 0; i < AppartmentDetails.appartmentGallery.length; i++) {
@@ -411,7 +597,11 @@ export default function Details() {
         <div id="section-body">
           <section class="detail-property-page-header-area detail-property-page-header-area-v4">
             <div class="top-gallery-section top-gallery-variable-width-section">
-              <AliceCarousel autoPlay autoPlayInterval="3000">
+              <AliceCarousel
+                key={AppartmentDetails.name}
+                autoPlay
+                autoPlayInterval="3000"
+              >
                 {getGalleryImages()}
               </AliceCarousel>
             </div>

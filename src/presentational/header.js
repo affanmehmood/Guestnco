@@ -1,8 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../images/logo.png";
 import whitelogo from "../images/white-logo.png";
 import { Link } from "react-router-dom";
-const header = (props) => {
+import axios from "axios";
+
+const Header = (props) => {
+  const [state, setstate] = useState({
+    email: "",
+    password: "",
+  });
+  function Login(e) {
+    e.preventDefault();
+    axios
+      .post("http://18.223.32.178:3000/user/login", {
+        email: state.email,
+        password: state.password,
+      })
+      .then((response) => {
+        alert(response.data.message);
+        console.log("RESSS", response.data.message);
+      });
+  }
+  const InputEvent = (event) => {
+    const { name, value } = event.target;
+    setstate((preVal) => {
+      return {
+        ...preVal,
+        [name]: value,
+      };
+    });
+  };
   return (
     <div className="home">
       <header
@@ -235,19 +262,23 @@ const header = (props) => {
                   <p className="text-center">
                     <strong>Log in</strong>
                   </p>
-                  <form>
+                  <form onSubmit={Login}>
                     <div className="form-group">
                       <input
-                        type="text"
-                        name="username"
+                        value={state.email}
+                        type="name"
+                        name="email"
+                        onChange={InputEvent}
                         className="form-control email-input-1"
                         placeholder="Username or Email"
                       />
                     </div>
                     <div className="form-group">
                       <input
+                        value={state.password}
                         type="password"
                         name="password"
+                        onChange={InputEvent}
                         className="form-control password-input-2"
                         placeholder="Password"
                       />
@@ -297,4 +328,4 @@ const header = (props) => {
   );
 };
 
-export default header;
+export default Header;

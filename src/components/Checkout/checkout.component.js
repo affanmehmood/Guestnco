@@ -1,10 +1,35 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 import Footer from "../Reusable/Footer";
 import SearchBar from "../Reusable/SearchBar";
 import PaymentCard from "./PaymentCard";
 
 const Checkout = () => {
+  const [instantS, setInstantS] = useState(
+    JSON.parse(sessionStorage.getItem("instantBoking"))
+  );
+
+  var totalPrice = parseInt(instantS.apt_price);
+  const list = [];
+
+  for (var i = 0; i < instantS.instant.extra_services.length; i++) {
+    if (instantS.instant.extra_services[i] == 1) {
+      list.push({ name: "Breakfast", price: instantS.service_price });
+      totalPrice += parseInt(instantS.service_price);
+    }
+    if (instantS.instant.extra_services[i] == 1) {
+      list.push({ name: "Lunch", price: instantS.service_price });
+      totalPrice += parseInt(instantS.service_price);
+    }
+    if (instantS.instant.extra_services[i] == 1) {
+      list.push({ name: "Dinner", price: instantS.service_price });
+      totalPrice += parseInt(instantS.service_price);
+    }
+  }
+
+  const [services, setServices] = useState(list);
+
   const [state, setstate] = useState({
     firstname: "",
     lastname: "",
@@ -46,7 +71,29 @@ const Checkout = () => {
     else if (state.state == "") alert("Fill the state field!");
     else if (state.address == "") alert("Fill the address field!");
     else if (state.zipcode == "") alert("Fill the zipcode field!");
-    else alert("Order Submitted!");
+    else if (!state.agree) alert("I agree unchecked");
+    else {
+      const obj = {
+        first_name: state.firstname,
+        last_name: state.lastname,
+        city: state.city,
+        state: state.state,
+        zip_code: state.zipcode,
+        company_name: state.companyName,
+        address: state.address,
+        country: "Pakistan",
+        email: state.email,
+        phone: state.phone,
+        gender: "male",
+        dob: "1995-01-01",
+        booking_id: instantS.booking_id,
+      };
+      axios
+        .post("http://18.223.32.178:3000/user/register", obj)
+        .then((response) => {
+          alert(response.data.message);
+        });
+    }
     console.log("CHECKED OUT", state);
   };
 
@@ -239,23 +286,25 @@ const Checkout = () => {
                         >
                           <thead>
                             <tr>
-                              <th>Left Label</th>
-                              <th className="text-right">Right Label</th>
+                              <th>Service Name</th>
+                              <th className="text-right">Price</th>
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
-                              <td>Left</td>
-                              <td className="text-right">Right</td>
+                              <td>Appartment Price</td>
+                              <td className="text-right">
+                                ${instantS.apt_price}
+                              </td>
                             </tr>
-                            <tr>
-                              <td>Left</td>
-                              <td className="text-right">Right</td>
-                            </tr>
-                            <tr>
-                              <td>Left</td>
-                              <td className="text-right">Right</td>
-                            </tr>
+                            {services.map((ser, index) => {
+                              return (
+                                <tr>
+                                  <td>{ser.name}</td>
+                                  <td className="text-right">${ser.price}</td>
+                                </tr>
+                              );
+                            })}
                           </tbody>
                           <tfoot>
                             <tr>
@@ -263,7 +312,7 @@ const Checkout = () => {
                                 <strong>Total</strong>
                               </td>
                               <td className="text-right">
-                                <strong>123$</strong>
+                                <strong>${totalPrice}</strong>
                               </td>
                             </tr>
                           </tfoot>

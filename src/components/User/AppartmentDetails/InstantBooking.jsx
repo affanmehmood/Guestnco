@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 const InstantBooking = (props) => {
+  const history = useHistory();
   const AppartmentDetails = props.AppartmentDetails;
   const [instantBookingState, setInstantBookingState] = useState({
     arrival: "",
     depart: "",
-    budget: "",
+    guests: 0,
     breakfast: false,
     lunch: false,
     dinner: false,
@@ -30,19 +33,50 @@ const InstantBooking = (props) => {
       };
     });
   };
-  function instantBoking(event) {
+  function instantBoking() {
     console.log("SAVEDD");
-    const obj = {
-      arrival: instantBookingState.arrival,
-      depart: instantBookingState.depart,
-      budget: instantBookingState.arrival,
-      breakfast: instantBookingState.breakfast,
-      lunch: instantBookingState.lunch,
-      dinner: instantBookingState.dinner,
-      text: instantBookingState.text,
+    var extra_services = [];
+    if (instantBookingState.breakfast) {
+      extra_services.push(1);
+    }
+    if (instantBookingState.lunch) {
+      extra_services.push(2);
+    }
+    if (instantBookingState.dinner) {
+      extra_services.push(3);
+    }
+    if (extra_services.length == 0) {
+      extra_services = null;
+    }
+
+    const instant = {
+      extra_services: extra_services,
+      user_id: null,
+      apartment_id: 1,
+      checkin_date: instantBookingState.arrival,
+      checkout_date: instantBookingState.depart,
+      guests: instantBookingState.guests,
+      introduction: instantBookingState.text,
     };
-    //use redux here
-    sessionStorage.setItem("instantBoking", JSON.stringify(obj));
+    //console.log(obj);
+
+    axios
+      .post("http://18.223.32.178:3000/user/bookapartment", instant)
+      .then((response) => {
+        console.log("RESPONSE", response);
+        const checkout = {
+          instant: instant,
+          apt_id: AppartmentDetails.id,
+          apt_name: AppartmentDetails.name,
+          apt_price: AppartmentDetails.prices.nightly,
+          booking_id: response.data.data.booking_id,
+          service_price: AppartmentDetails.prices.cleaningFee,
+        };
+        console.log("CHECKOUT", checkout);
+        //use redux here
+        sessionStorage.setItem("instantBoking", JSON.stringify(checkout));
+        history.push("/checkout");
+      });
   }
   return (
     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 homey_sticky">
@@ -93,14 +127,14 @@ const InstantBooking = (props) => {
                 <div class="search-guests search-budget-js">
                   <input
                     required
-                    type="name"
+                    type="number"
                     className="form-control"
                     id="exampleFormControlInput1"
-                    name="budget"
-                    value={instantBookingState.budget}
+                    name="guests"
+                    value={instantBookingState.guests}
                     onChange={InputEvent}
                     class="form-control"
-                    placeholder="Budget"
+                    placeholder="Guests"
                   />
                 </div>
                 <div class="search-extra-services">
@@ -158,10 +192,10 @@ const InstantBooking = (props) => {
                 </div>
                 <div class="search-message">
                   <textarea
-                    name="text"
                     class="form-control"
                     rows="3"
                     placeholder="Introduce yourself to the host"
+                    name="text"
                     onChange={InputEvent}
                     value={instantBookingState.text}
                   ></textarea>
@@ -169,8 +203,7 @@ const InstantBooking = (props) => {
                 <div style={{ height: "15px" }}></div>
 
                 <a
-                  href="checkout"
-                  onSubmit={instantBoking}
+                  onClick={instantBoking}
                   type="submit button"
                   class="btn btn-full-width btn-primary"
                 >

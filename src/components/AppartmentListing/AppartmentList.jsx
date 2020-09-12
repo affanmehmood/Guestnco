@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import AppartmentCard from "./AppartmentCard";
+import axios from "axios";
 
 const AppartmentList = () => {
   // Appartments data
-  const appartmentList = [
+  const [appartmentList, setAppartmentList] = useState([
     {
       featured: true,
       imageUrl: "https://wallpaperaccess.com/full/1142283.jpg",
-      price: "65",
+      price: "650",
       adminImageUrl:
         "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
       name: "Affordable Urban Room",
@@ -95,7 +96,40 @@ const AppartmentList = () => {
       stars: 3,
       hostName: "Adnan Javed",
     },
-  ];
+  ]);
+  useEffect(() => {
+    axios
+      .get(`http://18.223.32.178:3000/user/getapartmentlist`)
+      .then((res) => {
+        console.log("DATA", res.data.data);
+        const d = res.data.data;
+
+        console.log("D", d.length);
+        var list = [];
+        for (var i = 0; i < d.length; i++) {
+          list.push({
+            featured: d[i].is_featured,
+            imageUrl: "http://18.223.32.178:3000/" + d[i].imagaes[0],
+            price: d[i].rent_fee,
+            adminImageUrl:
+              "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
+            name: d[i].apartment_name,
+            address: d[i].adress1 + " " + d[i].address2,
+            noRooms: d[i].bedrooms,
+            noBaths: d[i].bathrooms,
+            noGuests: 2,
+            type: d[i].apartment_type,
+            stars: d[i],
+            hostName: "Adnan Javed",
+          });
+        }
+
+        setAppartmentList(list);
+      })
+      .then(() => {
+        console.log("APP NAME", AppartmentList.length);
+      });
+  }, [AppartmentList.length]);
   return (
     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
       <link

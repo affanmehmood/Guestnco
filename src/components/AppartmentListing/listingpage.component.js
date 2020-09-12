@@ -1,7 +1,7 @@
 import React from "react";
 
 import AppartmentList from "./AppartmentList";
-import Header from "./Header";
+import Header from "../Reusable/SearchBar";
 import Featured from "./Featured";
 import Explore from "./Explore";
 import LatestReviews from "./LatestReviews";

@@ -11,15 +11,7 @@ import "../../../../node_modules/react-datetime/css/react-datetime.css";
 import "./AppartmentEntryForm.css";
 
 const AppartmentEntryForm = () => {
-  const [state, setState] = useState({
-    pictures: [],
-    imgSrc: "",
-    files: [],
-  });
-  function onDrop(picture) {
-    state.pictures.push(picture);
-    console.log(state.pictures);
-  }
+  const [state, setState] = useState({});
 
   return (
     <div style={{ paddingTop: "130px" }}>
