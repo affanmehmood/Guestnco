@@ -620,12 +620,12 @@ export default function Details() {
                         <div class="block-body">
                           <ol class="breadcrumb">
                             <li>
-                              <a href="../../index.html">
+                              <a href="/">
                                 <span>Home</span>
                               </a>
                             </li>
                             <li>
-                              <a href="../../type/apartment/index.html">
+                              <a href="/">
                                 <span>Apartment</span>
                               </a>
                             </li>
@@ -811,7 +811,7 @@ export default function Details() {
                                   ></i>
                                   Nightly:
                                   <strong>
-                                    ${AppartmentDetails.prices.nightly}
+                                    AED{AppartmentDetails.prices.nightly}
                                   </strong>
                                 </li>
                                 <li>
@@ -821,7 +821,7 @@ export default function Details() {
                                   ></i>
                                   Weekends (Sat &amp; Sun):
                                   <strong>
-                                    ${AppartmentDetails.prices.weekends}
+                                    AED{AppartmentDetails.prices.weekends}
                                   </strong>
                                 </li>
                                 <li>
@@ -831,7 +831,7 @@ export default function Details() {
                                   ></i>
                                   Weekly (7d+):
                                   <strong>
-                                    ${AppartmentDetails.prices.weekly}
+                                    AED{AppartmentDetails.prices.weekly}
                                   </strong>
                                 </li>
                                 <li>
@@ -841,7 +841,7 @@ export default function Details() {
                                   ></i>
                                   Monthly (30d+):
                                   <strong>
-                                    ${AppartmentDetails.prices.monthly}
+                                    AED{AppartmentDetails.prices.monthly}
                                   </strong>
                                 </li>
                                 <li>
@@ -851,7 +851,8 @@ export default function Details() {
                                   ></i>
                                   Security deposit:
                                   <strong>
-                                    ${AppartmentDetails.prices.secuerityDeposit}
+                                    AED
+                                    {AppartmentDetails.prices.secuerityDeposit}
                                   </strong>
                                 </li>
                                 <li>
@@ -861,7 +862,8 @@ export default function Details() {
                                   ></i>
                                   Additional guests:
                                   <strong>
-                                    ${AppartmentDetails.prices.additionalGuests}
+                                    AED
+                                    {AppartmentDetails.prices.additionalGuests}
                                   </strong>
                                 </li>
                                 <li>
@@ -884,7 +886,7 @@ export default function Details() {
                                   ></i>
                                   Cleaning fee:
                                   <strong>
-                                    ${AppartmentDetails.prices.cleaningFee}
+                                    AED{AppartmentDetails.prices.cleaningFee}
                                   </strong>{" "}
                                   Per Stay
                                 </li>
@@ -895,7 +897,7 @@ export default function Details() {
                                   ></i>
                                   City fee:
                                   <strong>
-                                    ${AppartmentDetails.prices.cityFee}
+                                    AED{AppartmentDetails.prices.cityFee}
                                   </strong>{" "}
                                   Per Stay
                                 </li>
@@ -1360,7 +1362,7 @@ export default function Details() {
                               Contact the host
                             </a>
                             <a
-                              href="../../host/guescohost08/index.html"
+                              href="/"
                               class="btn btn-grey-outlined btn-half-width"
                             >
                               View Profile

@@ -202,7 +202,7 @@ const AppartmentEntryForm = () => {
             </div>
             <div class="row">
               <div class="col-25">
-                <label for="rent_fee">Rent in $</label>
+                <label for="rent_fee">Rent in AED</label>
               </div>
               <div class="col-75">
                 <input
@@ -218,7 +218,7 @@ const AppartmentEntryForm = () => {
             </div>
             <div class="row">
               <div class="col-25">
-                <label for="service_fee">Service Fee $</label>
+                <label for="service_fee">Service Fee AED</label>
               </div>
               <div class="col-75">
                 <input
@@ -234,7 +234,7 @@ const AppartmentEntryForm = () => {
             </div>
             <div class="row">
               <div class="col-25">
-                <label for="cleaning_fee">Cleaning Fee $</label>
+                <label for="cleaning_fee">Cleaning Fee AED</label>
               </div>
               <div class="col-75">
                 <input

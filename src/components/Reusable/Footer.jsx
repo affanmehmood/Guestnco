@@ -80,7 +80,7 @@ const Footer = () => {
                       id="menu-item-1829"
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-493 current_page_item menu-item-1829"
                     >
-                      <Link to="index.html" aria-current="page">
+                      <Link to="/" aria-current="page">
                         Home
                       </Link>
                     </li>
@@ -88,33 +88,31 @@ const Footer = () => {
                       id="menu-item-1363"
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1363"
                     >
-                      <Link to="about-guestco/index.html">About</Link>
+                      <Link to="/">About</Link>
                     </li>
                     <li
                       id="menu-item-1364"
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1364"
                     >
-                      <Link to="blog/index.html">Blog and Press</Link>
+                      <Link to="/">Blog and Press</Link>
                     </li>
                     <li
                       id="menu-item-1830"
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1830"
                     >
-                      <Link to="half-map/index.html">Listings</Link>
+                      <Link to="/">Listings</Link>
                     </li>
                     <li
                       id="menu-item-1362"
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1362"
                     >
-                      <Link to="frequently-asked-questions/index.html">
-                        Help
-                      </Link>
+                      <Link to="/">Help</Link>
                     </li>
                     <li
                       id="menu-item-1361"
                       className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1361"
                     >
-                      <Link to="contact-us/index.html">Contact us</Link>
+                      <Link to="/">Contact us</Link>
                     </li>
                   </ul>
                 </div>

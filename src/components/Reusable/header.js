@@ -40,7 +40,7 @@ const Header = (props) => {
           <div className="header-inner table-block">
             <div className="header-comp-logo">
               <h1>
-                <Link className="guestco_logo" href="index.html">
+                <Link className="guestco_logo" href="/">
                   <img src={whitelogo} alt="" className="transparentlogo" />
                   <img src={logo} alt="" className="blacklogo" />
                 </Link>

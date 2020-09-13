@@ -336,7 +336,7 @@ export default function AccessListingNew() {
                     <div className="block-top-title">
                       <ol className="breadcrumb">
                         <li>
-                          <a href="../index.html">
+                          <a href="/">
                             <span>Home</span>
                           </a>
                         </li>

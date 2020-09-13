@@ -192,7 +192,7 @@ const AppartmentList = () => {
         </div>
 
         <div class=" loadmore text-center">
-          <a href="listingpage.html" class="btn btn-primary btn-long">
+          <a href="listing" class="btn btn-primary btn-long">
             Learn More{" "}
           </a>
         </div>

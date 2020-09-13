@@ -89,7 +89,7 @@ const InstantBooking = (props) => {
             <div class="sidebar-booking-module-header">
               <div class="block-body-sidebar">
                 <span class="item-price">
-                  <sup>$</sup>
+                  <sup>AED</sup>
                   {AppartmentDetails.prices.nightly}
                   <sub>/night</sub>
                 </span>
@@ -154,7 +154,7 @@ const InstantBooking = (props) => {
                         <span class="control-text">Breakfast</span>
                         <span class="control__indicator"></span>
                       </label>
-                      <span>${AppartmentDetails.priceBreakfast}</span>
+                      <span>AED{AppartmentDetails.priceBreakfast}</span>
                     </li>
                     <li>
                       <label class="homey_extra_price control control--checkbox">
@@ -170,7 +170,7 @@ const InstantBooking = (props) => {
                         <span class="control-text">Lunch</span>
                         <span class="control__indicator"></span>
                       </label>
-                      <span>${AppartmentDetails.priceLunch}</span>
+                      <span>AED{AppartmentDetails.priceLunch}</span>
                     </li>
                     <li>
                       <label class="homey_extra_price control control--checkbox">
@@ -186,7 +186,7 @@ const InstantBooking = (props) => {
                         <span class="control-text">Dinner</span>
                         <span class="control__indicator"></span>
                       </label>
-                      <span>${AppartmentDetails.priceDinner}</span>
+                      <span>AED{AppartmentDetails.priceDinner}</span>
                     </li>
                   </ul>
                 </div>

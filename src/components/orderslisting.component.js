@@ -58,7 +58,7 @@ export default function Orderlisting() {
           </div>
         ),
         date: "2020/04/25",
-        amount: "$30",
+        amount: "AED 30",
         type: "Grocery",
       },
       {
@@ -70,7 +70,7 @@ export default function Orderlisting() {
           </div>
         ),
         date: "2020/04/25",
-        amount: "$420",
+        amount: "AED 420",
         type: "Grocery",
       },
       {
@@ -82,7 +82,7 @@ export default function Orderlisting() {
           </div>
         ),
         date: "2018/04/25",
-        amount: "$820",
+        amount: "AED 820",
         type: "Grocery",
       },
     ],
@@ -104,7 +104,7 @@ export default function Orderlisting() {
                     <div className="block-top-title">
                       <ol className="breadcrumb">
                         <li>
-                          <a href="../index.html">
+                          <a href="/">
                             <span>Home</span>
                           </a>
                         </li>

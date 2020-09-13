@@ -29,7 +29,7 @@ const Listingpage = () => {
                     <div class="block-top-title">
                       <ol class="breadcrumb">
                         <li>
-                          <a href="../index.html">
+                          <a href="/">
                             <span>Home</span>
                           </a>
                         </li>

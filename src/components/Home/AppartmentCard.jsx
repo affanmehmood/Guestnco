@@ -71,7 +71,7 @@ const AppartmentCard = (props) => {
               </Link>
               <div className="item-media-price">
                 <span className="item-price">
-                  <sup>$</sup>
+                  <sup>AED</sup>
                   {price}
                   <sub>/night</sub>
                 </span>

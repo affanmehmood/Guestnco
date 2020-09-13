@@ -59,7 +59,7 @@ export default function Service() {
           </div>
         ),
         date: "2011/04/25",
-        amount: "$320",
+        amount: "AED 320",
       },
       {
         orderno: "Tiger Nixon 2",
@@ -71,7 +71,7 @@ export default function Service() {
           </div>
         ),
         date: "2011/04/25",
-        amount: "$320",
+        amount: "AED 320",
       },
       {
         orderno: "Tiger Nixon 3",
@@ -83,7 +83,7 @@ export default function Service() {
           </div>
         ),
         date: "2011/04/25",
-        amount: "$320",
+        amount: "AED 320",
       },
     ],
   });
@@ -133,7 +133,7 @@ export default function Service() {
           </div>
         ),
         date: "2011/04/25",
-        amount: "$320",
+        amount: "AED 320",
       },
       {
         requestno: "Tiger Nixon 2",
@@ -144,7 +144,7 @@ export default function Service() {
           </div>
         ),
         date: "2011/04/25",
-        amount: "$320",
+        amount: "AED 320",
       },
       {
         requestno: "Tiger Nixon 2",
@@ -155,7 +155,7 @@ export default function Service() {
           </div>
         ),
         date: "2011/04/25",
-        amount: "$320",
+        amount: "AED 320",
       },
     ],
   });
@@ -205,7 +205,7 @@ export default function Service() {
           </div>
         ),
         date: "2011/04/25",
-        amount: "$320",
+        amount: "AED 320",
       },
       {
         requestno: "Tiger Nixon 2",
@@ -216,7 +216,7 @@ export default function Service() {
           </div>
         ),
         date: "2011/04/25",
-        amount: "$320",
+        amount: "AED 320",
       },
       {
         requestno: "Tiger Nixon 2",
@@ -227,7 +227,7 @@ export default function Service() {
           </div>
         ),
         date: "2011/04/25",
-        amount: "$320",
+        amount: "AED 320",
       },
     ],
   });
@@ -248,7 +248,7 @@ export default function Service() {
                     <div className="block-top-title">
                       <ol className="breadcrumb">
                         <li>
-                          <a href="../index.html">
+                          <a href="/">
                             <span>Home</span>
                           </a>
                         </li>
@@ -441,7 +441,7 @@ export default function Service() {
                           id="menu-item-1829"
                           className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-493 current_page_item menu-item-1829"
                         >
-                          <a href="index.html" aria-current="page">
+                          <a href="/" aria-current="page">
                             Home
                           </a>
                         </li>
@@ -449,33 +449,31 @@ export default function Service() {
                           id="menu-item-1363"
                           className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1363"
                         >
-                          <a href="about-guestco/index.html">About</a>
+                          <a href="/">About</a>
                         </li>
                         <li
                           id="menu-item-1364"
                           className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1364"
                         >
-                          <a href="blog/index.html">Blog and Press</a>
+                          <a href="/">Blog and Press</a>
                         </li>
                         <li
                           id="menu-item-1830"
                           className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1830"
                         >
-                          <a href="half-map/index.html">Listings</a>
+                          <a href="/">Listings</a>
                         </li>
                         <li
                           id="menu-item-1362"
                           className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1362"
                         >
-                          <a href="frequently-asked-questions/index.html">
-                            Help
-                          </a>
+                          <a href="/">Help</a>
                         </li>
                         <li
                           id="menu-item-1361"
                           className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1361"
                         >
-                          <a href="contact-us/index.html">Contact us</a>
+                          <a href="/">Contact us</a>
                         </li>
                       </ul>
                     </div>

@@ -54,7 +54,7 @@ const FeaturedItemCard = (props) => {
               <h2 class="title">
                 <a href="#">{name}</a>
               </h2>
-              <span class="item-price">${price}/night</span>
+              <span class="item-price">AED{price}/night</span>
               <span class="list-inline rating stars">{forStar()}</span>
             </div>
           </div>

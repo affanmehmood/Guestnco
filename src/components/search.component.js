@@ -30,7 +30,7 @@ class Search extends Component {
                     <div className="block-top-title">
                       <ol className="breadcrumb">
                         <li>
-                          <Link href="../index.html">
+                          <Link href="/">
                             <span>Home</span>
                           </Link>
                         </li>
@@ -104,7 +104,7 @@ class Search extends Component {
                               </Link>
                               <div className="item-media-price">
                                 <span className="item-price">
-                                  <sup>$</sup>65<sub>/night</sub>
+                                  <sup>AED </sup>65<sub>/night</sub>
                                 </span>
                               </div>
                               <div className="item-user-image">
@@ -241,7 +241,7 @@ class Search extends Component {
                               </Link>
                               <div className="item-media-price">
                                 <span className="item-price">
-                                  <sup>$</sup>65<sub>/night</sub>
+                                  <sup>AED </sup>65<sub>/night</sub>
                                 </span>
                               </div>
                               <div className="item-user-image">
@@ -444,7 +444,9 @@ class Search extends Component {
                                   <h2 className="title">
                                     <Link to="#">Beautiful Cove</Link>
                                   </h2>
-                                  <span className="item-price">$175/night</span>
+                                  <span className="item-price">
+                                    AED 175/night
+                                  </span>
                                   <span className="list-inline rating stars">
                                     <span className="fa fa-star"></span>
                                     <span className="fa fa-star"></span>
@@ -499,7 +501,9 @@ class Search extends Component {
                                   <h2 className="title">
                                     <Link to="#">Beautiful Cove</Link>
                                   </h2>
-                                  <span className="item-price">$175/night</span>
+                                  <span className="item-price">
+                                    AED 175/night
+                                  </span>
                                   <span className="list-inline rating stars">
                                     <span className="fa fa-star"></span>
                                     <span className="fa fa-star"></span>
@@ -554,7 +558,9 @@ class Search extends Component {
                                   <h2 className="title">
                                     <Link to="#">Beautiful Cove</Link>
                                   </h2>
-                                  <span className="item-price">$175/night</span>
+                                  <span className="item-price">
+                                    AED 175/night
+                                  </span>
                                   <span className="list-inline rating stars">
                                     <span className="fa fa-star"></span>
                                     <span className="fa fa-star"></span>
@@ -609,7 +615,9 @@ class Search extends Component {
                                   <h2 className="title">
                                     <Link to="#">Beautiful Cove</Link>
                                   </h2>
-                                  <span className="item-price">$175/night</span>
+                                  <span className="item-price">
+                                    AED 175/night
+                                  </span>
                                   <span className="list-inline rating stars">
                                     <span className="fa fa-star"></span>
                                     <span className="fa fa-star"></span>

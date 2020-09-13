@@ -302,7 +302,7 @@ const Checkout = () => {
                             <tr>
                               <td>Appartment Price</td>
                               <td className="text-right">
-                                $
+                                AED
                                 {instantS == null
                                   ? " Not Known"
                                   : instantS.apt_price}
@@ -312,7 +312,9 @@ const Checkout = () => {
                               return (
                                 <tr>
                                   <td>{ser.name}</td>
-                                  <td className="text-right">${ser.price}</td>
+                                  <td className="text-right">
+                                    AED {ser.price}
+                                  </td>
                                 </tr>
                               );
                             })}
@@ -323,7 +325,7 @@ const Checkout = () => {
                                 <strong>Total</strong>
                               </td>
                               <td className="text-right">
-                                <strong>${totalPrice}</strong>
+                                <strong>AED{totalPrice}</strong>
                               </td>
                             </tr>
                           </tfoot>

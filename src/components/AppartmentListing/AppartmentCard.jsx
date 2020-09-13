@@ -69,7 +69,7 @@ const AppartmentCard = (props) => {
             </a>
             <div class="item-media-price">
               <span class="item-price">
-                <sup>$</sup>
+                <sup>AED</sup>
                 {price}
                 <sub>/night</sub>
               </span>
