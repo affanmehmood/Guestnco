@@ -7,6 +7,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import SearchBar from "../Reusable/SearchBar";
 import Footer from "../Reusable/Footer";
 import QuickLinks from "../Reusable/QuickLinks";
+import Header from "../Reusable/header";
 
 export default function Ordersumary() {
   const [orderNo, setOrderNo] = React.useState(12345);
@@ -20,7 +21,10 @@ export default function Ordersumary() {
   const [totalAmount, setTotalAmount] = React.useState("45000");
   const datatable = orderSummaryTable();
   return (
-    <div style={{ paddingTop: "130px" }}>
+    <div>
+      <div className="inner-page">
+        <Header />
+      </div>
       <SearchBar />
       <div id="section-body">
         <section className="main-content-area whitebg">

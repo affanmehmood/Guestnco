@@ -1,21 +1,25 @@
 import React from "react";
 
 import AppartmentList from "./AppartmentList";
-import Header from "../Reusable/SearchBar";
+import SearchBar from "../Reusable/SearchBar";
 import Featured from "./Featured";
 import Explore from "./Explore";
 import LatestReviews from "./LatestReviews";
 import LatestPosts from "./LatestPosts";
 import Footer from "../Reusable/Footer";
+import Header from "../Reusable/header";
 
 const Listingpage = () => {
   return (
-    <div style={{ paddingTop: "130px" }}>
+    <div>
+      <div className="inner-page">
+        <Header />
+      </div>
       <div>
         <title>Listing Result</title>
       </div>
       <div>
-        <Header />
+        <SearchBar />
         <div id="section-body">
           <section class="main-content-area">
             <div class="container">

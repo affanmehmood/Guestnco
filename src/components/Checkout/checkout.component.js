@@ -4,14 +4,17 @@ import axios from "axios";
 import Footer from "../Reusable/Footer";
 import SearchBar from "../Reusable/SearchBar";
 import PaymentCard from "./PaymentCard";
+import Header from "../Reusable/header";
 
 const Checkout = () => {
   const [instantS, setInstantS] = useState(
     JSON.parse(sessionStorage.getItem("instantBoking"))
   );
 
-  var totalPrice = parseInt(instantS.apt_price);
-  const list = [];
+  var totalPrice = 0;
+  var list = [];
+
+  totalPrice = parseInt(instantS.apt_price);
 
   for (var i = 0; i < instantS.instant.extra_services.length; i++) {
     if (instantS.instant.extra_services[i] == 1) {
@@ -98,7 +101,10 @@ const Checkout = () => {
   };
 
   return (
-    <div style={{ paddingTop: "130px" }}>
+    <div>
+      <div className="inner-page">
+        <Header />
+      </div>
       <SearchBar />
       <div style={{ background: "white" }} id="section-body">
         <section className="main-content-area">

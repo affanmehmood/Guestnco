@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import logo from "../images/logo.png";
-import whitelogo from "../images/white-logo.png";
+import logo from "../../images/logo.png";
+import whitelogo from "../../images/white-logo.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -31,7 +31,7 @@ const Header = (props) => {
     });
   };
   return (
-    <div className="home">
+    <div>
       <header
         id="guestco_nav_sticky"
         className="header-nav hidden-sm hidden-xs"

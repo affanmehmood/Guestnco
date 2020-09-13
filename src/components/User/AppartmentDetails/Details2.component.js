@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import axios from "axios";
+import Header from "../../Reusable/header";
 
+import "./Details2.css";
 import AppartmentCard from "../../AppartmentListing/AppartmentCard";
 import Footer from "../../Reusable/Footer";
 import InstantBooking from "./InstantBooking";
@@ -508,6 +510,7 @@ export default function Details() {
         console.log("APP NAME", AppartmentDetails.name);
       });
   }, [AppartmentDetails.name]);
+
   function getGalleryImages() {
     const items = [];
     for (var i = 0; i < AppartmentDetails.appartmentGallery.length; i++) {
@@ -518,6 +521,7 @@ export default function Details() {
         />
       );
     }
+
     return items;
   }
   function getGalleryImages2() {
@@ -585,6 +589,9 @@ export default function Details() {
   }
   return (
     <div>
+      <div className="inner-page">
+        <Header />
+      </div>
       <link
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
         rel="stylesheet"
@@ -593,19 +600,16 @@ export default function Details() {
         <title>Detail Page</title>
       </div>
 
-      <body style={{ paddingTop: "130px" }}>
+      <body>
         <div id="section-body">
-          <section class="detail-property-page-header-area detail-property-page-header-area-v4">
-            <div class="top-gallery-section top-gallery-variable-width-section">
-              <AliceCarousel
-                key={AppartmentDetails.name}
-                autoPlay
-                autoPlayInterval="3000"
-              >
-                {getGalleryImages()}
-              </AliceCarousel>
-            </div>
-          </section>
+          <AliceCarousel
+            key={AppartmentDetails.name}
+            autoPlay
+            autoPlayInterval="3000"
+          >
+            {getGalleryImages()}
+          </AliceCarousel>
+
           <section class="main-content-area whitebg">
             <div class="container">
               <div class="row">

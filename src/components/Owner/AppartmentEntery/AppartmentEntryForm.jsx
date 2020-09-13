@@ -4,7 +4,8 @@ import SearchBar from "../../Reusable/SearchBar";
 import Footer from "../../Reusable/Footer";
 import Datetime from "react-datetime";
 import { useHistory } from "react-router-dom";
-import MultipleImageUploadComponent from "./MultipleImageUpload";
+
+import Header from "../../Reusable/header";
 
 import axios from "axios";
 import "../../../../node_modules/react-datetime/css/react-datetime.css";
@@ -73,7 +74,10 @@ const AppartmentEntryForm = () => {
     console.log(state);
   }
   return (
-    <div style={{ paddingTop: "130px" }}>
+    <div>
+      <div className="inner-page">
+        <Header />
+      </div>
       <SearchBar />
       <div style={{ paddingTop: "30px", paddingBottom: "30px" }}>
         <div className="text-center">

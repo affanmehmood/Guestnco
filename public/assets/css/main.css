@@ -1776,3 +1776,7 @@ top: 130px;
     .payment-homepage{
         background-image: url(../images/payment-banner.jpg);
     }
+
+    .inner-page img.transparentlogo {
+    display: none;
+}

@@ -8,9 +8,13 @@ import OurPartners from "./OurPartners";
 import Footer from "../Reusable/Footer";
 import Search from "./Search";
 
+import Header from "../Reusable/header";
 const Home = () => {
   return (
     <div>
+      <div className="home">
+        <Header />
+      </div>
       <div id="section-body">
         <Search />
         <section className="main-content-area">

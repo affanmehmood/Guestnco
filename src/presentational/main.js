@@ -8,7 +8,6 @@ import Checkout from "../components/Checkout/checkout.component";
 import AccesslistingNew from "../components/access-listing.component";
 import Listingpage from "../components/AppartmentListing/listingpage.component";
 import Search from "../components/search.component";
-import Header from "./header";
 import Details2 from "../components/User/AppartmentDetails/Details2.component";
 import AppaertmentListingOwner from "../components/Owner/ApartmentListingOwner/AppartmentListingOwner";
 import DashboardOwner from "../components/Owner/Dashboard/Dashboard";
@@ -19,7 +18,6 @@ import GalleryUploader from "../components/Owner/AppartmentEntery/GalleryUploade
 import "@fortawesome/fontawesome-free/css/all.min.css";
 const Main = () => (
   <BrowserRouter>
-    <Header></Header>
     <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/services" component={Services} />

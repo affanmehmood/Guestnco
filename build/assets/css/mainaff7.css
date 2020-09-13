@@ -223,6 +223,9 @@
     max-width: 100%;
 }
 
+.max-full-height {
+    height-width: 100%;
+}
 
 /* positions
 /* ------------------------------------------------------------------------ */
@@ -1597,6 +1600,10 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+body.modal-open {
+    /*overflow: auto !important;*/
+    /*padding-right: 0px !important;*/
+}
 
 h1,
 h2,
@@ -4294,8 +4301,8 @@ button {
 }
 
 .services-module .service-block .read-more {
-    font-weight: 700;
     font-size: 14px;
+    font-weight: 500;
 }
 
 @media (max-width: 480px) {
@@ -7321,7 +7328,6 @@ button {
     padding-bottom: 0;
     margin-left: -10px;
     font-weight: 700;
-    font-size: 14px;
 }
 
 .widget li a:before {
@@ -14871,4 +14877,30 @@ div.wpcf7-response-output {
     .host-section {
         page-break-after: always;
     }
+}
+
+
+.partner-thumb img {
+    height: 130px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+
+.widget li a {
+    font-size: 15px;
+}
+
+.widget-about a {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+
+html .sliderimg {
+    height: 210px;
+}
+
+.scrolledbody.listing-nav .container {
+    padding: 0;
 }
