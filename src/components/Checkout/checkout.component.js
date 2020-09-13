@@ -14,20 +14,22 @@ const Checkout = () => {
   var totalPrice = 0;
   var list = [];
 
-  totalPrice = parseInt(instantS.apt_price);
+  if (instantS != null) {
+    totalPrice = parseInt(instantS.apt_price);
 
-  for (var i = 0; i < instantS.instant.extra_services.length; i++) {
-    if (instantS.instant.extra_services[i] == 1) {
-      list.push({ name: "Breakfast", price: instantS.service_price });
-      totalPrice += parseInt(instantS.service_price);
-    }
-    if (instantS.instant.extra_services[i] == 1) {
-      list.push({ name: "Lunch", price: instantS.service_price });
-      totalPrice += parseInt(instantS.service_price);
-    }
-    if (instantS.instant.extra_services[i] == 1) {
-      list.push({ name: "Dinner", price: instantS.service_price });
-      totalPrice += parseInt(instantS.service_price);
+    for (var i = 0; i < instantS.instant.extra_services.length; i++) {
+      if (instantS.instant.extra_services[i] == 1) {
+        list.push({ name: "Breakfast", price: instantS.service_price });
+        totalPrice += parseInt(instantS.service_price);
+      }
+      if (instantS.instant.extra_services[i] == 1) {
+        list.push({ name: "Lunch", price: instantS.service_price });
+        totalPrice += parseInt(instantS.service_price);
+      }
+      if (instantS.instant.extra_services[i] == 1) {
+        list.push({ name: "Dinner", price: instantS.service_price });
+        totalPrice += parseInt(instantS.service_price);
+      }
     }
   }
 
@@ -300,7 +302,10 @@ const Checkout = () => {
                             <tr>
                               <td>Appartment Price</td>
                               <td className="text-right">
-                                ${instantS.apt_price}
+                                $
+                                {instantS == null
+                                  ? " Not Known"
+                                  : instantS.apt_price}
                               </td>
                             </tr>
                             {services.map((ser, index) => {

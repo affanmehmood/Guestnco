@@ -72,7 +72,7 @@ const InstantBooking = (props) => {
           booking_id: response.data.data.booking_id,
           service_price: AppartmentDetails.prices.cleaningFee,
         };
-        console.log("CHECKOUT", checkout);
+        console.log("CHECKOUT response", checkout);
         //use redux here
         sessionStorage.setItem("instantBoking", JSON.stringify(checkout));
         history.push("/checkout");
