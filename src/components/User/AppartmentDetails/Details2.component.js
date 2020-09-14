@@ -30,7 +30,7 @@ export default function Details() {
     id: 0,
     name: "Modern Apartment With Pool",
     featured: true,
-    address: "984 1st Avenue, New York, NY 10022",
+    address: "Dubai",
     stars: 4,
     adminImage:
       "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
@@ -235,7 +235,7 @@ export default function Details() {
         adminImageUrl:
           "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
         name: "Affordable Urban Room",
-        address: "386 Pete pascale Pl, NY",
+        address: "Dubai",
         noRooms: 1,
         noBaths: 1,
         noGuests: 2,
@@ -250,7 +250,7 @@ export default function Details() {
         adminImageUrl:
           "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
         name: "Beach House",
-        address: "386 Pete pascale Pl, NY",
+        address: "Dubai",
         noRooms: 3,
         noBaths: 2,
         noGuests: 4,
@@ -265,10 +265,11 @@ export default function Details() {
   });
 
   useEffect(() => {
+    const apt_id = sessionStorage.getItem("idFromAptCard");
     axios
-      .get(`http://18.223.32.178:3000/user/singleaptdetails/1`)
+      .get(`http://18.223.32.178:3000/user/singleaptdetails/` + apt_id)
       .then((res) => {
-        console.log(res.data.data);
+        console.log("APARTMENT DETAILS", res.data.data);
         const d = res.data.data;
         var amenities = [];
         for (var i = 0; i < d.amenities.length; i++) {
@@ -477,7 +478,7 @@ export default function Details() {
               adminImageUrl:
                 "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
               name: "Affordable Urban Room",
-              address: "386 Pete pascale Pl, NY",
+              address: "Dubai",
               noRooms: 1,
               noBaths: 1,
               noGuests: 2,
@@ -492,7 +493,7 @@ export default function Details() {
               adminImageUrl:
                 "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
               name: "Beach House",
-              address: "386 Pete pascale Pl, NY",
+              address: "Dubai",
               noRooms: 3,
               noBaths: 2,
               noGuests: 4,
@@ -1460,7 +1461,7 @@ export default function Details() {
                               <AppartmentCard
                                 featured={val.featured}
                                 imageUrl={val.imageUrl}
-                                price={val.price}
+                                price={val.price != null ? val.price : 1000}
                                 adminImageUrl={val.adminImageUrl}
                                 name={val.name}
                                 address={val.address}

@@ -33,6 +33,7 @@ const Main = () => (
       <Route path="/profileviews" component={ProfileViews} />
       <Route path="/appartmententry" component={AppartmentEntryForm} />
       <Route path="/galleryuploader" component={GalleryUploader} />
+      {/*<Route path="/calender" component={Calendar} /> */}
     </Switch>
   </BrowserRouter>
 );

@@ -7,13 +7,14 @@ const AppartmentList = () => {
   // Appartments data
   const [appartmentList, setAppartmentList] = useState([
     {
+      id: 0,
       featured: true,
       imageUrl: "https://wallpaperaccess.com/full/1142283.jpg",
       price: "650",
       adminImageUrl:
         "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
       name: "Affordable Urban Room",
-      address: "386 Pete pascale Pl, NY",
+      address: "Dubai",
       noRooms: 1,
       noBaths: 1,
       noGuests: 2,
@@ -28,7 +29,7 @@ const AppartmentList = () => {
       adminImageUrl:
         "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
       name: "Affordable Urban Room",
-      address: "386 Pete pascale Pl, NY",
+      address: "Dubai",
       noRooms: 1,
       noBaths: 1,
       noGuests: 2,
@@ -43,7 +44,7 @@ const AppartmentList = () => {
       adminImageUrl:
         "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
       name: "Affordable Urban Room",
-      address: "386 Pete pascale Pl, NY",
+      address: "Dubai",
       noRooms: 1,
       noBaths: 1,
       noGuests: 2,
@@ -58,7 +59,7 @@ const AppartmentList = () => {
       adminImageUrl:
         "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
       name: "Affordable Urban Room",
-      address: "386 Pete pascale Pl, NY",
+      address: "Dubai",
       noRooms: 1,
       noBaths: 1,
       noGuests: 2,
@@ -73,7 +74,7 @@ const AppartmentList = () => {
       adminImageUrl:
         "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
       name: "Affordable Urban Room",
-      address: "386 Pete pascale Pl, NY",
+      address: "Dubai",
       noRooms: 1,
       noBaths: 1,
       noGuests: 2,
@@ -88,7 +89,7 @@ const AppartmentList = () => {
       adminImageUrl:
         "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
       name: "Affordable Urban Room",
-      address: "386 Pete pascale Pl, NY",
+      address: "Dubai",
       noRooms: 1,
       noBaths: 1,
       noGuests: 2,
@@ -108,6 +109,7 @@ const AppartmentList = () => {
         var list = [];
         for (var i = 0; i < d.length; i++) {
           list.push({
+            id: d[i].id,
             featured: d[i].is_featured,
             imageUrl: "http://18.223.32.178:3000/" + d[i].imagaes[0],
             price: d[i].rent_fee,
@@ -186,6 +188,7 @@ const AppartmentList = () => {
                 type={val.type}
                 stars={val.stars}
                 hostName={val.hostName}
+                id={val.id}
               />
             );
           })}

@@ -317,14 +317,14 @@ const AppartmentListingOwner = () => {
                 <div class="dashboard-wrapper">
                   <div class="left-sidebar">
                     <div class="logo-wrapper-dashboard">
-                      <a class="guestco_logo" href="index.html">
+                      <a class="guestco_logo" href="/">
                         <img src="images/logo.png" alt="" />
                       </a>
                     </div>
                     <div class="sidebar-menu-dashboard">
                       <ul>
                         <li>
-                          <a href="apartment-listing-owner.html">
+                          <a href="/">
                             <i class="fa fa-cog"></i>Apparment Listing
                           </a>
                         </li>
@@ -354,7 +354,7 @@ const AppartmentListingOwner = () => {
                             <div class="block-top-title">
                               <ol class="breadcrumb">
                                 <li>
-                                  <a href="../index.html">
+                                  <a href="/">
                                     <span>Home</span>
                                   </a>
                                 </li>
@@ -527,9 +527,7 @@ const AppartmentListingOwner = () => {
                                         </a>
                                       </li>
                                       <li>
-                                        <a href="services-aquired.html">
-                                          Services Acquired
-                                        </a>
+                                        <a href="services">Services Acquired</a>
                                       </li>
                                     </ul>
                                   </div>
@@ -597,9 +595,7 @@ const AppartmentListingOwner = () => {
                                         </a>
                                       </li>
                                       <li>
-                                        <a href="services-aquired.html">
-                                          Services Acquired
-                                        </a>
+                                        <a href="services">Services Acquired</a>
                                       </li>
                                     </ul>
                                   </div>
@@ -666,9 +662,7 @@ const AppartmentListingOwner = () => {
                                         </a>
                                       </li>
                                       <li>
-                                        <a href="services-aquired.html">
-                                          Services Acquired
-                                        </a>
+                                        <a href="services">Services Acquired</a>
                                       </li>
                                     </ul>
                                   </div>
@@ -735,9 +729,7 @@ const AppartmentListingOwner = () => {
                                         </a>
                                       </li>
                                       <li>
-                                        <a href="services-aquired.html">
-                                          Services Acquired
-                                        </a>
+                                        <a href="services">Services Acquired</a>
                                       </li>
                                     </ul>
                                   </div>
@@ -790,7 +782,7 @@ const AppartmentListingOwner = () => {
                           <div class="inner-box">
                             <i class="fa fa-cog"></i>
                             <h3>Services Acquired</h3>
-                            <a href="services-aquired.html" clas>
+                            <a href="services" clas>
                               Learn More
                             </a>
                           </div>

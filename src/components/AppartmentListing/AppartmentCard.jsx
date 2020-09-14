@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useHistory } from "react-router-dom";
 const AppartmentCard = (props) => {
   const featured = props.featured;
   const imageUrl = props.imageUrl;
@@ -13,7 +13,7 @@ const AppartmentCard = (props) => {
   const type = props.type;
   const stars = props.stars;
   const hostName = props.hostName;
-
+  const id = props.id;
   function checkFeatured() {
     if (featured == true) {
       return (
@@ -51,14 +51,18 @@ const AppartmentCard = (props) => {
         return "Excellet";
     }
   }
-
+  const history = useHistory();
+  function GoToDetails() {
+    sessionStorage.setItem("idFromAptCard", id);
+    history.push("/details-2");
+  }
   return (
     <div class="col-md-12 item-wrap infobox_trigger guesco-matchHeight">
       <div class="media property-item">
         <div class="media-left">
           <div class="item-media item-media-thumb">
             {checkFeatured()}
-            <a class="hover-effect" href="details-2">
+            <a onClick={GoToDetails} class="hover-effect">
               <img
                 width="450"
                 height="300"
@@ -89,7 +93,7 @@ const AppartmentCard = (props) => {
           <div class="item-title-head table-block">
             <div class="title-head-left">
               <h2 class="title">
-                <a href="details-2">{name}</a>
+                <a onClick={GoToDetails}>{name}</a>
               </h2>
               <address class="item-address">{address}</address>
             </div>

@@ -20,7 +20,7 @@ const OurFeaturedHomes = () => {
       adminImageUrl:
         "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
       name: "Affordable Urban Room",
-      address: "386 Pete pascale Pl, NY",
+      address: "Dubai",
       noRooms: 1,
       noBaths: 1,
       noGuests: 2,
@@ -34,7 +34,7 @@ const OurFeaturedHomes = () => {
       adminImageUrl:
         "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
       name: "Affordable Urban Room",
-      address: "386 Pete pascale Pl, NY",
+      address: "Dubai",
       noRooms: 1,
       noBaths: 1,
       noGuests: 2,
@@ -48,7 +48,7 @@ const OurFeaturedHomes = () => {
       adminImageUrl:
         "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
       name: "Affordable Urban Room",
-      address: "386 Pete pascale Pl, NY",
+      address: "Dubai",
       noRooms: 1,
       noBaths: 1,
       noGuests: 2,
@@ -62,7 +62,7 @@ const OurFeaturedHomes = () => {
       adminImageUrl:
         "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
       name: "Affordable Urban Room",
-      address: "386 Pete pascale Pl, NY",
+      address: "Dubai",
       noRooms: 1,
       noBaths: 1,
       noGuests: 2,
@@ -76,7 +76,7 @@ const OurFeaturedHomes = () => {
       adminImageUrl:
         "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
       name: "Affordable Urban Room",
-      address: "386 Pete pascale Pl, NY",
+      address: "Dubai",
       noRooms: 1,
       noBaths: 1,
       noGuests: 2,
@@ -90,7 +90,7 @@ const OurFeaturedHomes = () => {
       adminImageUrl:
         "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
       name: "Affordable Urban Room",
-      address: "386 Pete pascale Pl, NY",
+      address: "Dubai",
       noRooms: 1,
       noBaths: 1,
       noGuests: 2,

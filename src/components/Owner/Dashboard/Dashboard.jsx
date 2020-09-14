@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../../Reusable/header";
+import Footer from "../../Reusable/Footer";
 // Fix the padding area below the header
 const Dashboard = () => {
   return (
@@ -71,14 +72,14 @@ const Dashboard = () => {
                 <div class="dashboard-wrapper">
                   <div class="left-sidebar">
                     <div class="logo-wrapper-dashboard">
-                      <a class="guestco_logo" href="index.html">
+                      <a class="guestco_logo" href="/">
                         <img src="images/logo.png" alt="" />
                       </a>
                     </div>
                     <div class="sidebar-menu-dashboard">
                       <ul>
                         <li>
-                          <a href="apartment-listing-owner.html">
+                          <a href="listing">
                             <i class="fa fa-cog"></i>Apparment Listing
                           </a>
                         </li>
@@ -108,7 +109,7 @@ const Dashboard = () => {
                             <div class="block-top-title">
                               <ol class="breadcrumb">
                                 <li>
-                                  <a href="../index.html">
+                                  <a href="/">
                                     <span>Home</span>
                                   </a>
                                 </li>
@@ -144,7 +145,7 @@ const Dashboard = () => {
                                 <tbody>
                                   <tr>
                                     <td>
-                                      <a href="order-summary.html">132</a>
+                                      <a href="ordersummary">132</a>
                                     </td>
                                     <td>23/8//2020</td>
                                     <td>12 Items</td>
@@ -155,7 +156,7 @@ const Dashboard = () => {
                                   </tr>
                                   <tr>
                                     <td>
-                                      <a href="order-summary.html">132</a>
+                                      <a href="ordersummary">132</a>
                                     </td>
                                     <td>23/8//2020</td>
                                     <td>12 Items</td>
@@ -166,7 +167,7 @@ const Dashboard = () => {
                                   </tr>
                                   <tr>
                                     <td>
-                                      <a href="order-summary.html">132</a>
+                                      <a href="ordersummary">132</a>
                                     </td>
                                     <td>23/8//2020</td>
                                     <td>12 Items</td>
@@ -177,7 +178,7 @@ const Dashboard = () => {
                                   </tr>
                                   <tr>
                                     <td>
-                                      <a href="order-summary.html">132</a>
+                                      <a href="ordersummary">132</a>
                                     </td>
                                     <td>23/8//2020</td>
                                     <td>12 Items</td>
@@ -212,7 +213,7 @@ const Dashboard = () => {
                                 <tbody>
                                   <tr>
                                     <td>
-                                      <a href="order-summary.html">132</a>
+                                      <a href="ordersummary">132</a>
                                     </td>
                                     <td>23/8//2020</td>
                                     <td>12 Items</td>
@@ -223,7 +224,7 @@ const Dashboard = () => {
                                   </tr>
                                   <tr>
                                     <td>
-                                      <a href="order-summary.html">132</a>
+                                      <a href="ordersummary">132</a>
                                     </td>
                                     <td>23/8//2020</td>
                                     <td>12 Items</td>
@@ -234,7 +235,7 @@ const Dashboard = () => {
                                   </tr>
                                   <tr>
                                     <td>
-                                      <a href="order-summary.html">132</a>
+                                      <a href="ordersummary">132</a>
                                     </td>
                                     <td>23/8//2020</td>
                                     <td>12 Items</td>
@@ -245,7 +246,7 @@ const Dashboard = () => {
                                   </tr>
                                   <tr>
                                     <td>
-                                      <a href="order-summary.html">132</a>
+                                      <a href="ordersummary">132</a>
                                     </td>
                                     <td>23/8//2020</td>
                                     <td>12 Items</td>
@@ -280,7 +281,7 @@ const Dashboard = () => {
                                 <tbody>
                                   <tr>
                                     <td>
-                                      <a href="order-summary.html">132</a>
+                                      <a href="ordersummary">132</a>
                                     </td>
                                     <td>23/8//2020</td>
                                     <td>12 Items</td>
@@ -291,7 +292,7 @@ const Dashboard = () => {
                                   </tr>
                                   <tr>
                                     <td>
-                                      <a href="order-summary.html">132</a>
+                                      <a href="ordersummary">132</a>
                                     </td>
                                     <td>23/8//2020</td>
                                     <td>12 Items</td>
@@ -302,7 +303,7 @@ const Dashboard = () => {
                                   </tr>
                                   <tr>
                                     <td>
-                                      <a href="order-summary.html">132</a>
+                                      <a href="ordersummary">132</a>
                                     </td>
                                     <td>23/8//2020</td>
                                     <td>12 Items</td>
@@ -313,7 +314,7 @@ const Dashboard = () => {
                                   </tr>
                                   <tr>
                                     <td>
-                                      <a href="order-summary.html">132</a>
+                                      <a href="ordersummary">132</a>
                                     </td>
                                     <td>23/8//2020</td>
                                     <td>12 Items</td>
@@ -464,9 +465,7 @@ const Dashboard = () => {
                                         </a>
                                       </li>
                                       <li>
-                                        <a href="services-aquired.html">
-                                          Services Acquired
-                                        </a>
+                                        <a href="services">Services Acquired</a>
                                       </li>
                                     </ul>
                                   </div>
@@ -534,9 +533,7 @@ const Dashboard = () => {
                                         </a>
                                       </li>
                                       <li>
-                                        <a href="services-aquired.html">
-                                          Services Acquired
-                                        </a>
+                                        <a href="services">Services Acquired</a>
                                       </li>
                                     </ul>
                                   </div>
@@ -603,9 +600,7 @@ const Dashboard = () => {
                                         </a>
                                       </li>
                                       <li>
-                                        <a href="services-aquired.html">
-                                          Services Acquired
-                                        </a>
+                                        <a href="services">Services Acquired</a>
                                       </li>
                                     </ul>
                                   </div>
@@ -672,9 +667,7 @@ const Dashboard = () => {
                                         </a>
                                       </li>
                                       <li>
-                                        <a href="services-aquired.html">
-                                          Services Acquired
-                                        </a>
+                                        <a href="services">Services Acquired</a>
                                       </li>
                                     </ul>
                                   </div>
@@ -727,7 +720,7 @@ const Dashboard = () => {
                           <div class="inner-box">
                             <i class="fa fa-cog"></i>
                             <h3>Services Acquired</h3>
-                            <a href="services-aquired.html" clas>
+                            <a href="services" clas>
                               Learn More
                             </a>
                           </div>
@@ -739,198 +732,7 @@ const Dashboard = () => {
               </div>
             </section>
           </div>
-          <footer class="footer-wrap footer" style={{ display: "none" }}>
-            <div class="footer-top-wrap">
-              <div class="container">
-                <div class="row">
-                  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-                    <div
-                      id="guesco_about_widget-7"
-                      class="widget footer-widget widget-about"
-                    >
-                      <div class="widget-body">
-                        <p>Logo</p>
-                        <p>
-                          guesco is a powerful booking platform that lets you
-                          run a residential or commercial rental business online
-                          with no hassle
-                        </p>
-                        <p class="read">
-                          <a href="#">
-                            Read more <i class="fa fa-caret-right"></i>
-                          </a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-                    <div
-                      id="guesco_taxonomies-7"
-                      class="widget footer-widget widget-categories"
-                    >
-                      <div class="widget-top">
-                        <h3 class="widget-title">Explore</h3>
-                      </div>
-                      <div class="widget-body">
-                        <ul class="list-unstyled">
-                          <li>
-                            <a href="type/apartment/index.html">Apartment</a>
-                          </li>
-                          <li>
-                            <a href="type/bed-breakfast/index.html">
-                              Bed &amp; Breakfast
-                            </a>
-                          </li>
-                          <li>
-                            <a href="type/condo/index.html">Condo</a>
-                          </li>
-                          <li>
-                            <a href="type/house/index.html">House</a>
-                          </li>
-                          <li>
-                            <a href="type/loft/index.html">Loft</a>
-                          </li>
-                          <li>
-                            <a href="type/studio/index.html">Studio</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-                    <div
-                      id="nav_menu-2"
-                      class="widget footer-widget widget_nav_menu"
-                    >
-                      <div class="widget-top">
-                        <h3 class="widget-title">Company</h3>
-                      </div>
-                      <div class="menu-footer-nav-container">
-                        <ul id="menu-footer-nav" class="menu">
-                          <li
-                            id="menu-item-1829"
-                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-493 current_page_item menu-item-1829"
-                          >
-                            <a href="index.html" aria-current="page">
-                              Home
-                            </a>
-                          </li>
-                          <li
-                            id="menu-item-1363"
-                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1363"
-                          >
-                            <a href="about-guesco/index.html">About</a>
-                          </li>
-                          <li
-                            id="menu-item-1364"
-                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1364"
-                          >
-                            <a href="blog/index.html">Blog and Press</a>
-                          </li>
-                          <li
-                            id="menu-item-1830"
-                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1830"
-                          >
-                            <a href="half-map/index.html">Listings</a>
-                          </li>
-                          <li
-                            id="menu-item-1362"
-                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1362"
-                          >
-                            <a href="frequently-asked-questions/index.html">
-                              Help
-                            </a>
-                          </li>
-                          <li
-                            id="menu-item-1361"
-                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1361"
-                          >
-                            <a href="contact-us/index.html">Contact us</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-                    <div
-                      id="guesco_contact-7"
-                      class="widget footer-widget widget-contact"
-                    >
-                      <div class="widget-top">
-                        <h3 class="widget-title">Contact Us</h3>
-                      </div>
-                      <div class="widget-body">
-                        <div class="contact_text"></div>
-                        <ul class="list-unstyled">
-                          <li>
-                            <i class="fa fa-map-marker"></i> 142 Bay Rd, Miami
-                            Beach, FL 33139
-                          </li>
-                          <li>
-                            <i class="fa fa-phone-square"></i> 800 987 6543
-                          </li>
-                          <li>
-                            <i class="fa fa-fax"></i> 876 654 2362
-                          </li>
-                          <li>
-                            <i class="fa fa-envelope-o"></i>{" "}
-                            <a href="mailto:guesco@email.com">
-                              guesco@email.com
-                            </a>
-                          </li>
-                          <li>
-                            <i class="fa fa-arrow-circle-o-right"></i>{" "}
-                            <a href="#">Contact us</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="footer-bottom-wrap">
-              <div class="container">
-                <div class="row">
-                  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="footer-copyright">
-                      guestco - All rights reserved
-                    </div>
-                  </div>
-                  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="social-footer">
-                      <div class="social-icons social-round">
-                        <a class="btn-bg-facebook" target="_blank" href="#">
-                          <i class="fa fa-facebook"></i>
-                        </a>
-                        <a class="btn-bg-twitter" target="_blank" href="#">
-                          <i class="fa fa-twitter"></i>
-                        </a>
-                        <a class="btn-bg-linkedin" target="_blank" href="#">
-                          <i class="fa fa-linkedin"></i>
-                        </a>
-                        <a class="btn-bg-google-plus" target="_blank" href="#">
-                          <i class="fa fa-google-plus"></i>
-                        </a>
-                        <a class="btn-bg-instagram" target="_blank" href="#">
-                          <i class="fa fa-instagram"></i>
-                        </a>
-                        <a class="btn-bg-pinterest" target="_blank" href="#">
-                          <i class="fa fa-pinterest"></i>
-                        </a>
-                        <a class="btn-bg-yelp" target="_blank" href="#">
-                          <i class="fa fa-yelp"></i>
-                        </a>
-                        <a class="btn-bg-youtube" target="_blank" href="#">
-                          <i class="fa fa-youtube"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </footer>
+          <Footer />
           <div
             class="modal fade common-modal custom-modal-login"
             id="buildingguidelines-popup"

@@ -90,8 +90,14 @@ const InstantBooking = (props) => {
               <div class="block-body-sidebar">
                 <span class="item-price">
                   <sup>AED</sup>
-                  {AppartmentDetails.prices.nightly}
-                  <sub>/night</sub>
+                  {AppartmentDetails.prices.nightly != null
+                    ? AppartmentDetails.prices.nightly
+                    : AppartmentDetails.prices.monthly}
+                  <sub>
+                    {AppartmentDetails.prices.nightly != null
+                      ? "night"
+                      : "month"}
+                  </sub>
                 </span>
               </div>
             </div>
