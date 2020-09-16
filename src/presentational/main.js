@@ -1,9 +1,9 @@
 import React from "react";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import Home from "../components/Home/Home.component";
-import Services from "../components/servicesaquired.component";
+import Services from "../components/Owner/Order/OrderServices/servicesaquired.component";
 import Ordersumary from "../components/OrderSummary/order-summary.component";
-import Orderlisting from "../components/orderslisting.component";
+import Orderlisting from "../components/Owner/Order/OrderListing/orderslisting.component";
 import Checkout from "../components/Checkout/checkout.component";
 import AccesslistingNew from "../components/access-listing.component";
 import Listingpage from "../components/AppartmentListing/listingpage.component";
@@ -14,8 +14,11 @@ import DashboardOwner from "../components/Owner/Dashboard/Dashboard";
 import ProfileViews from "../components/User/ProfileViews/ProfileViews";
 import AppartmentEntryForm from "../components/Owner/AppartmentEntery/AppartmentEntryForm";
 import GalleryUploader from "../components/Owner/AppartmentEntery/GalleryUploader";
+import Calendar from "../components/Owner/Calender/Calender";
+import EditProfile from "../components/User/Profile/EditProfile/EditProfile";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
+
 const Main = () => (
   <BrowserRouter>
     <Switch>
@@ -33,7 +36,10 @@ const Main = () => (
       <Route path="/profileviews" component={ProfileViews} />
       <Route path="/appartmententry" component={AppartmentEntryForm} />
       <Route path="/galleryuploader" component={GalleryUploader} />
-      {/*<Route path="/calender" component={Calendar} /> */}
+      <Route path="/calender" component={Calendar} />
+      <Route path="/deleteorderlist" component={Calendar} />
+      <Route path="/editorderlist" component={Calendar} />
+      <Route path="/editprofile" component={EditProfile} />
     </Switch>
   </BrowserRouter>
 );

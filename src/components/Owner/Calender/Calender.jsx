@@ -1,32 +1,45 @@
 import React from "react";
+import Dayz from "dayz";
+// could also import the sass if you have a loader at dayz/dayz.scss
+import "./dayz.scss";
+import moment from "moment";
 
-import { EventCalendar } from "react-event-calendar";
+// would come from a network request in a "real" app
+const dates1 = [
+  moment("2020-9-15", "YYYY-MM-DD"),
+  moment("2020-9-15", "YYYY-MM-DD"),
+];
+const range1 = moment.range(dates1);
 
-import Header from "../../Reusable/header";
-import Footer from "../../Reusable/Footer";
+const dates2 = [
+  moment("2020-9-16", "YYYY-MM-DD"),
+  moment("2020-9-16", "YYYY-MM-DD"),
+];
+const range2 = moment.range(dates2);
 
-const CalendarPage = () => {
-  const events = [
-    {
-      start: "2015-07-20",
-      end: "2015-07-02",
-      eventClasses: "optionalEvent",
-      title: "test event",
-      description: "This is a test description of an event",
-    },
-    {
-      start: "2015-07-19",
-      end: "2015-07-25",
-      title: "test event",
-      description: "This is a test description of an event",
-      data: "you can add what ever random data you may want to use later",
-    },
-  ];
-  return (
-    <div>
-      <EventCalendar month={7} year={2015} events={events} />
-    </div>
-  );
-};
+const dates3 = [
+  moment("2020-9-17", "YYYY-MM-DD"),
+  moment("2020-9-17", "YYYY-MM-DD"),
+];
+const range3 = moment.range(dates3);
 
-export default CalendarPage;
+const EVENTS = new Dayz.EventsCollection([
+  {
+    content: "A short event",
+    range: range1,
+  },
+  {
+    content: "Two Hours ~ 8-10",
+    range: range2,
+  },
+  {
+    content: "A short event",
+    range: range3,
+  },
+]);
+
+export default class MyComponent extends React.Component {
+  render() {
+    return <Dayz display="month" events={EVENTS} />;
+  }
+}

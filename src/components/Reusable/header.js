@@ -17,8 +17,11 @@ const Header = (props) => {
         password: state.password,
       })
       .then((response) => {
-        alert(response.data.message);
-        console.log("RESSS", response.data.message);
+        //alert(response.data);
+        console.log("RESSS", response.data);
+        if (response.data.token) {
+          sessionStorage.setItem("logintoken", response.data.token);
+        }
       });
   }
   const InputEvent = (event) => {

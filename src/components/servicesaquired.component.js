@@ -1,7 +1,7 @@
 import React from "react";
 
-import Header from "./Reusable/header";
-import SearchBar from "./Reusable/SearchBar";
+import Header from "../../../Reusable/header";
+import SearchBar from "../../../Reusable/SearchBar";
 
 import { MDBDataTableV5 } from "mdbreact";
 
