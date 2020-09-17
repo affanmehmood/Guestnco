@@ -127,7 +127,7 @@ const AppartmentListingOwner = () => {
                     <li>
                       <button
                         key={val.id}
-                        onClick={() => gotoCalendar(val.id)}
+                        onClick={() => gotoCalendar(val.id, val.apartment_name)}
                         style={{ marginTop: "10px" }}
                       >
                         Booking Calendar
@@ -152,8 +152,10 @@ const AppartmentListingOwner = () => {
 
   const history = useHistory();
 
-  function gotoCalendar(id) {
+  function gotoCalendar(id, name) {
     sessionStorage.setItem("idForCalendar", id);
+
+    sessionStorage.setItem("nameForCalendar", name);
     history.push("/calendar");
   }
   return (
