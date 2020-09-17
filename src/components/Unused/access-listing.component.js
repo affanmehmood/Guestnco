@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { MDBDataTableV5 } from "mdbreact";
 
-import SearchBar from "./Reusable/SearchBar";
-import Footer from "./Reusable/Footer";
-import Header from "./Reusable/header";
+import SearchBar from "../Reusable/SearchBar";
+import Footer from "../Reusable/Footer";
+import Header from "../Reusable/header";
 
 export default function AccessListingNew() {
   const [datatable, setDatatable] = React.useState({

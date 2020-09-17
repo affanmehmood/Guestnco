@@ -1,8 +1,11 @@
 import React, { useEffect } from "react";
 import axios from "axios";
-import { MDBDataTableV5 } from "mdbreact";
-import Header from "../../Reusable/header";
 
+import { useHistory } from "react-router-dom";
+
+import { MDBDataTableV5 } from "mdbreact";
+
+import Header from "../../Reusable/header";
 import Footer from "../../Reusable/Footer";
 
 // fix the padding below header
@@ -80,9 +83,21 @@ const AppartmentListingOwner = () => {
           rows: [],
         };
         list.map((val, index) => {
+          const date = new Date(val.availabaility_time);
           const obj = {
             name: val.apartment_name,
-            availabaility_time: val.availabaility_time,
+            availabaility_time:
+              date.getFullYear() +
+              "/" +
+              (date.getMonth() + 1) +
+              "/" +
+              date.getDate() +
+              " " +
+              date.getHours() +
+              ":" +
+              date.getMinutes() +
+              ":" +
+              date.getSeconds(),
             location: val.adress1 + ", " + val.address2,
             status: val.is_available ? "Yes" : "No",
             rent_frequency: val.rent_frequency,
@@ -107,25 +122,21 @@ const AppartmentListingOwner = () => {
                     aria-labelledby="dLabel"
                   >
                     <li>
-                      <a
-                        href="#"
-                        data-toggle="modal"
-                        data-target="#loyaltyreward-popup"
-                      >
-                        Appartment Occupance
-                      </a>
+                      <button>Appartment Occupance</button>
                     </li>
                     <li>
-                      <a
-                        href="#"
-                        data-toggle="modal"
-                        data-target="#providefeeback-popup"
+                      <button
+                        key={val.id}
+                        onClick={() => gotoCalendar(val.id)}
+                        style={{ marginTop: "10px" }}
                       >
                         Booking Calendar
-                      </a>
+                      </button>
                     </li>
                     <li>
-                      <a href="services">Appartment Inventory</a>
+                      <button style={{ marginTop: "10px" }}>
+                        Appartment Inventory
+                      </button>
                     </li>
                   </ul>
                 </div>
@@ -138,11 +149,12 @@ const AppartmentListingOwner = () => {
         setDatatable(onk);
       });
   }, datatable.columns);
-  function deleteEntry(id) {
-    console.log("DELETED ", id);
-  }
-  function editEntry(id) {
-    console.log("EDITED ", id);
+
+  const history = useHistory();
+
+  function gotoCalendar(id) {
+    sessionStorage.setItem("idForCalendar", id);
+    history.push("/calendar");
   }
   return (
     <div>
@@ -206,57 +218,57 @@ const AppartmentListingOwner = () => {
           />
         </div>
 
-        <div class="">
-          <div id="section-body" class="dashboard-main">
-            <section class=" whitebg">
-              <div class="">
-                <div class="dashboard-wrapper">
-                  <div class="left-sidebar">
-                    <div class="logo-wrapper-dashboard">
-                      <a class="guestco_logo" href="/">
+        <div>
+          <div id="section-body" className="dashboard-main">
+            <section className=" whitebg">
+              <div className="">
+                <div className="dashboard-wrapper">
+                  <div className="left-sidebar">
+                    <div className="logo-wrapper-dashboard">
+                      <a className="guestco_logo" href="/">
                         <img src="images/logo.png" alt="" />
                       </a>
                     </div>
-                    <div class="sidebar-menu-dashboard">
+                    <div className="sidebar-menu-dashboard">
                       <ul>
                         <li>
                           <a href="/">
-                            <i class="fa fa-cog"></i>Apparment Listing
+                            <i className="fa fa-cog"></i>Apparment Listing
                           </a>
                         </li>
                         <li>
                           <a href="#">
-                            <i class="fa fa-cog"></i>Book Appartment
+                            <i className="fa fa-cog"></i>Book Appartment
                           </a>
                         </li>
                         <li>
                           <a href="#">
-                            <i class="fa fa-cog"></i>History Maintance{" "}
+                            <i className="fa fa-cog"></i>History Maintance{" "}
                           </a>
                         </li>
                         <li>
                           <a href="#">
-                            <i class="fa fa-cog"></i>Billing Summary
+                            <i className="fa fa-cog"></i>Billing Summary
                           </a>
                         </li>
                       </ul>
                     </div>
                   </div>
-                  <div class="right-maincontent">
-                    <div class="breadcrumbs-wrapper">
-                      <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                          <div class="page-title">
-                            <div class="block-top-title">
-                              <ol class="breadcrumb">
+                  <div className="right-maincontent">
+                    <div className="breadcrumbs-wrapper">
+                      <div className="row">
+                        <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                          <div className="page-title">
+                            <div className="block-top-title">
+                              <ol className="breadcrumb">
                                 <li>
                                   <a href="/">
                                     <span>Home</span>
                                   </a>
                                 </li>
-                                <li class="active">Appartment Listing</li>
+                                <li className="active">Appartment Listing</li>
                               </ol>
-                              <h1 class="listing-title">
+                              <h1 className="listing-title">
                                 Appartment Listing Listingboard
                               </h1>
                             </div>
@@ -265,11 +277,11 @@ const AppartmentListingOwner = () => {
                       </div>
                     </div>
 
-                    <div class="dashboard-body-wrapper">
-                      <div class="row">
-                        <div class="col-md-12 col-lg-12">
-                          <div class="listing-table-wrapper">
-                            <div class="common-table">
+                    <div className="dashboard-body-wrapper">
+                      <div className="row">
+                        <div className="col-md-12 col-lg-12">
+                          <div className="listing-table-wrapper">
+                            <div className="common-table">
                               <MDBDataTableV5
                                 className="mdbtable"
                                 hover
@@ -290,14 +302,14 @@ const AppartmentListingOwner = () => {
                   </div>
                 </div>
               </div>
-              <div class="container-fluid" style={{ display: "none" }}>
-                <div class="row">
-                  <div class="col-md-3">
-                    <div class="sidebar">
-                      <div class="main-box-sidebar categories_sidebar user_dashboards">
-                        <h3 class="heading_sidebar">Quick Links</h3>
+              <div className="container-fluid" style={{ display: "none" }}>
+                <div className="row">
+                  <div className="col-md-3">
+                    <div className="sidebar">
+                      <div className="main-box-sidebar categories_sidebar user_dashboards">
+                        <h3 className="heading_sidebar">Quick Links</h3>
                         <ul>
-                          <li class="">
+                          <li className="">
                             <a href="#">
                               <span>My Favorite Business</span>
                             </a>
@@ -341,11 +353,11 @@ const AppartmentListingOwner = () => {
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-9">
-                    <div class="listing-table-wrapper">
-                      <div class="common-table">
+                  <div className="col-md-9">
+                    <div className="listing-table-wrapper">
+                      <div className="common-table">
                         <table
-                          class="datatable-class table table-striped"
+                          className="datatable-class table table-striped"
                           width="100%"
                           cellspacing="0"
                           cellpadding="0"
@@ -369,20 +381,20 @@ const AppartmentListingOwner = () => {
                               <td>Option 1</td>
                               <td>Option 1</td>
                               <td>
-                                <div class="more-nav">
-                                  <div class="dropdown">
+                                <div className="more-nav">
+                                  <div className="dropdown">
                                     <button
-                                      class="more"
+                                      className="more"
                                       type="button"
                                       id="dropdownMenu1"
                                       data-toggle="dropdown"
                                       aria-haspopup="true"
                                       aria-expanded="true"
                                     >
-                                      <span class="fa fa-ellipsis-h"></span>
+                                      <span className="fa fa-ellipsis-h"></span>
                                     </button>
                                     <ul
-                                      class="dropdown-menu sub-dropdown"
+                                      className="dropdown-menu sub-dropdown"
                                       aria-labelledby="dLabel"
                                     >
                                       <li>
@@ -437,20 +449,20 @@ const AppartmentListingOwner = () => {
                               <td>Option 1</td>
                               <td>Option 1</td>
                               <td>
-                                <div class="more-nav">
-                                  <div class="dropdown">
+                                <div className="more-nav">
+                                  <div className="dropdown">
                                     <button
-                                      class="more"
+                                      className="more"
                                       type="button"
                                       id="dropdownMenu1"
                                       data-toggle="dropdown"
                                       aria-haspopup="true"
                                       aria-expanded="true"
                                     >
-                                      <span class="fa fa-ellipsis-h"></span>
+                                      <span className="fa fa-ellipsis-h"></span>
                                     </button>
                                     <ul
-                                      class="dropdown-menu sub-dropdown"
+                                      className="dropdown-menu sub-dropdown"
                                       aria-labelledby="dLabel"
                                     >
                                       <li>
@@ -504,20 +516,20 @@ const AppartmentListingOwner = () => {
                               <td>Option 1</td>
                               <td>Option 1</td>
                               <td>
-                                <div class="more-nav">
-                                  <div class="dropdown">
+                                <div className="more-nav">
+                                  <div className="dropdown">
                                     <button
-                                      class="more"
+                                      className="more"
                                       type="button"
                                       id="dropdownMenu1"
                                       data-toggle="dropdown"
                                       aria-haspopup="true"
                                       aria-expanded="true"
                                     >
-                                      <span class="fa fa-ellipsis-h"></span>
+                                      <span className="fa fa-ellipsis-h"></span>
                                     </button>
                                     <ul
-                                      class="dropdown-menu sub-dropdown"
+                                      className="dropdown-menu sub-dropdown"
                                       aria-labelledby="dLabel"
                                     >
                                       <li>
@@ -571,20 +583,20 @@ const AppartmentListingOwner = () => {
                               <td>Option 1</td>
                               <td>Option 1</td>
                               <td>
-                                <div class="more-nav">
-                                  <div class="dropdown">
+                                <div className="more-nav">
+                                  <div className="dropdown">
                                     <button
-                                      class="more"
+                                      className="more"
                                       type="button"
                                       id="dropdownMenu1"
                                       data-toggle="dropdown"
                                       aria-haspopup="true"
                                       aria-expanded="true"
                                     >
-                                      <span class="fa fa-ellipsis-h"></span>
+                                      <span className="fa fa-ellipsis-h"></span>
                                     </button>
                                     <ul
-                                      class="dropdown-menu sub-dropdown"
+                                      className="dropdown-menu sub-dropdown"
                                       aria-labelledby="dLabel"
                                     >
                                       <li>
@@ -635,11 +647,14 @@ const AppartmentListingOwner = () => {
                         </table>
                       </div>
                     </div>
-                    <div class="services-wrapper" style={{ display: "none" }}>
+                    <div
+                      className="services-wrapper"
+                      style={{ display: "none" }}
+                    >
                       <ul>
                         <li>
-                          <div class="inner-box">
-                            <i class="fa fa-building-o"></i>
+                          <div className="inner-box">
+                            <i className="fa fa-building-o"></i>
                             <h3>Building Guidelines</h3>
                             <a href="#" clas>
                               Learn More
@@ -647,8 +662,8 @@ const AppartmentListingOwner = () => {
                           </div>
                         </li>
                         <li>
-                          <div class="inner-box">
-                            <i class="fa fa-map-marker"></i>
+                          <div className="inner-box">
+                            <i className="fa fa-map-marker"></i>
                             <h3>Request Directions</h3>
                             <a href="#" clas>
                               Learn More
@@ -656,8 +671,8 @@ const AppartmentListingOwner = () => {
                           </div>
                         </li>
                         <li>
-                          <div class="inner-box">
-                            <i class="fa fa-usd"></i>
+                          <div className="inner-box">
+                            <i className="fa fa-usd"></i>
                             <h3>Reward Loyalty Points</h3>
                             <a href="#" clas>
                               Learn More
@@ -665,8 +680,8 @@ const AppartmentListingOwner = () => {
                           </div>
                         </li>
                         <li>
-                          <div class="inner-box">
-                            <i class="fa fa-file-text-o"></i>
+                          <div className="inner-box">
+                            <i className="fa fa-file-text-o"></i>
                             <h3>Provide Feedback</h3>
                             <a href="#" clas>
                               Learn More
@@ -674,8 +689,8 @@ const AppartmentListingOwner = () => {
                           </div>
                         </li>
                         <li>
-                          <div class="inner-box">
-                            <i class="fa fa-cog"></i>
+                          <div className="inner-box">
+                            <i className="fa fa-cog"></i>
                             <h3>Services Acquired</h3>
                             <a href="services" clas>
                               Learn More
@@ -690,326 +705,28 @@ const AppartmentListingOwner = () => {
             </section>
           </div>
 
-          <div
-            class="modal fade common-modal custom-modal-login"
-            id="appartmentoccupancy-popup"
-            tabindex="-1"
-            role="dialog"
-          >
-            <div class="modal-dialog clearfix" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                  >
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                  <h4 class="modal-title">Appartment Occupancy</h4>
-                </div>
-                <div class="modal-body">
-                  <div class="modal-body-content">
-                    <p class="">
-                      Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry. Lorem Ipsum has been the industry's
-                      standard dummy text ever since
-                    </p>
-                    <div class="table-rewardpoints-wrapper">
-                      <div class="common-table-all">
-                        <table
-                          class="table table-striped"
-                          width="100%"
-                          cellspacing="0"
-                          cellpadding="0"
-                          border="0"
-                        >
-                          <thead class="">
-                            <tr>
-                              <td width="25%" class="hidden-xs width70">
-                                Month
-                              </td>
-                              <td width="25%" class="hidden-xs width70">
-                                Days Booked
-                              </td>
-                              <td width="25%" class="hidden-xs width70">
-                                Days Vaccant
-                              </td>
-                              <td width="25%" class="hidden-xs">
-                                Occupancy Rate
-                              </td>
-                            </tr>
-                          </thead>
-                          <tbody class="list">
-                            <tr class="">
-                              <td>January 2020 </td>
-                              <td>
-                                <label class=" rewards-point-lable green">
-                                  {" "}
-                                  26
-                                </label>
-                              </td>
-                              <td>
-                                <label class="rewards-point-lable blue">
-                                  {" "}
-                                  26
-                                </label>
-                              </td>
-                              <td>
-                                <label class="rewards-point-lable pink">
-                                  {" "}
-                                  26
-                                </label>
-                              </td>
-                            </tr>
-                            <tr class="">
-                              <td>Feburary 2020 </td>
-                              <td>
-                                <label class=" rewards-point-lable green">
-                                  {" "}
-                                  26
-                                </label>
-                              </td>
-                              <td>
-                                <label class="rewards-point-lable blue">
-                                  {" "}
-                                  26
-                                </label>
-                              </td>
-                              <td>
-                                <label class="rewards-point-lable pink">
-                                  {" "}
-                                  26
-                                </label>
-                              </td>
-                            </tr>
-                            <tr class="">
-                              <td>March 2020 </td>
-                              <td>
-                                <label class=" rewards-point-lable green">
-                                  {" "}
-                                  26
-                                </label>
-                              </td>
-                              <td>
-                                <label class="rewards-point-lable blue">
-                                  {" "}
-                                  26
-                                </label>
-                              </td>
-                              <td>
-                                <label class="rewards-point-lable pink">
-                                  {" "}
-                                  26
-                                </label>
-                              </td>
-                            </tr>
-                            <tr class="">
-                              <td>April 2020 </td>
-                              <td>
-                                <label class=" rewards-point-lable green">
-                                  {" "}
-                                  26
-                                </label>
-                              </td>
-                              <td>
-                                <label class="rewards-point-lable blue">
-                                  {" "}
-                                  26
-                                </label>
-                              </td>
-                              <td>
-                                <label class="rewards-point-lable pink">
-                                  {" "}
-                                  26
-                                </label>
-                              </td>
-                            </tr>
-                            <tr class="">
-                              <td>May 2020 </td>
-                              <td>
-                                <label class=" rewards-point-lable green">
-                                  {" "}
-                                  26
-                                </label>
-                              </td>
-                              <td>
-                                <label class="rewards-point-lable blue">
-                                  {" "}
-                                  26
-                                </label>
-                              </td>
-                              <td>
-                                <label class="rewards-point-lable pink">
-                                  {" "}
-                                  26
-                                </label>
-                              </td>
-                            </tr>
-                            <tr class="">
-                              <td>June 2020 </td>
-                              <td>
-                                <label class=" rewards-point-lable green">
-                                  {" "}
-                                  26
-                                </label>
-                              </td>
-                              <td>
-                                <label class="rewards-point-lable blue">
-                                  {" "}
-                                  26
-                                </label>
-                              </td>
-                              <td>
-                                <label class="rewards-point-lable pink">
-                                  {" "}
-                                  26
-                                </label>
-                              </td>
-                            </tr>
-                            <tr class="">
-                              <td>July 2020 </td>
-                              <td>
-                                <label class=" rewards-point-lable green">
-                                  {" "}
-                                  26
-                                </label>
-                              </td>
-                              <td>
-                                <label class="rewards-point-lable blue">
-                                  {" "}
-                                  26
-                                </label>
-                              </td>
-                              <td>
-                                <label class="rewards-point-lable pink">
-                                  {" "}
-                                  26
-                                </label>
-                              </td>
-                            </tr>
-                            <tr class="">
-                              <td>August 2020 </td>
-                              <td>
-                                <label class=" rewards-point-lable green">
-                                  {" "}
-                                  26
-                                </label>
-                              </td>
-                              <td>
-                                <label class="rewards-point-lable blue">
-                                  {" "}
-                                  26
-                                </label>
-                              </td>
-                              <td>
-                                <label class="rewards-point-lable pink">
-                                  {" "}
-                                  26
-                                </label>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-footer text-center">
-                  <a
-                    href="#"
-                    class="btn btn-primary btn-long"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                  >
-                    Thankyou!
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="modal fade common-modal custom-modal-login"
-            id="bookingcalendar-popup"
-            tabindex="-1"
-            role="dialog"
-          >
-            <div class="modal-dialog clearfix" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                  >
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                  <h4 class="modal-title">Booking Calendar</h4>
-                </div>
-                <div class="modal-body">
-                  <div class="modal-body-content">
-                    <h2>Appartment Name</h2>
-                    <div class="row">
-                      <div class="col-md-3">
-                        <h2>Check In date:</h2> <p>28 Jun 2020</p>
-                      </div>
-                      <div class="col-md-3">
-                        <h2>Check Out date:</h2> <p>28 Jun 2020</p>
-                      </div>
-                      <div class="col-md-3">
-                        <h2>Location:</h2> <p>Location</p>
-                      </div>
-                      <div class="col-md-3">
-                        <h2>Status: </h2>
-                        <p>Available</p>
-                      </div>
-                    </div>
-                    <div
-                      class="calendarbody"
-                      style={{ height: "250px", background: "#f8f8f8" }}
-                    >
-                      Calendar Div
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-footer text-center">
-                  <a
-                    href="#"
-                    class="btn btn-primary btn-long"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                  >
-                    Thankyou!
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <Footer />
           <div
-            class="modal fade common-modal custom-modal-login"
+            className="modal fade common-modal custom-modal-login"
             id="buildingguidelines-popup"
             tabindex="-1"
             role="dialog"
           >
-            <div class="modal-dialog clearfix" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
+            <div className="modal-dialog clearfix" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
                   <button
                     type="button"
-                    class="close"
+                    className="close"
                     data-dismiss="modal"
                     aria-label="Close"
                   >
                     <span aria-hidden="true">&times;</span>
                   </button>
-                  <h4 class="modal-title">Business Guidelines</h4>
+                  <h4 className="modal-title">Business Guidelines</h4>
                 </div>
-                <div class="modal-body">
-                  <div class="modal-body-content">
+                <div className="modal-body">
+                  <div className="modal-body-content">
                     <h2>Parking Rules</h2>
                     <p>
                       Lorem Ipsum is simply dummy text of the printing and
@@ -1030,10 +747,10 @@ const AppartmentListingOwner = () => {
                     </p>
                   </div>
                 </div>
-                <div class="modal-footer text-center">
+                <div className="modal-footer text-center">
                   <a
                     href="#"
-                    class="btn btn-primary btn-long"
+                    className="btn btn-primary btn-long"
                     data-dismiss="modal"
                     aria-label="Close"
                   >
@@ -1044,26 +761,26 @@ const AppartmentListingOwner = () => {
             </div>
           </div>
           <div
-            class="modal fade common-modal custom-modal-login"
+            className="modal fade common-modal custom-modal-login"
             id="requestdirection-popup"
             tabindex="-1"
             role="dialog"
           >
-            <div class="modal-dialog clearfix" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
+            <div className="modal-dialog clearfix" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
                   <button
                     type="button"
-                    class="close"
+                    className="close"
                     data-dismiss="modal"
                     aria-label="Close"
                   >
                     <span aria-hidden="true">&times;</span>
                   </button>
-                  <h4 class="modal-title">Request Directions</h4>
+                  <h4 className="modal-title">Request Directions</h4>
                 </div>
-                <div class="modal-body">
-                  <div class="modal-body-content">
+                <div className="modal-body">
+                  <div className="modal-body-content">
                     <iframe
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3320.5450300315465!2d72.99617706552172!3d33.668948830711805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df95ff25ef0ae9%3A0xd74faf85d90645e5!2sG-11%20Markaz%20G%2011%20Markaz%20G-11%2C%20Islamabad%2C%20Islamabad%20Capital%20Territory%2C%20Pakistan!5e0!3m2!1sen!2s!4v1598182311787!5m2!1sen!2s"
                       width="100%"
@@ -1076,10 +793,10 @@ const AppartmentListingOwner = () => {
                     ></iframe>
                   </div>
                 </div>
-                <div class="modal-footer text-center">
+                <div className="modal-footer text-center">
                   <a
                     href="#"
-                    class="btn btn-primary btn-long"
+                    className="btn btn-primary btn-long"
                     data-dismiss="modal"
                     aria-label="Close"
                   >
@@ -1090,72 +807,72 @@ const AppartmentListingOwner = () => {
             </div>
           </div>
           <div
-            class="modal fade common-modal custom-modal-login"
+            className="modal fade common-modal custom-modal-login"
             id="loyaltyreward-popup"
             tabindex="-1"
             role="dialog"
           >
-            <div class="modal-dialog clearfix" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
+            <div className="modal-dialog clearfix" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
                   <button
                     type="button"
-                    class="close"
+                    className="close"
                     data-dismiss="modal"
                     aria-label="Close"
                   >
                     <span aria-hidden="true">&times;</span>
                   </button>
-                  <h4 class="modal-title">Reward Loyalty Points</h4>
+                  <h4 className="modal-title">Reward Loyalty Points</h4>
                 </div>
-                <div class="modal-body">
-                  <div class="modal-body-content">
-                    <p class="">
+                <div className="modal-body">
+                  <div className="modal-body-content">
+                    <p className="">
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
                       standard dummy text ever since
                     </p>
-                    <div class="table-rewardpoints-wrapper">
-                      <div class="common-table-all">
+                    <div className="table-rewardpoints-wrapper">
+                      <div className="common-table-all">
                         <table
-                          class="table table-striped"
+                          className="table table-striped"
                           width="100%"
                           cellspacing="0"
                           cellpadding="0"
                           border="0"
                         >
-                          <thead class="">
+                          <thead className="">
                             <tr>
-                              <td width="40%" class="hidden-xs width70">
+                              <td width="40%" className="hidden-xs width70">
                                 Points
                               </td>
-                              <td width="60%" class="hidden-xs">
+                              <td width="60%" className="hidden-xs">
                                 Description
                               </td>
                             </tr>
                           </thead>
-                          <tbody class="list">
-                            <tr class="">
+                          <tbody className="list">
+                            <tr className="">
                               <td>
-                                <label class=" rewards-point-lable green">
+                                <label className=" rewards-point-lable green">
                                   {" "}
                                   100 Points
                                 </label>
                               </td>
                               <td>Stating at home </td>
                             </tr>
-                            <tr class="">
+                            <tr className="">
                               <td>
-                                <label class="rewards-point-lable blue">
+                                <label className="rewards-point-lable blue">
                                   {" "}
                                   100 Points
                                 </label>
                               </td>
                               <td>Electricity Consumption</td>
                             </tr>
-                            <tr class="">
+                            <tr className="">
                               <td>
-                                <label class="rewards-point-lable yellow">
+                                <label className="rewards-point-lable yellow">
                                   {" "}
                                   100 Points
                                 </label>
@@ -1168,10 +885,10 @@ const AppartmentListingOwner = () => {
                     </div>
                   </div>
                 </div>
-                <div class="modal-footer text-center">
+                <div className="modal-footer text-center">
                   <a
                     href="#"
-                    class="btn btn-primary btn-long"
+                    className="btn btn-primary btn-long"
                     data-dismiss="modal"
                     aria-label="Close"
                   >
@@ -1182,69 +899,84 @@ const AppartmentListingOwner = () => {
             </div>
           </div>
           <div
-            class="modal fade common-modal custom-modal-login"
+            className="modal fade common-modal custom-modal-login"
             id="providefeeback-popup"
             tabindex="-1"
             role="dialog"
           >
-            <div class="modal-dialog clearfix" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
+            <div className="modal-dialog clearfix" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
                   <button
                     type="button"
-                    class="close"
+                    className="close"
                     data-dismiss="modal"
                     aria-label="Close"
                   >
                     <span aria-hidden="true">&times;</span>
                   </button>
-                  <h4 class="modal-title">Provide Feedback</h4>
+                  <h4 className="modal-title">Provide Feedback</h4>
                 </div>
-                <div class="modal-body">
-                  <div class="modal-body-content">
+                <div className="modal-body">
+                  <div className="modal-body-content">
                     <h2>Your Feedback Matters</h2>
                     <p>This will help us to improve our services</p>
                     <form>
-                      <div class="row">
-                        <div class="col-md-6 col-xs-12">
-                          <div class="form-group">
+                      <div className="row">
+                        <div className="col-md-6 col-xs-12">
+                          <div className="form-group">
                             <label for="">Name</label>
                             <input
                               type="text"
                               name="username"
-                              class="form-control "
+                              className="form-control "
                               placeholder="Name"
                             />
                           </div>
                         </div>
-                        <div class="col-md-6 col-xs-12">
-                          <div class="form-group">
+                        <div className="col-md-6 col-xs-12">
+                          <div className="form-group">
                             <label for="">Email</label>
                             <input
                               type="email"
                               name="password"
-                              class="form-control"
+                              className="form-control"
                               placeholder="Email"
                             />
                           </div>
                         </div>
-                        <div class="col-md-12 col-xs-12">
-                          <div class="form-group">
+                        <div className="col-md-12 col-xs-12">
+                          <div className="form-group">
                             <label for="">Your Rating</label>
-                            <div class="star-Rating-input star-rating">
-                              <span class="fa fa-star" data-rating="1"></span>
-                              <span class="fa fa-star" data-rating="2"></span>
-                              <span class="fa fa-star" data-rating="3"></span>
-                              <span class="fa fa-star" data-rating="4"></span>
-                              <span class="fa fa-star-o" data-rating="5"></span>
+                            <div className="star-Rating-input star-rating">
+                              <span
+                                className="fa fa-star"
+                                data-rating="1"
+                              ></span>
+                              <span
+                                className="fa fa-star"
+                                data-rating="2"
+                              ></span>
+                              <span
+                                className="fa fa-star"
+                                data-rating="3"
+                              ></span>
+                              <span
+                                className="fa fa-star"
+                                data-rating="4"
+                              ></span>
+                              <span
+                                className="fa fa-star-o"
+                                data-rating="5"
+                              ></span>
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-12 col-xs-12">
-                          <div class="form-group">
+                        <div className="col-md-12 col-xs-12">
+                          <div className="form-group">
                             <label for="">Write Feedback</label>
                             <textarea
-                              class="form-control"
+                              className="form-control"
                               name=""
                               id=""
                               cols="30"
@@ -1257,7 +989,7 @@ const AppartmentListingOwner = () => {
 
                       <button
                         type="submit"
-                        class="btn btn-primary btn-full-width"
+                        className="btn btn-primary btn-full-width"
                       >
                         Submit
                       </button>
