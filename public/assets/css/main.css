@@ -1750,7 +1750,7 @@ top: 130px;
 .dashboard-body-wrapper{
     padding: 0;
     position: relative;
-    z-index: 9999;
+    z-index: 10;
     top: -40px;
     margin-left: 25px;
     margin-right: 25px;
