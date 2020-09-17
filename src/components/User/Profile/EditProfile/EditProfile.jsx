@@ -13,9 +13,13 @@ const EditProfile = () => {
   } else {
     alert("Please Login");
   }
+
+  const [imageUrl, setImageUrl] = useState(
+    sessionStorage.getItem("userProfileImage")
+  );
+
   const [state, setstate] = useState({
     id: oldUserProfile.id,
-    image: oldUserProfile.image,
     first_name: "",
     last_name: "",
     phone: "",
@@ -40,7 +44,7 @@ const EditProfile = () => {
   const FormSubmit = (e) => {
     e.preventDefault();
     console.log("SUBMIT", state);
-    /*axios
+    axios
       .post("http://18.223.32.178:3000/user/update", state)
       .then((response) => {
         //console.log("Response", response.data);
@@ -48,7 +52,7 @@ const EditProfile = () => {
         history.push("/profileviews");
         window.location.reload();
         //alert("Profile updated successfully");
-      });*/
+      });
   };
   const uploadImage = (e) => {
     let formData = new FormData(); //formdata object
@@ -57,13 +61,10 @@ const EditProfile = () => {
     axios
       .post("http://18.223.32.178:3000/user/changeimage", formData)
       .then((response) => {
-        setstate((preVal) => {
-          return {
-            ...preVal,
-            image: response.data.image,
-          };
-        });
-        console.log("Response from upload", state);
+        setImageUrl(response.data.image);
+
+        sessionStorage.setItem("userProfileImage", response.data.image);
+        console.log("Response from upload", response.data.image);
       });
   };
   return (
@@ -299,8 +300,8 @@ const EditProfile = () => {
                                   <img
                                     id="imagePreview"
                                     src={
-                                      state.image != null
-                                        ? state.image
+                                      imageUrl != null
+                                        ? imageUrl
                                         : "https://www.iconfinder.com/data/icons/men-avatars/33/man_19-512.png"
                                     }
                                   ></img>
