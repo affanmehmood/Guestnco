@@ -36,8 +36,6 @@ const Main = () => (
       <Route path="/appartmententry" component={AppartmentEntryForm} />
       <Route path="/galleryuploader" component={GalleryUploader} />
       <Route path="/calendar" component={Calendar} />
-      <Route path="/deleteorderlist" component={Calendar} />
-      <Route path="/editorderlist" component={Calendar} />
       <Route path="/profileviews" component={ProfileViews} />
       <Route path="/editprofile" component={EditProfile} />
     </Switch>

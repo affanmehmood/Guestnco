@@ -40,7 +40,7 @@ const EditProfile = () => {
   const FormSubmit = (e) => {
     e.preventDefault();
     console.log("SUBMIT", state);
-    axios
+    /*axios
       .post("http://18.223.32.178:3000/user/update", state)
       .then((response) => {
         //console.log("Response", response.data);
@@ -48,7 +48,7 @@ const EditProfile = () => {
         history.push("/profileviews");
         window.location.reload();
         //alert("Profile updated successfully");
-      });
+      });*/
   };
   const uploadImage = (e) => {
     let formData = new FormData(); //formdata object
@@ -63,7 +63,7 @@ const EditProfile = () => {
             image: response.data.image,
           };
         });
-        console.log("Response from upload", response.data.image);
+        console.log("Response from upload", state);
       });
   };
   return (

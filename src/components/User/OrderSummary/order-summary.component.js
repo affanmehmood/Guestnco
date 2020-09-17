@@ -72,8 +72,10 @@ export default function Ordersumary() {
   });
 
   useEffect(() => {
+    var id = "";
+    if (userProfile) id = userProfile.id;
     axios
-      .get("http://18.223.32.178:3000/user/bookings/" + userProfile.id)
+      .get("http://18.223.32.178:3000/user/bookings/" + id)
       .then((response) => {
         const list = response.data.data[0].services;
         console.log("Data", response.data.data[0]);
