@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-import SearchBar from "../../Reusable/SearchBar";
-import Footer from "../../Reusable/Footer";
-import Header from "../../Reusable/header";
+import { createBrowserHistory } from "history";
+
+import SearchBar from "../../../Reusable/SearchBar";
+import Footer from "../../../Reusable/Footer";
+import Header from "../../../Reusable/header";
 
 import "./ProfileViews.css";
 const ProfileViews = () => {
+  const history = createBrowserHistory();
+  console.log(
+    "User Profile",
+    JSON.parse(sessionStorage.getItem("userProfileDetails"))
+  );
+  var userDetails = {};
+  if (sessionStorage.getItem("userProfileDetails") != null) {
+    userDetails = JSON.parse(sessionStorage.getItem("userProfileDetails"));
+  }
+  const [state, setstate] = useState(userDetails);
+
   return (
     <div>
       <div className="inner-page">
@@ -25,9 +38,18 @@ const ProfileViews = () => {
               alt="John"
             />
             <div className="main-text-div text-center">
-              <h1 style={{ margin: "5px" }}>John Doe</h1>
-              <p class="title">CEO & Founder, Example</p>
-              <p>Harvard University</p>
+              <h1 style={{ margin: "5px" }}>
+                {state.first_name != null
+                  ? state.first_name + " " + state.last_name
+                  : "Unknown"}
+              </h1>
+              <p class="title">
+                {state.country != null
+                  ? state.address + ", " + state.country + ", " + state.state
+                  : "Unknown"}
+              </p>
+              <p>{state.email != null ? state.email : "Unknown"}</p>
+              <p>{state.phone != null ? state.phone : "Unknown"}</p>
               <a style={{ margin: "5px" }} href="#">
                 <i class="fa fa-dribbble"></i>
               </a>
@@ -42,7 +64,9 @@ const ProfileViews = () => {
               </a>
             </div>
             <p>
-              <button>Contact</button>
+              <a className="editprofile" href="/editprofile">
+                Edit Profile
+              </a>
             </p>
           </div>
         </div>

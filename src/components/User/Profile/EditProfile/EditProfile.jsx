@@ -33,8 +33,9 @@ const EditProfile = () => {
   const FormSubmit = (e) => {
     e.preventDefault();
     axios.post("http://18.223.32.178:3000/user/update").then((response) => {
-      console.log("EDIT PROfo;e", response);
-      alert("Profile updated successfully");
+      history.push("/profileviews");
+      window.location.reload();
+      //alert("Profile updated successfully");
     });
   };
   return (

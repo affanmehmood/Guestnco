@@ -11,7 +11,7 @@ import Search from "../components/search.component";
 import Details2 from "../components/User/AppartmentDetails/Details2.component";
 import AppaertmentListingOwner from "../components/Owner/ApartmentListingOwner/AppartmentListingOwner";
 import DashboardOwner from "../components/Owner/Dashboard/Dashboard";
-import ProfileViews from "../components/User/ProfileViews/ProfileViews";
+import ProfileViews from "../components/User/Profile/ProfileViews/ProfileViews";
 import AppartmentEntryForm from "../components/Owner/AppartmentEntery/AppartmentEntryForm";
 import GalleryUploader from "../components/Owner/AppartmentEntery/GalleryUploader";
 import Calendar from "../components/Owner/Calender/Calender";
@@ -27,18 +27,18 @@ const Main = () => (
       <Route path="/ordersummary" component={Ordersumary} />
       <Route path="/orderlisting" component={Orderlisting} />
       <Route path="/checkout" component={Checkout} />
-      <Route path="/accesslisting" component={AccesslistingNew} />
+      <Route path="/listing-owner" component={AccesslistingNew} />
       <Route path="/listing" component={Listingpage} />
       <Route path="/search" component={Search} />
       <Route path="/details-2" component={Details2} />
-      <Route path="/listing-owner" component={AppaertmentListingOwner} />
+      <Route path="/accesslisting" component={AppaertmentListingOwner} />
       <Route path="/dashboard-owner" component={DashboardOwner} />
-      <Route path="/profileviews" component={ProfileViews} />
       <Route path="/appartmententry" component={AppartmentEntryForm} />
       <Route path="/galleryuploader" component={GalleryUploader} />
       <Route path="/calender" component={Calendar} />
       <Route path="/deleteorderlist" component={Calendar} />
       <Route path="/editorderlist" component={Calendar} />
+      <Route path="/profileviews" component={ProfileViews} />
       <Route path="/editprofile" component={EditProfile} />
     </Switch>
   </BrowserRouter>

@@ -18,9 +18,14 @@ const Header = (props) => {
       })
       .then((response) => {
         //alert(response.data);
-        console.log("RESSS", response.data);
+        console.log("RESSS", response.data.user);
+
         if (response.data.token) {
           sessionStorage.setItem("logintoken", response.data.token);
+          sessionStorage.setItem(
+            "userProfileDetails",
+            JSON.stringify(response.data.user)
+          );
         }
       });
   }

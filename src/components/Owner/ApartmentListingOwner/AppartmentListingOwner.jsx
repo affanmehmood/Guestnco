@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import axios from "axios";
 import { MDBDataTableV5 } from "mdbreact";
 import Header from "../../Reusable/header";
 
@@ -18,14 +19,8 @@ const AppartmentListingOwner = () => {
         },
       },
       {
-        label: "Checkin Date	",
-        field: "checkinDate",
-        sort: "asc",
-        width: 150,
-      },
-      {
-        label: "Checkout Date",
-        field: "checkoutDate",
+        label: "Available At	",
+        field: "availabaility_time",
         sort: "asc",
         width: 150,
       },
@@ -36,8 +31,32 @@ const AppartmentListingOwner = () => {
         width: 150,
       },
       {
-        label: "Status",
+        label: "Avalable",
         field: "status",
+        sort: "asc",
+        width: 150,
+      },
+      {
+        label: "Rent Fee",
+        field: "rent_fee",
+        sort: "asc",
+        width: 150,
+      },
+      {
+        label: "Rent Frequency",
+        field: "rent_frequency",
+        sort: "asc",
+        width: 150,
+      },
+      {
+        label: "Furnished",
+        field: "is_furnished",
+        sort: "asc",
+        width: 150,
+      },
+      {
+        label: "Feadturd",
+        field: "is_featured",
         sort: "asc",
         width: 150,
       },
@@ -48,206 +67,83 @@ const AppartmentListingOwner = () => {
         width: 150,
       },
     ],
-    rows: [
-      {
-        name: "Appartment Name",
-        checkinDate: "23/8//2020",
-        checkoutDate: "23/8//2020",
-        location: "Pakistan",
-        status: "Available",
-        action: (
-          <div className="more-nav">
-            <div className="dropdown">
-              <button
-                className="more"
-                type="button"
-                id="dropdownMenu1"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="true"
-              >
-                <span className="fa fa-ellipsis-h"></span>
-              </button>
-              <ul
-                className="dropdown-menu sub-dropdown"
-                aria-labelledby="dLabel"
-              >
-                <li>
-                  <a
-                    href="#"
-                    data-toggle="modal"
-                    data-target="#loyaltyreward-popup"
-                  >
-                    Appartment Occupance
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    data-toggle="modal"
-                    data-target="#providefeeback-popup"
-                  >
-                    Booking Calendar
-                  </a>
-                </li>
-                <li>
-                  <a href="services">Appartment Inventory</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        ),
-      },
-      {
-        name: "Appartment Name",
-        checkinDate: "23/8//2020",
-        checkoutDate: "23/8//2020",
-        location: "Pakistan",
-        status: "Available",
-        action: (
-          <div className="more-nav">
-            <div className="dropdown">
-              <button
-                className="more"
-                type="button"
-                id="dropdownMenu1"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="true"
-              >
-                <span className="fa fa-ellipsis-h"></span>
-              </button>
-              <ul
-                className="dropdown-menu sub-dropdown"
-                aria-labelledby="dLabel"
-              >
-                <li>
-                  <a
-                    href="#"
-                    data-toggle="modal"
-                    data-target="#loyaltyreward-popup"
-                  >
-                    Appartment Occupance
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    data-toggle="modal"
-                    data-target="#providefeeback-popup"
-                  >
-                    Booking Calendar
-                  </a>
-                </li>
-                <li>
-                  <a href="services">Appartment Inventory</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        ),
-      },
-      {
-        name: "Appartment Name",
-        checkinDate: "23/8//2020",
-        checkoutDate: "23/8//2020",
-        location: "Pakistan",
-        status: "Available",
-        action: (
-          <div className="more-nav">
-            <div className="dropdown">
-              <button
-                className="more"
-                type="button"
-                id="dropdownMenu1"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="true"
-              >
-                <span className="fa fa-ellipsis-h"></span>
-              </button>
-              <ul
-                className="dropdown-menu sub-dropdown"
-                aria-labelledby="dLabel"
-              >
-                <li>
-                  <a
-                    href="#"
-                    data-toggle="modal"
-                    data-target="#loyaltyreward-popup"
-                  >
-                    Appartment Occupance
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    data-toggle="modal"
-                    data-target="#providefeeback-popup"
-                  >
-                    Booking Calendar
-                  </a>
-                </li>
-                <li>
-                  <a href="services">Appartment Inventory</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        ),
-      },
-      {
-        name: "Appartment Name",
-        checkinDate: "23/8//2020",
-        checkoutDate: "23/8//2020",
-        location: "Pakistan",
-        status: "Available",
-        action: (
-          <div className="more-nav">
-            <div className="dropdown">
-              <button
-                className="more"
-                type="button"
-                id="dropdownMenu1"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="true"
-              >
-                <span className="fa fa-ellipsis-h"></span>
-              </button>
-              <ul
-                className="dropdown-menu sub-dropdown"
-                aria-labelledby="dLabel"
-              >
-                <li>
-                  <a
-                    href="#"
-                    data-toggle="modal"
-                    data-target="#loyaltyreward-popup"
-                  >
-                    Appartment Occupance
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    data-toggle="modal"
-                    data-target="#providefeeback-popup"
-                  >
-                    Booking Calendar
-                  </a>
-                </li>
-                <li>
-                  <a href="services">Appartment Inventory</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        ),
-      },
-    ],
+    rows: [],
   });
+  useEffect(() => {
+    axios
+      .get(`http://18.223.32.178:3000/user/getapartmentlist`)
+      .then((response) => {
+        const list = response.data.data;
+        console.log("LIST", list);
+        const onk = {
+          columns: datatable.columns,
+          rows: [],
+        };
+        list.map((val, index) => {
+          const obj = {
+            name: val.apartment_name,
+            availabaility_time: val.availabaility_time,
+            location: val.adress1 + ", " + val.address2,
+            status: val.is_available ? "Yes" : "No",
+            rent_frequency: val.rent_frequency,
+            rent_fee: val.rent_fee,
+            is_furnished: val.is_furnished ? "Yes" : "No",
+            is_featured: val.is_featured ? "Yes" : "No",
+            action: (
+              <div className="more-nav">
+                <div className="dropdown">
+                  <button
+                    className="more"
+                    type="button"
+                    id="dropdownMenu1"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="true"
+                  >
+                    <span className="fa fa-ellipsis-h"></span>
+                  </button>
+                  <ul
+                    className="dropdown-menu sub-dropdown"
+                    aria-labelledby="dLabel"
+                  >
+                    <li>
+                      <a
+                        href="#"
+                        data-toggle="modal"
+                        data-target="#loyaltyreward-popup"
+                      >
+                        Appartment Occupance
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        data-toggle="modal"
+                        data-target="#providefeeback-popup"
+                      >
+                        Booking Calendar
+                      </a>
+                    </li>
+                    <li>
+                      <a href="services">Appartment Inventory</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            ),
+          };
+          onk.rows.push(obj);
+        });
 
+        setDatatable(onk);
+      });
+  }, datatable.columns);
+  function deleteEntry(id) {
+    console.log("DELETED ", id);
+  }
+  function editEntry(id) {
+    console.log("EDITED ", id);
+  }
   return (
     <div>
       <div className="inner-page">
@@ -377,13 +273,12 @@ const AppartmentListingOwner = () => {
                               <MDBDataTableV5
                                 className="mdbtable"
                                 hover
-                                scrollX
-                                entriesOptions={[10, 25, 50, 100]}
-                                entries={10}
+                                entriesOptions={[5, 20, 25, 50, 100]}
+                                entries={25}
                                 pagesAmount={4}
+                                searchTop
                                 pagingTop={true}
                                 data={datatable}
-                                searchTop
                                 fullPagination
                                 searchBottom={false}
                               />
