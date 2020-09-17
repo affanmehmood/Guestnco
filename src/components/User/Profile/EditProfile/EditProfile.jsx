@@ -7,9 +7,15 @@ import { createBrowserHistory } from "history";
 
 const EditProfile = () => {
   const history = createBrowserHistory();
-
+  var oldUserProfile = {};
+  if (sessionStorage.getItem("userProfileDetails") != null) {
+    oldUserProfile = JSON.parse(sessionStorage.getItem("userProfileDetails"));
+  } else {
+    alert("Please Login");
+  }
   const [state, setstate] = useState({
-    id: 2,
+    id: oldUserProfile.id,
+    image: oldUserProfile.image,
     first_name: "",
     last_name: "",
     phone: "",
@@ -21,6 +27,7 @@ const EditProfile = () => {
     address: "",
     company_name: "",
   });
+
   const InputEvent = (event) => {
     const { name, value } = event.target;
     setstate((preVal) => {
@@ -32,11 +39,32 @@ const EditProfile = () => {
   };
   const FormSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://18.223.32.178:3000/user/update").then((response) => {
-      history.push("/profileviews");
-      window.location.reload();
-      //alert("Profile updated successfully");
-    });
+    console.log("SUBMIT", state);
+    axios
+      .post("http://18.223.32.178:3000/user/update", state)
+      .then((response) => {
+        //console.log("Response", response.data);
+        sessionStorage.setItem("userProfileDetails", JSON.stringify(state));
+        history.push("/profileviews");
+        window.location.reload();
+        //alert("Profile updated successfully");
+      });
+  };
+  const uploadImage = (e) => {
+    let formData = new FormData(); //formdata object
+    formData.append("id", oldUserProfile.id); //append the values with key, value pair
+    formData.append("image", e.target.files[0]);
+    axios
+      .post("http://18.223.32.178:3000/user/changeimage", formData)
+      .then((response) => {
+        setstate((preVal) => {
+          return {
+            ...preVal,
+            image: response.data.image,
+          };
+        });
+        console.log("Response from upload", response.data.image);
+      });
   };
   return (
     <div>
@@ -262,6 +290,7 @@ const EditProfile = () => {
                                   <input
                                     type="file"
                                     id="imageUpload"
+                                    onChange={uploadImage}
                                     accept=".png, .jpg, .jpeg"
                                   />
                                   <label for="imageUpload"></label>
@@ -269,7 +298,11 @@ const EditProfile = () => {
                                 <div>
                                   <img
                                     id="imagePreview"
-                                    src="https://www.iconfinder.com/data/icons/men-avatars/33/man_19-512.png"
+                                    src={
+                                      state.image != null
+                                        ? state.image
+                                        : "https://www.iconfinder.com/data/icons/men-avatars/33/man_19-512.png"
+                                    }
                                   ></img>
                                 </div>
                               </div>

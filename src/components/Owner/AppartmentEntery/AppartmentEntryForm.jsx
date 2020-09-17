@@ -71,7 +71,7 @@ const AppartmentEntryForm = () => {
         history.push("/galleryuploader");
       });
 
-    console.log(state);
+    console.log("STATE ", state);
   }
   return (
     <div>

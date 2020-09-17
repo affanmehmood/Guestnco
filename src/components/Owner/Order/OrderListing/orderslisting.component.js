@@ -68,12 +68,37 @@ export default function Orderlisting() {
         rows: [],
       };
       list.map((val, index) => {
+        const datein = new Date(val.checkin_date);
+        const dateout = new Date(val.checkout_date);
         const obj = {
           orderno: val.id,
           apt_name: val.apartment_name,
           user_name: val.first_name + " " + val.last_name,
-          checkin: val.checkin_date,
-          checkout: val.checkout_date,
+          checkin:
+            datein.getFullYear() +
+            "/" +
+            (datein.getMonth() + 1) +
+            "/" +
+            datein.getDate() +
+            " " +
+            datein.getHours() +
+            ":" +
+            datein.getMinutes() +
+            ":" +
+            datein.getSeconds(),
+          checkout:
+            dateout.getFullYear() +
+            "/" +
+            (dateout.getMonth() + 1) +
+            "/" +
+            dateout.getDate() +
+            " " +
+            dateout.getHours() +
+            ":" +
+            dateout.getMinutes() +
+            ":" +
+            dateout.getSeconds(),
+
           amount: "Unknown",
 
           action: (

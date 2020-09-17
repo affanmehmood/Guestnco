@@ -3,8 +3,10 @@ import logo from "../../images/logo.png";
 import whitelogo from "../../images/white-logo.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { createBrowserHistory } from "history";
 
 const Header = (props) => {
+  const history = createBrowserHistory();
   const [state, setstate] = useState({
     email: "",
     password: "",
@@ -26,6 +28,8 @@ const Header = (props) => {
             "userProfileDetails",
             JSON.stringify(response.data.user)
           );
+          history.push("/profileviews");
+          window.location.reload();
         }
       });
   }

@@ -18,7 +18,7 @@ const ProfileViews = () => {
     userDetails = JSON.parse(sessionStorage.getItem("userProfileDetails"));
   }
   const [state, setstate] = useState(userDetails);
-
+  console.log("User Details", userDetails);
   return (
     <div>
       <div className="inner-page">
@@ -33,10 +33,7 @@ const ProfileViews = () => {
           />
 
           <div style={{ width: "30%" }} class="profile-card">
-            <img
-              src="https://www.w3schools.com/w3images/team2.jpg"
-              alt="John"
-            />
+            <img src={state.image} alt="John" />
             <div className="main-text-div text-center">
               <h1 style={{ margin: "5px" }}>
                 {state.first_name != null
@@ -44,11 +41,14 @@ const ProfileViews = () => {
                   : "Unknown"}
               </h1>
               <p class="title">
+                {state.email != null ? state.email : "Unknown"}
+              </p>
+              <p>
                 {state.country != null
                   ? state.address + ", " + state.country + ", " + state.state
                   : "Unknown"}
               </p>
-              <p>{state.email != null ? state.email : "Unknown"}</p>
+
               <p>{state.phone != null ? state.phone : "Unknown"}</p>
               <a style={{ margin: "5px" }} href="#">
                 <i class="fa fa-dribbble"></i>

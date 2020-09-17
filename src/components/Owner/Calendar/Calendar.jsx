@@ -35,7 +35,9 @@ const Calendar = () => {
         <h1>Events Calendar</h1>
       </div>
       <div className="text-center" style={{ marginTop: "20px" }}>
-        <h1>{aptName != null ? aptName : "Unknown"}</h1>
+        <h1 style={{ color: "orange" }}>
+          {aptName != null ? aptName : "Unknown"}
+        </h1>
       </div>
       <div
         className="col-xs-12 col-sm-12 col-md-12 col-lg-12"
