@@ -154,7 +154,7 @@ section.top-banner-wrap {
 .navi>.main-menu>li>a,
     .account-loggedin,
     .login-register a {
-        font-size: 14px;
+        font-size: 13px;
         line-height: 80px;
         font-weight: 700;
         text-transform: none;
@@ -1170,6 +1170,16 @@ section.top-banner-wrap {
     font-weight: 500;;
     border: 0;
 }
+.common-table tr td .btn-sm {
+    margin-left: 10px;
+    background: #ff0074;
+    color: #fff;
+    border: 0;
+}
+table.mdb-dataTable thead th, table thead.mdb-dataTable-head th {
+ 
+    font-size: 14px;
+}
 .table-striped>tbody>tr:nth-child(odd)>td, .table-striped>tbody>tr:nth-child(odd)>th {
     background-color: #fff;
 }
@@ -1489,15 +1499,39 @@ section.top-banner-wrap {
 
 }
 
+.more-nav ul {
+    min-width: 200px;;
+}
+.more-nav ul li{
+padding: 3px 8px;;
+transition: all ease 0.5s;
+-webkit-transition: all ease 0.5s;
+-moz-transition: all ease 0.5s;
+-ms-transition: all ease 0.5s;
+-o-transition: all ease 0.5s;
+}
+.more-nav ul li:hover{
+    background: #ff006a;
+    transition: all ease 0.5s;
+    -webkit-transition: all ease 0.5s;
+    -moz-transition: all ease 0.5s;
+    -ms-transition: all ease 0.5s;
+    -o-transition: all ease 0.5s;
+}
+.more-nav ul li:hover button{
+    color: #fff;
+}
 
 .more-nav button{
     background: transparent;
     border: none;
-    font-size: 25px;
+    font-size: 14px;
     padding: 0;
-    line-height: 22px;
+    line-height: 1;
     position: relative;
-    top: 2px;
+    top: 0;
+    opacity: 1 !important;
+    margin-top: 0 !important;
 }
 
 .more-nav button span{
@@ -1862,3 +1896,47 @@ top: 130px;
   background-repeat: no-repeat;
   background-position: center;
 } 
+.search-budget-js input[type="number"]{
+    padding: 0 0 0 40px;
+}
+
+.forgot-password-text a {
+    color: #3b4249;
+    font-size: 14px;
+}
+.modal-login-form .checkbox label {
+    padding: 0 0 0 20px;
+}
+.modal-login-form p:last-of-type a {
+    color: #ff0074;
+    font-size: 14px;
+}
+
+.profile-card{
+    background: #f8f8f8;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: -2px 4px 15px 0px #0000002b;
+    margin-top: 30px;
+}
+
+.profile-card img{
+    display: block;
+    margin: 15px auto;
+    border-radius: 50%;
+    border: solid 2px #ff0074;
+}
+
+.profile-card  .editprofile{
+    display: block;
+    max-width: 170px;
+    margin: 15px auto 0;
+    line-height: 36px;
+    border-radius: 12px;
+    font-size: 15px;
+    background-color: #ff0074;
+}
+
+.profile-card a i{
+    color: #ff0074;
+}

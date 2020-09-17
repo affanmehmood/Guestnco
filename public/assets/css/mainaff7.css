@@ -3533,6 +3533,8 @@ button {
 
 .main-content-area {
     margin: 20px 0;
+    padding: 30px 10px;
+
 }
 
 /* block layout
@@ -7860,7 +7862,7 @@ button {
 
 .header-comp-right {
     white-space: nowrap;
-    padding-left: 20px;
+    padding-left: 10px;
 }
 
 /* header header type 1 style
@@ -7872,10 +7874,12 @@ button {
     list-style: none;
     overflow: hidden;
 }
-
+.navi>.main-menu{
+    padding-left: 10px;;
+}
 .navi>.main-menu>li>a,
 .listing-navi>.main-menu>li>a {
-    padding: 0 15px;
+    padding: 0 9px;
     cursor: pointer;
 }
 
