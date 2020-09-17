@@ -568,6 +568,8 @@ section.top-banner-wrap {
         background-color: #ffffff;
         border-bottom: 1px solid #d8dce1;
         overflow: hidden;
+        position: relative;
+        z-index: 1;
     }
     .home .header-nav{
         background: transparent;
@@ -1717,7 +1719,7 @@ top: 130px;
     background: #f8f8f8;
     flex: 320px;
     height: calc(100vh);
-    margin-top: -60px;
+    margin-top: -69px;
     position: relative;
 }
 
@@ -1925,6 +1927,8 @@ top: 130px;
     margin: 15px auto;
     border-radius: 50%;
     border: solid 2px #ff0074;
+    width: 150px;
+    height: 150px;
 }
 
 .profile-card  .editprofile{
