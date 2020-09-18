@@ -1,6 +1,13 @@
 import React from "react";
+import Datetime from "react-datetime";
 
-const SearchBar = () => {
+const SearchBar = (props) => {
+  const startDateChange = (data) => {
+    props.setSearchQuery(data.format());
+  };
+  const endDateChange = (data) => {
+    props.setSearchQuery(data.format());
+  };
   return (
     <div id="guesco-main-search" className="main-search " data-sticky="0">
       <div className="container-fluid">
@@ -28,24 +35,10 @@ const SearchBar = () => {
             </div>
             <div className="search-date-range main-search-date-range-js">
               <div className="search-date-range-arrive">
-                <input
-                  type="name"
-                  autocomplete="off"
-                  name="arrive"
-                  value=""
-                  className="form-control"
-                  placeholder="Check In"
-                />
+                <Datetime onChange={startDateChange} />
               </div>
               <div className="search-date-range-depart">
-                <input
-                  type="name"
-                  autocomplete="off"
-                  name="depart"
-                  value=""
-                  className="form-control"
-                  placeholder="Check Out"
-                />
+                <Datetime onChange={endDateChange} />
               </div>
             </div>
 
