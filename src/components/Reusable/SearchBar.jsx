@@ -1,24 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import Datetime from "react-datetime";
 
 const SearchBar = (props) => {
+  const [state, setState] = useState({
+    city: "",
+    budget: "",
+    arrival: "",
+    depart: "",
+  });
+  const InputEvent = (event) => {
+    const { name, value } = event.target;
+    setState((preVal) => {
+      return {
+        ...preVal,
+        [name]: value,
+      };
+    });
+  };
   const startDateChange = (data) => {
-    props.setSearchQuery(data.format());
+    setState((preVal) => {
+      return {
+        ...preVal,
+        arrival: data.format(),
+      };
+    });
   };
   const endDateChange = (data) => {
-    props.setSearchQuery(data.format());
+    setState((preVal) => {
+      return {
+        ...preVal,
+        depart: data.format(),
+      };
+    });
+  };
+  const SearchNow = (e) => {
+    e.preventDefault();
+    props.setSearchQuery(state);
   };
   return (
     <div id="guesco-main-search" className="main-search " data-sticky="0">
       <div className="container-fluid">
-        <form className="clearfix">
+        <form onSubmit={SearchNow} className="clearfix">
           <div id="search-desktop" className="search-wrap hidden-sm hidden-xs">
             <div className="search-destination">
               <input
                 type="name"
-                name="location_search"
+                name="city"
+                onChange={InputEvent}
                 autocomplete="off"
-                value=""
                 className="form-control input-search"
                 placeholder="City"
               />
@@ -26,9 +55,9 @@ const SearchBar = (props) => {
             <div className="search-guests search-budget-js">
               <input
                 type="name"
-                name=""
+                name="budget"
+                onChange={InputEvent}
                 autocomplete="off"
-                value=""
                 className="form-control"
                 placeholder="Budget"
               />
@@ -52,7 +81,7 @@ const SearchBar = (props) => {
             <div className="search-destination">
               <input
                 value=""
-                type="name"
+                type="submit name"
                 className="form-control"
                 placeholder="Where to go?"
                 onfocus="blur();"
