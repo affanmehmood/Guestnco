@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import Datetime from "react-datetime";
+
+const moment = require("moment");
 
 const InstantBooking = (props) => {
   const history = useHistory();
@@ -20,6 +23,22 @@ const InstantBooking = (props) => {
       return {
         ...preVal,
         [name]: value,
+      };
+    });
+  };
+  const startDateChange = (date) => {
+    setInstantBookingState((preVal) => {
+      return {
+        ...preVal,
+        arrival: moment.isMoment(date) ? date.format() : date,
+      };
+    });
+  };
+  const endDateChange = (date) => {
+    setInstantBookingState((preVal) => {
+      return {
+        ...preVal,
+        depart: moment.isMoment(date) ? date.format() : date,
       };
     });
   };
@@ -136,29 +155,14 @@ const InstantBooking = (props) => {
               <form class="guesco_notification block-body-sidebar">
                 <div id="single-listing-date-range" class="search-date-range">
                   <div class="search-date-range-arrive">
-                    <input
-                      required
-                      type="name"
-                      className="form-control"
-                      id="exampleFormControlInput1"
-                      name="arrival"
-                      value={instantBookingState.arrival}
-                      onChange={InputEvent}
-                      placeholder="Arrive"
-                    />
+                    <div className="search-date-range-arrive">
+                      <Datetime onChange={startDateChange} />
+                    </div>
                   </div>
                   <div class="search-date-range-depart">
-                    <input
-                      required
-                      type="name"
-                      className="form-control"
-                      id="exampleFormControlInput1"
-                      name="depart"
-                      value={instantBookingState.depart}
-                      onChange={InputEvent}
-                      class="form-control check_out_date"
-                      placeholder="Depart"
-                    />
+                    <div className="search-date-range-depart">
+                      <Datetime onChange={endDateChange} />
+                    </div>
                   </div>
                 </div>
                 <div class="search-guests search-budget-js">

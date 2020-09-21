@@ -1,13 +1,13 @@
 import React from "react";
 
 import AppartmentList from "./AppartmentList";
-import SearchBar from "../Reusable/SearchBar";
+import SearchBar from "../../Reusable/SearchBar";
 import Featured from "./Featured";
 import Explore from "./Explore";
 import LatestReviews from "./LatestReviews";
 import LatestPosts from "./LatestPosts";
-import Footer from "../Reusable/Footer";
-import Header from "../Reusable/header";
+import Footer from "../../Reusable/Footer";
+import Header from "../../Reusable/header";
 
 const Listingpage = () => {
   return (

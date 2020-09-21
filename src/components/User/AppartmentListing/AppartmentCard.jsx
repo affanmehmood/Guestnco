@@ -51,6 +51,7 @@ const AppartmentCard = (props) => {
         return "Excellet";
     }
   }
+
   const history = useHistory();
   function GoToDetails() {
     sessionStorage.setItem("idFromAptCard", id);

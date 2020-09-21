@@ -104,7 +104,6 @@ export default function Orderlisting() {
           action: (
             <div>
               <button
-                key={val.id}
                 onClick={() => editEntry(val.id)}
                 href="#"
                 className="btn-sm"
@@ -112,7 +111,6 @@ export default function Orderlisting() {
                 Edit
               </button>
               <button
-                key={val.id}
                 onClick={() => deleteEntry(val.id)}
                 href="#"
                 className="btn-sm"

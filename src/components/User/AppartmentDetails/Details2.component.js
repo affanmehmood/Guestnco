@@ -5,24 +5,10 @@ import axios from "axios";
 import Header from "../../Reusable/header";
 
 import "./Details2.css";
-import AppartmentCard from "../../AppartmentListing/AppartmentCard";
+import AppartmentCard from "../AppartmentListing/AppartmentCard";
 import Footer from "../../Reusable/Footer";
 import InstantBooking from "./InstantBooking";
 import InPageNav from "./InPageNav";
-
-import image1 from "../../gallery/image1.jpg";
-import image2 from "../../gallery/2.jpg";
-import image3 from "../../gallery/3.jpg";
-import image4 from "../../gallery/4.jpg";
-import image5 from "../../gallery/5.jpg";
-import image6 from "../../gallery/6.jpg";
-import image7 from "../../gallery/7.jpg";
-import image8 from "../../gallery/8.jpg";
-import image9 from "../../gallery/9.jpg";
-import image10 from "../../gallery/10.jpg";
-import image11 from "../../gallery/11.jpg";
-import image12 from "../../gallery/12.jpg";
-import image13 from "../../gallery/13.jpg";
 
 export default function Details() {
   // The main object
@@ -264,7 +250,6 @@ export default function Details() {
         var appartmentGallery = [];
         for (var i = 0; i < d.imagaes.length; i++) {
           gallery.push(url + d.imagaes[i]);
-
           appartmentGallery.push(url + d.imagaes[i]);
         }
         setAppartmentDetails({

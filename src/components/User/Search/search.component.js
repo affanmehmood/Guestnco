@@ -1,20 +1,56 @@
 import React, { useState, useEffect } from "react";
-import propertyimage1 from "../images/listing-image-2.jpg";
-import person from "../images/person.jpg";
-import sidebarimage from "../images/sidebar-image-1.jpg";
-import reviewimage from "../images/review-image.png";
-import blogimage from "../images/blog-image.jpg";
-import los from "../images/los.png";
+import axios from "axios";
 
-import Header from "./Reusable/header";
-import Footer from "./Reusable/Footer";
-import SearchBar from "./Reusable/SearchBar";
+import sidebarimage from "../../../images/sidebar-image-1.jpg";
+import reviewimage from "../../../images/review-image.png";
+import blogimage from "../../../images/blog-image.jpg";
+import los from "../../../images/los.png";
+
+import Header from "../../Reusable/header";
+import Footer from "../../Reusable/Footer";
+import SearchBar from "../../Reusable/SearchBar";
+import AppartmentCard from "../AppartmentListing/AppartmentCard";
 
 import { Link } from "react-router-dom";
 
 const Search = () => {
+  const [appartmentList, setAppartmentList] = useState([]);
   const getSearchQuery = (query) => {
     console.log("Search query", query);
+    axios
+      .get(
+        `http://18.223.32.178:3000/user/getapartmentlist?search=&city=${query.city}&checkin=${query.arrival}&budget=${query.budget}`
+      )
+      .then((res) => {
+        console.log("DATA", res.data.data);
+        const d = res.data.data;
+
+        console.log("D", d.length);
+        var list = [];
+        for (var i = 0; i < d.length; i++) {
+          list.push({
+            id: d[i].id,
+            featured: d[i].is_featured,
+            imageUrl: "http://18.223.32.178:3000/" + d[i].images[i],
+            price: d[i].rent_fee,
+            adminImageUrl:
+              "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
+            name: d[i].apartment_name,
+            address: d[i].adress1 + " " + d[i].address2,
+            noRooms: d[i].bedrooms,
+            noBaths: d[i].bathrooms,
+            noGuests: 2,
+            type: d[i].apartment_type,
+            stars: d[i],
+            hostName: "Adnan Javed",
+          });
+        }
+
+        setAppartmentList(list);
+      })
+      .then(() => {
+        console.log("APP NAME", appartmentList.length);
+      });
   };
   return (
     <div>
@@ -82,283 +118,28 @@ const Search = () => {
                 </div>
                 <div
                   id="listings_module_section"
-                  className="listing-wrap item-grid-view"
+                  className="listing-wrap item-list-view"
                 >
                   <div className="row">
-                    <div className="col-md-6  item-wrap infobox_trigger guesco-matchHeight">
-                      <div className="media property-item">
-                        <div className="media-left">
-                          <div className="item-media item-media-thumb">
-                            <span className="label-wrap top-left">
-                              <span className="label label-success label-featured">
-                                Featured
-                              </span>
-                            </span>
-                            <Link className="hover-effect" to="#">
-                              <img
-                                width="450"
-                                height="300"
-                                src={propertyimage1}
-                                className="img-responsive"
-                                alt=""
-                                loading="lazy"
-                              />{" "}
-                            </Link>
-                            <div className="item-media-price">
-                              <span className="item-price">
-                                <sup>AED </sup>65<sub>/night</sub>
-                              </span>
-                            </div>
-                            <div className="item-user-image">
-                              <img
-                                width="36"
-                                height="36"
-                                src={person}
-                                className="img-responsive img-circle"
-                                alt=""
-                                loading="lazy"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                        <div className="media-body item-body clearfix">
-                          <div className="item-title-head table-block">
-                            <div className="title-head-left">
-                              <h2 className="title">
-                                <Link to="#">Affordable Urban Room</Link>
-                              </h2>
-                              <address className="item-address">
-                                398 Pete Pascale Pl, New York, NY 10029
-                              </address>
-                            </div>
-                          </div>
-                          <ul className="item-amenities">
-                            <li>
-                              <i className="fa fa-bed"></i>{" "}
-                              <span className="total-beds">1</span>{" "}
-                              <span className="item-label">Bedrooms</span>
-                            </li>
-                            <li>
-                              <i className="fa fa-shower"></i>{" "}
-                              <span className="total-baths">1</span>{" "}
-                              <span className="item-label">Baths</span>
-                            </li>
-                            <li>
-                              <i className="fa fa-user"></i>{" "}
-                              <span className="total-guests">2</span>{" "}
-                              <span className="item-label">Guests</span>
-                            </li>
-                            <li className="item-type">Bed &amp; Breakfast</li>
-                          </ul>
-                          <div className="item-user-image list-item-hidden">
-                            <img
-                              width="36"
-                              height="36"
-                              src={person}
-                              className="img-responsive img-circle"
-                              alt=""
-                              loading="lazy"
-                            />{" "}
-                            <span className="item-user-info">
-                              Hosted by Andrew Garcia
-                            </span>
-                          </div>
-                          <div className="item-footer">
-                            <div className="footer-right">
-                              <div className="item-tools">
-                                <div className="btn-group dropup">
-                                  <button
-                                    className="btn-item-tools dropdown-toggle"
-                                    type="button"
-                                    data-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                  >
-                                    <i
-                                      className="fa fa-ellipsis-v"
-                                      aria-hidden="true"
-                                    ></i>
-                                  </button>
-                                  <ul className="dropdown-menu">
-                                    <li>
-                                      <Link
-                                        className="guesco_compare compare-271"
-                                        to="#"
-                                        data-listing_id="271"
-                                      >
-                                        Compare
-                                      </Link>
-                                    </li>
-                                    <li>
-                                      <Link
-                                        to="#"
-                                        className="add_fav"
-                                        data-listid="271"
-                                      >
-                                        Add to Favorite{" "}
-                                      </Link>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="footer-left">
-                              <div className="stars">
-                                <ul className="list-inline rating">
-                                  <li className="fa fa-star"></li>
-                                  <li className="fa fa-star"></li>
-                                  <li className="fa fa-star"></li>
-                                  <li className="fa fa-star"></li>
-                                  <li className="fa fa-star"></li>
-                                  <li>
-                                    <span className="star-text-right">
-                                      Excellent
-                                    </span>
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-6 item-wrap infobox_trigger guesco-matchHeight">
-                      <div className="media property-item">
-                        <div className="media-left">
-                          <div className="item-media item-media-thumb">
-                            <span className="label-wrap top-left">
-                              <span className="label label-success label-featured">
-                                Featured
-                              </span>
-                            </span>
-                            <Link className="hover-effect" to="#">
-                              <img
-                                width="450"
-                                height="300"
-                                src={propertyimage1}
-                                className="img-responsive"
-                                alt=""
-                                loading="lazy"
-                              />{" "}
-                            </Link>
-                            <div className="item-media-price">
-                              <span className="item-price">
-                                <sup>AED </sup>65<sub>/night</sub>
-                              </span>
-                            </div>
-                            <div className="item-user-image">
-                              <img
-                                width="36"
-                                height="36"
-                                src={person}
-                                className="img-responsive img-circle"
-                                alt=""
-                                loading="lazy"
-                              />{" "}
-                            </div>
-                          </div>
-                        </div>
-                        <div className="media-body item-body clearfix">
-                          <div className="item-title-head table-block">
-                            <div className="title-head-left">
-                              <h2 className="title">
-                                <Link to="#">Affordable Urban Room</Link>
-                              </h2>
-                              <address className="item-address">
-                                398 Pete Pascale Pl, New York, NY 10029
-                              </address>
-                            </div>
-                          </div>
-                          <ul className="item-amenities">
-                            <li>
-                              <i className="fa fa-bed"></i>{" "}
-                              <span className="total-beds">1</span>{" "}
-                              <span className="item-label">Bedrooms</span>
-                            </li>
-                            <li>
-                              <i className="fa fa-shower"></i>{" "}
-                              <span className="total-baths">1</span>{" "}
-                              <span className="item-label">Baths</span>
-                            </li>
-                            <li>
-                              <i className="fa fa-user"></i>{" "}
-                              <span className="total-guests">2</span>{" "}
-                              <span className="item-label">Guests</span>
-                            </li>
-                            <li className="item-type">Bed &amp; Breakfast</li>
-                          </ul>
-                          <div className="item-user-image list-item-hidden">
-                            <img
-                              width="36"
-                              height="36"
-                              src={person}
-                              className="img-responsive img-circle"
-                              alt=""
-                              loading="lazy"
-                            />{" "}
-                            <span className="item-user-info">
-                              Hosted by Andrew Garcia
-                            </span>
-                          </div>
-                          <div className="item-footer">
-                            <div className="footer-right">
-                              <div className="item-tools">
-                                <div className="btn-group dropup">
-                                  <button
-                                    className="btn-item-tools dropdown-toggle"
-                                    type="button"
-                                    data-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                  >
-                                    <i
-                                      className="fa fa-ellipsis-v"
-                                      aria-hidden="true"
-                                    ></i>
-                                  </button>
-                                  <ul className="dropdown-menu">
-                                    <li>
-                                      <Link
-                                        className="guesco_compare compare-271"
-                                        to="#"
-                                        data-listing_id="271"
-                                      >
-                                        Compare
-                                      </Link>
-                                    </li>
-                                    <li>
-                                      <Link
-                                        to="#"
-                                        className="add_fav"
-                                        data-listid="271"
-                                      >
-                                        Add to Favorite{" "}
-                                      </Link>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="footer-left">
-                              <div className="stars">
-                                <ul className="list-inline rating">
-                                  <li className="fa fa-star"></li>
-                                  <li className="fa fa-star"></li>
-                                  <li className="fa fa-star"></li>
-                                  <li className="fa fa-star"></li>
-                                  <li className="fa fa-star"></li>
-                                  <li>
-                                    <span className="star-text-right">
-                                      Excellent
-                                    </span>
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    {appartmentList.map((val, ind) => {
+                      return (
+                        <AppartmentCard
+                          featured={val.featured}
+                          imageUrl={val.imageUrl}
+                          price={val.price}
+                          adminImageUrl={val.adminImageUrl}
+                          name={val.name}
+                          address={val.address}
+                          noRooms={val.noRooms}
+                          noBaths={val.noBaths}
+                          noGuests={val.noGuests}
+                          type={val.type}
+                          stars={val.stars}
+                          hostName={val.hostName}
+                          id={val.id}
+                        />
+                      );
+                    })}
                   </div>
                   <div className="guesco-loadmore loadmore text-center">
                     <Link to="#" className="btn btn-primary btn-long">

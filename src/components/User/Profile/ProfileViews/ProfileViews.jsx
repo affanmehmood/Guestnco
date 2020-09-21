@@ -20,11 +20,9 @@ const ProfileViews = () => {
   const [state, setstate] = useState(userDetails);
   console.log("User Details", userDetails);
 
-  var imageUrl = "";
-  if (sessionStorage.getItem("userProfileImage") != null) {
-    imageUrl = sessionStorage.getItem("userProfileImage");
-  }
-  const [imageurl, setImageUrl] = useState(imageUrl);
+  const [imageurl, setImageUrl] = useState(
+    sessionStorage.getItem("userProfileImage")
+  );
   console.log("Image Url", imageurl);
 
   return (
@@ -41,7 +39,10 @@ const ProfileViews = () => {
           />
 
           <div style={{ width: "30%" }} class="profile-card">
-            <img src={imageurl} alt="John" />
+            <img
+              src={imageurl == null ? userDetails.image : imageurl}
+              alt="John"
+            />
             <div className="main-text-div text-center">
               <h1 style={{ margin: "5px" }}>
                 {state.first_name != null

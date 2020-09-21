@@ -12,6 +12,8 @@ import "../../../../node_modules/react-datetime/css/react-datetime.css";
 
 import "./AppartmentEntryForm.css";
 
+const moment = require("moment");
+
 const AppartmentEntryForm = () => {
   const history = useHistory();
   const [state, setState] = useState({
@@ -52,11 +54,11 @@ const AppartmentEntryForm = () => {
       };
     });
   };
-  const DateSelected = (data) => {
+  const DateSelected = (date) => {
     setState((preVal) => {
       return {
         ...preVal,
-        availabaility_time: data.format(),
+        availabaility_time: moment.isMoment(date) ? date.format() : date,
       };
     });
   };

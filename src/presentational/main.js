@@ -4,10 +4,9 @@ import Home from "../components/Home/Home.component";
 import Services from "../components/Owner/Order/OrderServices/servicesaquired.component";
 import Ordersumary from "../components/User/OrderSummary/order-summary.component";
 import Orderlisting from "../components/Owner/Order/OrderListing/orderslisting.component";
-import Checkout from "../components/Checkout/checkout.component";
-//import AccesslistingNew from "../components/Unused/access-listing.component";
-import Listingpage from "../components/AppartmentListing/listingpage.component";
-import Search from "../components/search.component";
+import Checkout from "../components/User/Checkout/checkout.component";
+import Listingpage from "../components/User/AppartmentListing/listingpage.component";
+import Search from "../components/User/Search/search.component";
 import Details2 from "../components/User/AppartmentDetails/Details2.component";
 import AppaertmentListingOwner from "../components/Owner/ApartmentListingOwner/AppartmentListingOwner";
 import DashboardOwner from "../components/Owner/Dashboard/Dashboard";
@@ -27,7 +26,6 @@ const Main = () => (
       <Route path="/ordersummary" component={Ordersumary} />
       <Route path="/orderlisting" component={Orderlisting} />
       <Route path="/checkout" component={Checkout} />
-      {/*<Route path="/listing-owner" component={AccesslistingNew} />*/}
       <Route path="/listing" component={Listingpage} />
       <Route path="/search" component={Search} />
       <Route path="/details-2" component={Details2} />

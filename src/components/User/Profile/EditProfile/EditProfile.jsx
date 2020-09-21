@@ -14,9 +14,7 @@ const EditProfile = () => {
     alert("Please Login");
   }
 
-  const [imageUrl, setImageUrl] = useState(
-    sessionStorage.getItem("userProfileImage")
-  );
+  const [imageUrl, setImageUrl] = useState(oldUserProfile.image);
 
   const [state, setstate] = useState({
     id: oldUserProfile.id,

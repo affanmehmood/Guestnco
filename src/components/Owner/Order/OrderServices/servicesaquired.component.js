@@ -74,7 +74,6 @@ export default function Service(props) {
             action: (
               <div>
                 <button
-                  key={val.id}
                   onClick={() => editEntry(val.id)}
                   href="#"
                   className="btn-sm"
@@ -82,7 +81,6 @@ export default function Service(props) {
                   Edit
                 </button>
                 <button
-                  key={val.id}
                   onClick={() => deleteEntry(val.id)}
                   href="#"
                   className="btn-sm"

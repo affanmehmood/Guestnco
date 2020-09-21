@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Datetime from "react-datetime";
 
+const moment = require("moment");
+
 const SearchBar = (props) => {
   const [state, setState] = useState({
     city: "",
@@ -17,19 +19,19 @@ const SearchBar = (props) => {
       };
     });
   };
-  const startDateChange = (data) => {
+  const startDateChange = (date) => {
     setState((preVal) => {
       return {
         ...preVal,
-        arrival: data.format(),
+        arrival: moment.isMoment(date) ? date.format() : date,
       };
     });
   };
-  const endDateChange = (data) => {
+  const endDateChange = (date) => {
     setState((preVal) => {
       return {
         ...preVal,
-        depart: data.format(),
+        depart: moment.isMoment(date) ? date.format() : date,
       };
     });
   };

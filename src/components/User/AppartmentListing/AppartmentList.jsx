@@ -5,102 +5,13 @@ import axios from "axios";
 
 const AppartmentList = () => {
   // Appartments data
-  const [appartmentList, setAppartmentList] = useState([
-    {
-      id: 0,
-      featured: true,
-      imageUrl: "https://wallpaperaccess.com/full/1142283.jpg",
-      price: "650",
-      adminImageUrl:
-        "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
-      name: "Affordable Urban Room",
-      address: "Dubai",
-      noRooms: 1,
-      noBaths: 1,
-      noGuests: 2,
-      type: "Appartment",
-      stars: 2,
-      hostName: "Adnan Javed",
-    },
-    {
-      featured: false,
-      imageUrl: "https://wallpaperaccess.com/full/1142283.jpg",
-      price: "65",
-      adminImageUrl:
-        "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
-      name: "Affordable Urban Room",
-      address: "Dubai",
-      noRooms: 1,
-      noBaths: 1,
-      noGuests: 2,
-      type: "Appartment",
-      stars: 3,
-      hostName: "Adnan Javed",
-    },
-    {
-      featured: true,
-      imageUrl: "https://wallpaperaccess.com/full/1142283.jpg",
-      price: "65",
-      adminImageUrl:
-        "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
-      name: "Affordable Urban Room",
-      address: "Dubai",
-      noRooms: 1,
-      noBaths: 1,
-      noGuests: 2,
-      type: "Appartment",
-      stars: 3,
-      hostName: "Adnan Javed",
-    },
-    {
-      featured: false,
-      imageUrl: "https://wallpaperaccess.com/full/1142283.jpg",
-      price: "65",
-      adminImageUrl:
-        "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
-      name: "Affordable Urban Room",
-      address: "Dubai",
-      noRooms: 1,
-      noBaths: 1,
-      noGuests: 2,
-      type: "Appartment",
-      stars: 1,
-      hostName: "Adnan Javed",
-    },
-    {
-      featured: false,
-      imageUrl: "https://wallpaperaccess.com/full/1142283.jpg",
-      price: "65",
-      adminImageUrl:
-        "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
-      name: "Affordable Urban Room",
-      address: "Dubai",
-      noRooms: 1,
-      noBaths: 1,
-      noGuests: 2,
-      type: "Appartment",
-      stars: 4,
-      hostName: "Adnan Javed",
-    },
-    {
-      featured: false,
-      imageUrl: "https://wallpaperaccess.com/full/1142283.jpg",
-      price: "65",
-      adminImageUrl:
-        "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
-      name: "Affordable Urban Room",
-      address: "Dubai",
-      noRooms: 1,
-      noBaths: 1,
-      noGuests: 2,
-      type: "Appartment",
-      stars: 3,
-      hostName: "Adnan Javed",
-    },
-  ]);
+  const [appartmentList, setAppartmentList] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://18.223.32.178:3000/user/getapartmentlist`)
+      .get(
+        `http://18.223.32.178:3000/user/getapartmentlist?search=&city=&checkin=&budget=`
+      )
+
       .then((res) => {
         console.log("DATA", res.data.data);
         const d = res.data.data;
@@ -111,7 +22,7 @@ const AppartmentList = () => {
           list.push({
             id: d[i].id,
             featured: d[i].is_featured,
-            imageUrl: "http://18.223.32.178:3000/" + d[i].imagaes[0],
+            imageUrl: "http://18.223.32.178:3000/" + d[i].images[i],
             price: d[i].rent_fee,
             adminImageUrl:
               "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",

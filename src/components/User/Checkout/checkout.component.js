@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Footer from "../Reusable/Footer";
-import SearchBar from "../Reusable/SearchBar";
-import Header from "../Reusable/header";
+import Footer from "../../Reusable/Footer";
+import SearchBar from "../../Reusable/SearchBar";
+import Header from "../../Reusable/header";
 
 const Checkout = () => {
   const [instantS, setInstantS] = useState(
@@ -67,7 +67,8 @@ const Checkout = () => {
 
   const formSubmit = (e) => {
     e.preventDefault();
-    if (sessionStorage.getItem("logintoken")) alert("You Must Login First");
+    if (sessionStorage.getItem("logintoken") == null)
+      alert("You Must Login First");
     else if (state.firstname == "") alert("Fill the firstname field!");
     else if (state.lastname == "") alert("Fill the lastname field!");
     else if (state.phone == "") alert("Fill the phone no. field!");
