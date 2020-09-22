@@ -14,7 +14,6 @@ const Checkout = () => {
 
   var totalPrice = 0;
   var list = [];
-
   if (
     instantS != null &&
     instantS.instant.extra_services != null &&
@@ -32,31 +31,34 @@ const Checkout = () => {
     }
   }
 
+  const [paymentMethods, setPaymentMethods] = useState([{}, {}]);
+  const [addPaymentMethod, setAddPaymentMethod] = useState({
+    type: "",
+    card_no: "0",
+    cvc: 0,
+    expiry: "",
+    user_id: 2,
+    card_holder_name: "",
+    date: "",
+  });
+
   const [services, setServices] = useState(list);
 
   const [state, setstate] = useState({
-    firstname: "",
-    lastname: "",
-    phone: "",
-    email: "",
-    city: "",
-    state: "",
-    companyName: "",
-    address: "",
-    zipcode: "",
     agree: false,
   });
-
-  const InputEvent = (event) => {
-    const { name, value } = event.target;
-    setstate((preVal) => {
-      return {
-        ...preVal,
-        [name]: value,
-      };
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState({});
+  const PaymentSelected = (event) => {
+    const { value } = event.target;
+    paymentMethods.forEach((paymentMethod) => {
+      if (value == "Select Card") {
+        setSelectedPaymentMethod({});
+      }
+      if (value == paymentMethod.card_no) {
+        setSelectedPaymentMethod(paymentMethod);
+      }
     });
   };
-
   const ToggleEvent = (event) => {
     const name = event.target.name;
     const value = event.target.checked;
@@ -72,50 +74,26 @@ const Checkout = () => {
     e.preventDefault();
     if (sessionStorage.getItem("logintoken") == null)
       toast.error("You Must Login First");
-    else if (state.firstname == "") toast.error("Fill the firstname field!");
-    else if (state.lastname == "") toast.error("Fill the lastname field!");
-    else if (state.phone == "") toast.error("Fill the phone no. field!");
-    else if (state.email == "") toast.error("Fill the email field!");
-    else if (state.city == "") toast.error("Fill the city field!");
-    else if (state.state == "") toast.error("Fill the state field!");
-    else if (state.address == "") toast.error("Fill the address field!");
-    else if (state.zipcode == "") toast.error("Fill the zipcode field!");
+    else if (
+      selectedPaymentMethod.id == null ||
+      selectedPaymentMethod.id == undefined
+    )
+      toast.error("Please select a payment method");
     else if (!state.agree) toast.error("I agree unchecked");
     else {
       const obj = {
-        first_name: state.firstname,
-        last_name: state.lastname,
-        city: state.city,
-        state: state.state,
-        zip_code: state.zipcode,
-        company_name: state.companyName,
-        address: state.address,
-        country: "Pakistan",
-        email: state.email,
-        phone: state.phone,
-        gender: "male",
-        dob: "1995-01-01",
+        payment_type_id: selectedPaymentMethod.id,
         booking_id: instantS.booking_id,
       };
+      console.log("OBJ", obj);
       axios
-        .post("http://18.223.32.178:3000/user/register", obj)
+        .post("http://18.223.32.178:3000/user/updatebooking", obj)
         .then((response) => {
           toast.success(response.data.message);
         });
     }
     console.log("CHECKED OUT", state);
   };
-
-  const [paymentMethods, setPaymentMethods] = useState([{}, {}]);
-  const [addPaymentMethod, setAddPaymentMethod] = useState({
-    type: "",
-    card_no: "0",
-    cvc: 0,
-    expiry: "",
-    user_id: 2,
-    card_holder_name: "",
-    date: "",
-  });
 
   useEffect(() => {
     axios
@@ -188,151 +166,6 @@ const Checkout = () => {
             <div className="">
               <div className="checkout-wrapper">
                 <form className="row">
-                  <div className="col-md-8 col-xs-12">
-                    <div className="form-wrapper">
-                      <div action="">
-                        <div className="row">
-                          <div className="col-md-6">
-                            <div className="form-group">
-                              <label for="">First Name</label>
-                              <input
-                                required
-                                type="name"
-                                className="form-control"
-                                id="exampleFormControlInput1"
-                                name="firstname"
-                                value={state.firstname}
-                                onChange={InputEvent}
-                                placeholder="Arrive"
-                                placeholder="First Name"
-                              />
-                            </div>
-                          </div>
-                          <div className="col-md-6">
-                            <div className="form-group">
-                              <label for="">Last Name</label>
-                              <input
-                                required
-                                type="name"
-                                id="exampleFormControlInput1"
-                                value={state.lastname}
-                                onChange={InputEvent}
-                                name="lastname"
-                                className="form-control "
-                                placeholder="Last Name"
-                              />
-                            </div>
-                          </div>
-                          <div className="col-md-6">
-                            <div className="form-group">
-                              <label for="">Email</label>
-                              <input
-                                required
-                                type="name"
-                                id="exampleFormControlInput1"
-                                value={state.email}
-                                onChange={InputEvent}
-                                type="text"
-                                name="email"
-                                className="form-control "
-                                placeholder="Email"
-                              />
-                            </div>
-                          </div>
-                          <div className="col-md-6">
-                            <div className="form-group">
-                              <label for="">Phone Number</label>
-                              <input
-                                required
-                                type="name"
-                                className="form-control"
-                                id="exampleFormControlInput1"
-                                name="phone"
-                                value={state.phone}
-                                onChange={InputEvent}
-                                placeholder="Phone Number"
-                              />
-                            </div>
-                          </div>
-
-                          <div className="col-md-6">
-                            <div className="form-group">
-                              <label for="">City</label>
-                              <input
-                                required
-                                type="name"
-                                className="form-control"
-                                id="exampleFormControlInput1"
-                                name="city"
-                                value={state.city}
-                                onChange={InputEvent}
-                                placeholder="City"
-                              />
-                            </div>
-                          </div>
-                          <div className="col-md-6">
-                            <div className="form-group">
-                              <label for="">State</label>
-                              <input
-                                required
-                                type="name"
-                                className="form-control"
-                                id="exampleFormControlInput1"
-                                name="state"
-                                value={state.state}
-                                onChange={InputEvent}
-                                placeholder="State"
-                              />
-                            </div>
-                          </div>
-                          <div className="col-md-6">
-                            <div className="form-group">
-                              <label for="">Zip Code</label>
-                              <input
-                                required
-                                type="name"
-                                className="form-control"
-                                id="exampleFormControlInput1"
-                                name="zipcode"
-                                value={state.zipcode}
-                                onChange={InputEvent}
-                                placeholder="Zip Code"
-                              />
-                            </div>
-                          </div>
-                          <div className="col-md-6">
-                            <div className="form-group">
-                              <label for="">Company name (Optional)</label>
-                              <input
-                                type="text"
-                                className="form-control"
-                                id="exampleFormControlInput1"
-                                name="companyName"
-                                value={state.companyName}
-                                onChange={InputEvent}
-                                placeholder="Company name (Optional)"
-                              />
-                            </div>
-                          </div>
-                          <div className="col-md-12">
-                            <div className="form-group">
-                              <label for="">Address</label>
-                              <input
-                                required
-                                type="name"
-                                className="form-control"
-                                id="exampleFormControlInput1"
-                                name="address"
-                                value={state.address}
-                                onChange={InputEvent}
-                                placeholder="Address"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                   <div
                     style={{ background: "white" }}
                     className="col-md-4 col-xs-12"
@@ -394,7 +227,11 @@ const Checkout = () => {
                           <div class="col-md-6">
                             <div class="form-group">
                               <label for="">Select Card #</label>
-                              <select class="form-control common-select">
+                              <select
+                                onChange={PaymentSelected}
+                                class="form-control common-select"
+                              >
+                                <option>Select Card</option>
                                 {paymentMethods.map((value, index) => {
                                   return <option>{value.card_no}</option>;
                                 })}
@@ -404,11 +241,9 @@ const Checkout = () => {
                           <div class="col-md-6">
                             <div class="form-group">
                               <label for="">Select Card Type</label>
-                              <select class="form-control common-select">
-                                {paymentMethods.map((value, index) => {
-                                  return <option>{value.payment_type}</option>;
-                                })}
-                              </select>
+                              <div class="form-control common-select">
+                                {selectedPaymentMethod.payment_type}
+                              </div>
                             </div>
                           </div>
                         </div>
