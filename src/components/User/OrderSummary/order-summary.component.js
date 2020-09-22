@@ -72,12 +72,23 @@ export default function Ordersumary() {
   });
 
   useEffect(() => {
+    const bookingId = sessionStorage.getItem("idForBookDetails");
     var id = "";
     if (userProfile) id = userProfile.id;
     axios
       .get("http://18.223.32.178:3000/user/bookings/" + id)
       .then((response) => {
-        const list = response.data.data[0].services;
+        var data = []; // get this from bookingId
+
+        response.data.data.forEach((element) => {
+          // searching
+          if (element.booking_id == bookingId) {
+            data = element;
+          }
+        });
+
+        const list = data.services;
+
         console.log("Data", response.data.data[0]);
 
         setUserName(userProfile.first_name + " " + userProfile.last_name);

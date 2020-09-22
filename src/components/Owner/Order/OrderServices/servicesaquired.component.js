@@ -12,25 +12,17 @@ export default function Service(props) {
   const [datatable, setDatatable] = React.useState({
     columns: [
       {
-        label: "Service ID",
-        field: "service_id",
+        label: "Booking ID",
+        field: "booking_id",
+        sort: "asc",
         width: 50,
-        attributes: {
-          "aria-controls": "DataTable",
-          "aria-label": "Request #",
-        },
       },
+
       {
         label: "Service Name",
         field: "service_name",
         sort: "asc",
         width: 100,
-      },
-      {
-        label: "Booking ID",
-        field: "booking_id",
-        sort: "asc",
-        width: 50,
       },
 
       {
@@ -56,7 +48,10 @@ export default function Service(props) {
   });
   useEffect(() => {
     axios
-      .get("http://18.223.32.178:3000/admin/bookingdetails/98")
+      .get(
+        "http://18.223.32.178:3000/admin/bookingdetails/" +
+          sessionStorage.getItem("idForServiceDetails")
+      )
       .then((response) => {
         const list = response.data.data;
         console.log("LIST", list);

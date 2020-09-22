@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { createBrowserHistory } from "history";
 
+import { ToastContainer, toast, Zoom, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Header = (props) => {
   const history = createBrowserHistory();
   const [state, setstate] = useState({
@@ -19,18 +22,20 @@ const Header = (props) => {
         password: state.password,
       })
       .then((response) => {
-        //alert(response.data);
-        console.log("RESSS", response.data.user);
-
+        console.log("RESSS", response.data);
         if (response.data.token) {
+          toast.success("Login successful");
           sessionStorage.setItem("logintoken", response.data.token);
           sessionStorage.setItem(
             "userProfileDetails",
             JSON.stringify(response.data.user)
           );
-          history.push("/profileviews");
+          //history.push("/profileviews");
           window.location.reload();
         }
+      })
+      .catch((err) => {
+        toast.error(err.message);
       });
   }
   const InputEvent = (event) => {
@@ -42,12 +47,106 @@ const Header = (props) => {
       };
     });
   };
+  const userAuthJsx = () => {
+    if (sessionStorage.getItem("logintoken") != null) {
+      return (
+        <div className="account-login">
+          <ul className="login-register list-inline">
+            <li>
+              <Link>
+                {sessionStorage.getItem("userProfileDetails") != null
+                  ? JSON.parse(sessionStorage.getItem("userProfileDetails"))
+                      .first_name
+                  : "Unknown"}
+              </Link>
+            </li>
+          </ul>
+          <Link to="javascript:void(0)" className="btn btn-add-new-listing">
+            Logout
+          </Link>
+        </div>
+      );
+    } else {
+      return (
+        <div className="account-login">
+          <ul className="login-register list-inline">
+            <li>
+              <Link
+                to="javascript:void(0)"
+                data-toggle="modal"
+                data-target="#modal-login"
+              >
+                Login
+              </Link>
+            </li>
+            <li>
+              <i className="fa fa-circle-o"></i>
+            </li>
+            <li>
+              <Link
+                to="javascript:void(0)"
+                data-toggle="modal"
+                data-target="#modal-register"
+              >
+                Register
+              </Link>
+            </li>
+          </ul>
+          <Link to="javascript:void(0)" className="btn btn-add-new-listing">
+            Become a Host
+          </Link>
+        </div>
+      );
+    }
+  };
+  const pagesJsx = () => {
+    if (
+      JSON.parse(sessionStorage.getItem("userProfileDetails")) != null &&
+      JSON.parse(sessionStorage.getItem("userProfileDetails")).is_admin
+    ) {
+      return (
+        <ul id="main-menu" className="main-menu">
+          <li>
+            <Link to="/search">Search</Link>
+          </li>
+          <li>
+            <Link to="/profileviews">Profile</Link>
+          </li>
+          <li>
+            <Link to="/accesslisting">My Appartments</Link>
+          </li>
+          <li>
+            <Link to="/orderlisting">Orders</Link>
+          </li>
+        </ul>
+      );
+    } else if (sessionStorage.getItem("logintoken") != null) {
+      return (
+        <ul id="main-menu" className="main-menu">
+          <li>
+            <Link to="/search">Search</Link>
+          </li>
+          <li>
+            <Link to="/profileviews">Profile</Link>
+          </li>
+          <li>
+            <Link to="/listing">Appartments</Link>
+          </li>
+
+          <li>
+            <Link to="/orderlisting">My Orders</Link>
+          </li>
+        </ul>
+      );
+    }
+  };
   return (
     <div>
       <header
         id="guestco_nav_sticky"
         className="header-nav hidden-sm hidden-xs"
       >
+        <ToastContainer draggable={false} transition={Zoom} autoClose={8000} />
         <div className="container-fluid">
           <div className="header-inner table-block">
             <div className="header-comp-logo">
@@ -59,62 +158,9 @@ const Header = (props) => {
               </h1>
             </div>
             <div className="header-comp-nav text-right">
-              <nav className="navi">
-                <ul id="main-menu" className="main-menu">
-                  <li>
-                    <Link to="/search">Search Page</Link>
-                  </li>
-                  <li>
-                    <Link to="/orderlisting">Order Listing Page</Link>
-                  </li>
-                  <li>
-                    <Link to="/accesslisting">Access Appartment Listing</Link>
-                  </li>
-                  <li>
-                    <Link to="/ordersummary">Order Summary</Link>
-                  </li>
-                  <li>
-                    <Link to="/checkout">Checkout</Link>
-                  </li>
-                  <li>
-                    <Link to="/services">Services Acquired</Link>
-                  </li>
-                </ul>
-              </nav>
+              <nav className="navi">{pagesJsx()}</nav>
             </div>
-            <div className="header-comp-right">
-              <div className="account-login">
-                <ul className="login-register list-inline">
-                  <li>
-                    <Link
-                      to="javascript:void(0)"
-                      data-toggle="modal"
-                      data-target="#modal-login"
-                    >
-                      Login
-                    </Link>
-                  </li>
-                  <li>
-                    <i className="fa fa-circle-o"></i>
-                  </li>
-                  <li>
-                    <Link
-                      to="javascript:void(0)"
-                      data-toggle="modal"
-                      data-target="#modal-register"
-                    >
-                      Register
-                    </Link>
-                  </li>
-                </ul>
-                <Link
-                  to="javascript:void(0)"
-                  className="btn btn-add-new-listing"
-                >
-                  Become a Host
-                </Link>
-              </div>
-            </div>
+            <div className="header-comp-right">{userAuthJsx()}</div>
           </div>
         </div>
       </header>

@@ -86,7 +86,7 @@ const Search = () => {
                 <div className="sort-wrap clearfix">
                   <div className="pull-left">
                     <div id="listings_found" className="number-of-listings">
-                      39 Rentals
+                      {appartmentList.length} Rentals
                     </div>
                   </div>
                   <div className="pull-right">
@@ -142,9 +142,13 @@ const Search = () => {
                     })}
                   </div>
                   <div className="guesco-loadmore loadmore text-center">
-                    <Link to="#" className="btn btn-primary btn-long">
-                      Load More
-                    </Link>
+                    {appartmentList.length > 0 ? (
+                      <Link to="#" className="btn btn-primary btn-long">
+                        Load More
+                      </Link>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
               </div>

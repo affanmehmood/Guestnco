@@ -1,13 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { MDBDataTableV5 } from "mdbreact";
 import axios from "axios";
 import Header from "../../../Reusable/header";
 import Footer from "../../../Reusable/Footer";
 import SearchBar from "../../../Reusable/SearchBar";
 import QuickLinks from "../../../Reusable/QuickLinks";
+import { useHistory } from "react-router-dom";
 
 export default function Orderlisting() {
-  const [datatable, setDatatable] = React.useState({
+  const [datatable, setDatatable] = useState({
     columns: [
       {
         label: "Order #",
@@ -26,12 +27,6 @@ export default function Orderlisting() {
       },
 
       {
-        label: "User Name",
-        field: "user_name",
-        sort: "asc",
-        width: 100,
-      },
-      {
         label: "Check-in Date",
         field: "checkin",
         sort: "asc",
@@ -45,8 +40,8 @@ export default function Orderlisting() {
       },
 
       {
-        label: "Amount",
-        field: "amount",
+        label: "Booked on",
+        field: "booking_date",
         sort: "asc",
         width: 100,
       },
@@ -60,78 +55,117 @@ export default function Orderlisting() {
     rows: [],
   });
   useEffect(() => {
-    axios.get("http://18.223.32.178:3000/admin/bookings").then((response) => {
-      const list = response.data.data;
-      console.log("LIST", list);
-      const onk = {
-        columns: datatable.columns,
-        rows: [],
-      };
-      list.map((val, index) => {
-        const datein = new Date(val.checkin_date);
-        const dateout = new Date(val.checkout_date);
-        const obj = {
-          orderno: val.id,
-          apt_name: val.apartment_name,
-          user_name: val.first_name + " " + val.last_name,
-          checkin:
-            datein.getFullYear() +
-            "/" +
-            (datein.getMonth() + 1) +
-            "/" +
-            datein.getDate() +
-            " " +
-            datein.getHours() +
-            ":" +
-            datein.getMinutes() +
-            ":" +
-            datein.getSeconds(),
-          checkout:
-            dateout.getFullYear() +
-            "/" +
-            (dateout.getMonth() + 1) +
-            "/" +
-            dateout.getDate() +
-            " " +
-            dateout.getHours() +
-            ":" +
-            dateout.getMinutes() +
-            ":" +
-            dateout.getSeconds(),
-
-          amount: "Unknown",
-
-          action: (
-            <div>
-              <button
-                onClick={() => editEntry(val.id)}
-                href="#"
-                className="btn-sm"
-              >
-                Edit
-              </button>
-              <button
-                onClick={() => deleteEntry(val.id)}
-                href="#"
-                className="btn-sm"
-                style={{ marginTop: "5px" }}
-              >
-                Delete
-              </button>
-            </div>
-          ),
+    axios
+      .get(
+        "http://18.223.32.178:3000/user/bookings/" +
+          JSON.parse(sessionStorage.getItem("userProfileDetails")).id
+      )
+      .then((response) => {
+        const list = response.data.data;
+        console.log("LIST", list);
+        const onk = {
+          columns: datatable.columns,
+          rows: [],
         };
-        onk.rows.push(obj);
-      });
+        list.map((val, index) => {
+          const datein = new Date(val.checkin_date);
+          const dateout = new Date(val.checkout_date);
+          const datebook = new Date(val.booking_time);
+          const obj = {
+            booking_date:
+              datebook.getFullYear() +
+              "/" +
+              (datebook.getMonth() + 1) +
+              "/" +
+              datebook.getDate() +
+              " " +
+              datebook.getHours() +
+              ":" +
+              datebook.getMinutes() +
+              ":" +
+              datebook.getSeconds(),
+            checkout:
+              dateout.getFullYear() +
+              "/" +
+              (dateout.getMonth() + 1) +
+              "/" +
+              dateout.getDate() +
+              " " +
+              dateout.getHours() +
+              ":" +
+              dateout.getMinutes() +
+              ":" +
+              dateout.getSeconds(),
+            checkin:
+              datein.getFullYear() +
+              "/" +
+              (datein.getMonth() + 1) +
+              "/" +
+              datein.getDate() +
+              " " +
+              datein.getHours() +
+              ":" +
+              datein.getMinutes() +
+              ":" +
+              datein.getSeconds(),
 
-      setDatatable(onk);
-    });
+            created_at: val.created_at,
+            orderno: val.booking_id,
+            apt_name: val.apartment_name,
+            action: (
+              <div className="more-nav">
+                <div className="dropdown">
+                  <button
+                    className="more"
+                    type="button"
+                    id="dropdownMenu1"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="true"
+                  >
+                    <span className="fa fa-ellipsis-h"></span>
+                  </button>
+                  <ul
+                    className="dropdown-menu sub-dropdown"
+                    aria-labelledby="dLabel"
+                  >
+                    <li>
+                      <button onClick={() => seeDetails(val.booking_id)}>
+                        Details
+                      </button>
+                    </li>
+                    <li>
+                      <button onClick={() => editEntry(val.booking_id)}>
+                        Edit
+                      </button>
+                    </li>
+                    <li>
+                      <button onClick={() => deleteEntry(val.booking_id)}>
+                        Delete
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            ),
+          };
+          onk.rows.push(obj);
+        });
+        onk.rows.sort((a, b) => b.orderno - a.orderno);
+        setDatatable(onk);
+      });
   }, datatable.columns);
   function deleteEntry(id) {
     console.log("DELETED ", id);
   }
   function editEntry(id) {
     console.log("EDITED ", id);
+  }
+
+  const history = useHistory();
+  function seeDetails(id) {
+    sessionStorage.setItem("idForBookDetails", id);
+    history.push("/ordersummary");
   }
   return (
     <div>

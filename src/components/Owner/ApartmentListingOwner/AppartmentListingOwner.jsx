@@ -74,7 +74,9 @@ const AppartmentListingOwner = () => {
   });
   useEffect(() => {
     axios
-      .get(`http://18.223.32.178:3000/user/getapartmentlist`)
+      .get(
+        `http://18.223.32.178:3000/user/getapartmentlist?search=&city=&checkin=&budget=`
+      )
       .then((response) => {
         const list = response.data.data;
         console.log("LIST", list);
@@ -85,6 +87,7 @@ const AppartmentListingOwner = () => {
         list.map((val, index) => {
           const date = new Date(val.availabaility_time);
           const obj = {
+            id: val.id,
             name: val.apartment_name,
             availabaility_time:
               date.getFullYear() +
@@ -128,15 +131,12 @@ const AppartmentListingOwner = () => {
                       <button
                         key={val.id}
                         onClick={() => gotoCalendar(val.id, val.apartment_name)}
-                        style={{ marginTop: "10px" }}
                       >
                         Booking Calendar
                       </button>
                     </li>
                     <li>
-                      <button style={{ marginTop: "10px" }}>
-                        Appartment Inventory
-                      </button>
+                      <button>Appartment Inventory</button>
                     </li>
                   </ul>
                 </div>
@@ -145,7 +145,7 @@ const AppartmentListingOwner = () => {
           };
           onk.rows.push(obj);
         });
-
+        onk.rows.sort((a, b) => b.id - a.id);
         setDatatable(onk);
       });
   }, datatable.columns);
@@ -154,7 +154,6 @@ const AppartmentListingOwner = () => {
 
   function gotoCalendar(id, name) {
     sessionStorage.setItem("idForCalendar", id);
-
     sessionStorage.setItem("nameForCalendar", name);
     history.push("/calendar");
   }

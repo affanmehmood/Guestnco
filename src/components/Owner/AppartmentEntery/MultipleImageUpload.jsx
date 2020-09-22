@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 
 import axios from "axios";
+import { ToastContainer, toast, Zoom, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { useHistory } from "react-router-dom";
 export default class MultipleImageUploadComponent extends Component {
@@ -45,12 +47,13 @@ export default class MultipleImageUploadComponent extends Component {
   uploadFiles(e) {
     e.preventDefault();
     //console.log(this.state.file);
-    alert("Files uploaded!");
+    toast.success("files uploaded successfuly");
   }
 
   render() {
     return (
       <form>
+        <ToastContainer draggable={false} transition={Zoom} autoClose={8000} />
         <div id="gallery-section" class="gallery-section">
           <div class="block">
             <div class="featured-image-wrap featured-slide-gallery-wrap clearfix">

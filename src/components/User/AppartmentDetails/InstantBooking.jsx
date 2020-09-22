@@ -3,6 +3,9 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Datetime from "react-datetime";
 
+import { ToastContainer, toast, Zoom } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const moment = require("moment");
 
 const InstantBooking = (props) => {
@@ -57,7 +60,7 @@ const InstantBooking = (props) => {
   function instantBoking() {
     if (sessionStorage.getItem("logintoken") == null) {
       console.log("NOT CLICKED");
-      alert("You Must Login First");
+      toast.error("You Must Login First");
       return;
     } else {
       const instant = {
@@ -130,6 +133,7 @@ const InstantBooking = (props) => {
   return (
     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 homey_sticky">
       <div class="sidebar right-sidebar fixedscroll-sidebar">
+        <ToastContainer draggable={false} transition={Zoom} autoClose={8000} />
         <div
           id="guesco_remove_on_mobile"
           class="sidebar-booking-module hidden-sm hidden-xs"

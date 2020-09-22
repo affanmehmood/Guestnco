@@ -68,7 +68,7 @@ const AppartmentEntryForm = () => {
     axios
       .post("http://18.223.32.178:3000/admin/addapartment", state)
       .then((response) => {
-        //console.log("Appartment Entery Form", response.data.data.id);
+        console.log("Appartment Entery Form Response", response.data);
         sessionStorage.setItem("appartment_id", response.data.data.id); // get this from api response
         history.push("/galleryuploader");
       });

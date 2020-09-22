@@ -4,17 +4,21 @@ import Header from "../../../Reusable/header";
 import Footer from "../../../Reusable/Footer";
 import SearchBar from "../../../Reusable/SearchBar";
 import { createBrowserHistory } from "history";
+import { ToastContainer, toast, Zoom } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const EditProfile = () => {
   const history = createBrowserHistory();
   var oldUserProfile = {};
-  if (sessionStorage.getItem("userProfileDetails") != null) {
-    oldUserProfile = JSON.parse(sessionStorage.getItem("userProfileDetails"));
-  } else {
-    alert("Please Login");
-  }
-
   const [imageUrl, setImageUrl] = useState(oldUserProfile.image);
+
+  useEffect(() => {
+    if (sessionStorage.getItem("userProfileDetails") != null) {
+      oldUserProfile = JSON.parse(sessionStorage.getItem("userProfileDetails"));
+    } else {
+      toast.error("Please login first");
+    }
+  }, imageUrl);
 
   const [state, setstate] = useState({
     id: oldUserProfile.id,
@@ -49,7 +53,7 @@ const EditProfile = () => {
         sessionStorage.setItem("userProfileDetails", JSON.stringify(state));
         history.push("/profileviews");
         window.location.reload();
-        //alert("Profile updated successfully");
+        toast.success("Profile updated successfully");
       });
   };
   const uploadImage = (e) => {
@@ -117,6 +121,7 @@ const EditProfile = () => {
         />
       </div>
       <div>
+        <ToastContainer draggable={false} transition={Zoom} autoClose={8000} />
         <div class="nav-area header-type-1 ">
           <div className="inner-page">
             <Header />

@@ -4,6 +4,9 @@ import Footer from "../../Reusable/Footer";
 import SearchBar from "../../Reusable/SearchBar";
 import Header from "../../Reusable/header";
 
+import { ToastContainer, toast, Zoom } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Checkout = () => {
   const [instantS, setInstantS] = useState(
     JSON.parse(sessionStorage.getItem("instantBoking"))
@@ -68,16 +71,16 @@ const Checkout = () => {
   const formSubmit = (e) => {
     e.preventDefault();
     if (sessionStorage.getItem("logintoken") == null)
-      alert("You Must Login First");
-    else if (state.firstname == "") alert("Fill the firstname field!");
-    else if (state.lastname == "") alert("Fill the lastname field!");
-    else if (state.phone == "") alert("Fill the phone no. field!");
-    else if (state.email == "") alert("Fill the email field!");
-    else if (state.city == "") alert("Fill the city field!");
-    else if (state.state == "") alert("Fill the state field!");
-    else if (state.address == "") alert("Fill the address field!");
-    else if (state.zipcode == "") alert("Fill the zipcode field!");
-    else if (!state.agree) alert("I agree unchecked");
+      toast.error("You Must Login First");
+    else if (state.firstname == "") toast.error("Fill the firstname field!");
+    else if (state.lastname == "") toast.error("Fill the lastname field!");
+    else if (state.phone == "") toast.error("Fill the phone no. field!");
+    else if (state.email == "") toast.error("Fill the email field!");
+    else if (state.city == "") toast.error("Fill the city field!");
+    else if (state.state == "") toast.error("Fill the state field!");
+    else if (state.address == "") toast.error("Fill the address field!");
+    else if (state.zipcode == "") toast.error("Fill the zipcode field!");
+    else if (!state.agree) toast.error("I agree unchecked");
     else {
       const obj = {
         first_name: state.firstname,
@@ -97,7 +100,7 @@ const Checkout = () => {
       axios
         .post("http://18.223.32.178:3000/user/register", obj)
         .then((response) => {
-          alert(response.data.message);
+          toast.success(response.data.message);
         });
     }
     console.log("CHECKED OUT", state);
@@ -158,6 +161,8 @@ const Checkout = () => {
         <Header />
       </div>
       <SearchBar />
+
+      <ToastContainer draggable={false} transition={Zoom} autoClose={8000} />
       <div style={{ background: "white" }} id="section-body">
         <section className="main-content-area">
           <div style={{ background: "white" }} className="container">
