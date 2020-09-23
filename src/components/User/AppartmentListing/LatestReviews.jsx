@@ -25,37 +25,37 @@ const LatestReviews = () => {
     },
   ];
   return (
-    <div id="" class="widget widget-latest-reviews">
-      <div class="widget-top">
-        <h3 class="widget-title">Latest Reviews</h3>
+    <div id="" className="widget widget-latest-reviews">
+      <div className="widget-top">
+        <h3 className="widget-title">Latest Reviews</h3>
       </div>
-      <div class="widget-body">
+      <div className="widget-body">
         {reviewList.map((val, ind) => {
           return (
-            <div class="review-block">
-              <div class="media">
-                <div class="media-left">
-                  <a class="media-object">
+            <div className="review-block">
+              <div className="media">
+                <div className="media-left">
+                  <a className="media-object">
                     <img
                       width="70"
                       height="70"
                       src={val.imageUrl}
-                      class="img-circle"
+                      className="img-circle"
                       alt=""
                       loading="lazy"
                     />{" "}
                   </a>
                 </div>
-                <div class="media-body media-middle">
-                  <div class="msg-user-info">
-                    <div class="msg-user-left">
-                      <h2 class="title">
+                <div className="media-body media-middle">
+                  <div className="msg-user-info">
+                    <div className="msg-user-left">
+                      <h2 className="title">
                         <a href="#">Review {val.reviewNo}</a>
                       </h2>
-                      <div class="message-date">
-                        <i class="fa fa-calendar-o"></i>
+                      <div className="message-date">
+                        <i className="fa fa-calendar-o"></i>
                         {val.monthsAgo} months ago
-                        <span class="rating"></span>
+                        <span className="rating"></span>
                       </div>
                     </div>
                   </div>

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Footer from "../../Reusable/Footer";
-import SearchBar from "../../Reusable/SearchBar";
 import Header from "../../Reusable/header";
 
 import { ToastContainer, toast, Zoom } from "react-toastify";
@@ -138,7 +137,6 @@ const Checkout = () => {
       <div className="inner-page">
         <Header />
       </div>
-      <SearchBar />
 
       <ToastContainer draggable={false} transition={Zoom} autoClose={8000} />
       <div style={{ background: "white" }} id="section-body">

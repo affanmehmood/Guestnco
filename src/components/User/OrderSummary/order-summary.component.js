@@ -3,7 +3,6 @@ import { MDBDataTableV5 } from "mdbreact";
 import axios from "axios";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
-import SearchBar from "../../Reusable/SearchBar";
 import Footer from "../../Reusable/Footer";
 import QuickLinks from "../../Reusable/QuickLinks";
 import Header from "../../Reusable/header";
@@ -190,7 +189,6 @@ export default function Ordersumary() {
       <div className="inner-page">
         <Header />
       </div>
-      <SearchBar />
       <div id="section-body">
         <section className="main-content-area whitebg">
           <div className="container-fluid">

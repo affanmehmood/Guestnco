@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Header from "../../../Reusable/header";
 import Footer from "../../../Reusable/Footer";
-import SearchBar from "../../../Reusable/SearchBar";
 import { createBrowserHistory } from "history";
 import { ToastContainer, toast, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -126,7 +125,6 @@ const EditProfile = () => {
           <div className="inner-page">
             <Header />
           </div>
-          <SearchBar />
         </div>
         <div id="section-body">
           <section class="main-content-area whitebg">

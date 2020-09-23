@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 import { createBrowserHistory } from "history";
 
-import SearchBar from "../../../Reusable/SearchBar";
 import Footer from "../../../Reusable/Footer";
 import Header from "../../../Reusable/header";
 
@@ -31,7 +30,6 @@ const ProfileViews = () => {
         <Header />
       </div>
       <div>
-        <SearchBar />
         <div className="main-profile-div" style={{ background: "white" }}>
           <link
             rel="stylesheet"

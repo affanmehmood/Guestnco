@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import SearchBar from "../../Reusable/SearchBar";
 import Footer from "../../Reusable/Footer";
 import Datetime from "react-datetime";
 import { useHistory } from "react-router-dom";
@@ -80,7 +79,6 @@ const AppartmentEntryForm = () => {
       <div className="inner-page">
         <Header />
       </div>
-      <SearchBar />
       <div style={{ paddingTop: "30px", paddingBottom: "30px" }}>
         <div className="text-center">
           <h2>Add Appartment</h2>

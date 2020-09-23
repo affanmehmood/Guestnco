@@ -1,4 +1,5 @@
 import React from "react";
+
 import Header from "../../Reusable/header";
 import Footer from "../../Reusable/Footer";
 // Fix the padding area below the header

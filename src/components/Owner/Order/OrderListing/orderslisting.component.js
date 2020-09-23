@@ -3,7 +3,6 @@ import { MDBDataTableV5 } from "mdbreact";
 import axios from "axios";
 import Header from "../../../Reusable/header";
 import Footer from "../../../Reusable/Footer";
-import SearchBar from "../../../Reusable/SearchBar";
 import QuickLinks from "../../../Reusable/QuickLinks";
 import { useHistory } from "react-router-dom";
 
@@ -173,8 +172,6 @@ export default function Orderlisting() {
         <Header />
       </div>
       <div>
-        <SearchBar />
-
         <div id="section-body">
           <section className="main-content-area whitebg">
             <div className="container-fluid">

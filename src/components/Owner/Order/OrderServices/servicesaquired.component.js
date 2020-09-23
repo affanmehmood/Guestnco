@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import axios from "axios";
 
 import Header from "../../../Reusable/header";
-import SearchBar from "../../../Reusable/SearchBar";
 import QuickLinks from "../../../Reusable/QuickLinks";
 import Footer from "../../../Reusable/Footer";
 
@@ -105,8 +104,6 @@ export default function Service(props) {
         <Header />
       </div>
       <div>
-        <SearchBar />
-
         <div id="section-body">
           <section className="main-content-area whitebg">
             <div className="container-fluid">

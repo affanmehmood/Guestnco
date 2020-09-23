@@ -1,6 +1,5 @@
 import React from "react";
 
-import SearchBar from "../../Reusable/SearchBar";
 import Footer from "../../Reusable/Footer";
 import Header from "../../Reusable/header";
 
@@ -11,7 +10,6 @@ const GalleryUploader = () => {
       <div className="inner-page">
         <Header />
       </div>
-      <SearchBar />
       <div style={{ paddingTop: "150px", paddingBottom: "150px" }}>
         <div className="text-center">
           <h2>Upload Appartment Images</h2>

@@ -2,14 +2,20 @@ import React from "react";
 
 import AppartmentList from "./AppartmentList";
 import SearchBar from "../../Reusable/SearchBar";
+import { useHistory } from "react-router-dom";
 import Featured from "./Featured";
 import Explore from "./Explore";
 import LatestReviews from "./LatestReviews";
 import LatestPosts from "./LatestPosts";
+
 import Footer from "../../Reusable/Footer";
 import Header from "../../Reusable/header";
 
 const Listingpage = () => {
+  const history = useHistory();
+  const getSearchQuery = (query) => {
+    history.push("/search");
+  };
   return (
     <div>
       <div className="inner-page">
@@ -19,7 +25,7 @@ const Listingpage = () => {
         <title>Listing Result</title>
       </div>
       <div>
-        <SearchBar />
+        <SearchBar setSearchQuery={getSearchQuery} />
         <div id="section-body">
           <section class="main-content-area">
             <div class="container">
@@ -88,6 +94,7 @@ const Listingpage = () => {
                         </div>
                       </form>
                     </div>
+
                     <Featured />
                     <Explore />
                     <LatestReviews />

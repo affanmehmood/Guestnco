@@ -1,11 +1,16 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 const Search = () => {
+  const history = useHistory();
+  const gotoSearch = () => {
+    history.push("/search");
+  };
   return (
     <section className="top-banner-wrap mainbanner-bg">
       <div className="banner-caption ">
         <div className="search-wrap search-banner search-banner-desktop hidden-xs">
-          <form className="clearfix" action="" method="GET">
+          <form onSubmit={gotoSearch} className="clearfix">
             <div className="search-destination">
               <input
                 type="text"

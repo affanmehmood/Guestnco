@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import imgeight from "../../images/person.jpg";
 import propertyimage from "../../images/listing-image-2.jpg";
 import propertyimage1 from "../../images/listing-image-1.jpg";
@@ -11,93 +11,45 @@ import { Link } from "react-router-dom";
 import AppartmentCard from "./AppartmentCard";
 
 const OurFeaturedHomes = () => {
-  // featured homes data
-  const featuredHomes = [
-    {
-      featured: true,
-      imageUrl: "https://wallpaperaccess.com/full/1142283.jpg",
-      price: "65",
-      adminImageUrl:
-        "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
-      name: "Affordable Urban Room",
-      address: "Dubai",
-      noRooms: 1,
-      noBaths: 1,
-      noGuests: 2,
-      type: "Appartment",
-      stars: 3,
-    },
-    {
-      featured: false,
-      imageUrl: "https://wallpaperaccess.com/full/1142283.jpg",
-      price: "65",
-      adminImageUrl:
-        "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
-      name: "Affordable Urban Room",
-      address: "Dubai",
-      noRooms: 1,
-      noBaths: 1,
-      noGuests: 2,
-      type: "Appartment",
-      stars: 3,
-    },
-    {
-      featured: true,
-      imageUrl: "https://wallpaperaccess.com/full/1142283.jpg",
-      price: "65",
-      adminImageUrl:
-        "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
-      name: "Affordable Urban Room",
-      address: "Dubai",
-      noRooms: 1,
-      noBaths: 1,
-      noGuests: 2,
-      type: "Appartment",
-      stars: 3,
-    },
-    {
-      featured: false,
-      imageUrl: "https://wallpaperaccess.com/full/1142283.jpg",
-      price: "65",
-      adminImageUrl:
-        "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
-      name: "Affordable Urban Room",
-      address: "Dubai",
-      noRooms: 1,
-      noBaths: 1,
-      noGuests: 2,
-      type: "Appartment",
-      stars: 3,
-    },
-    {
-      featured: false,
-      imageUrl: "https://wallpaperaccess.com/full/1142283.jpg",
-      price: "65",
-      adminImageUrl:
-        "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
-      name: "Affordable Urban Room",
-      address: "Dubai",
-      noRooms: 1,
-      noBaths: 1,
-      noGuests: 2,
-      type: "Appartment",
-      stars: 4,
-    },
-    {
-      featured: false,
-      imageUrl: "https://wallpaperaccess.com/full/1142283.jpg",
-      price: "65",
-      adminImageUrl:
-        "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
-      name: "Affordable Urban Room",
-      address: "Dubai",
-      noRooms: 1,
-      noBaths: 1,
-      noGuests: 2,
-      type: "Appartment",
-      stars: 3,
-    },
-  ];
+  const [appartmentList, setAppartmentList] = useState([]);
+  useEffect(() => {
+    axios
+      .get(
+        `http://18.223.32.178:3000/user/getapartmentlist?search=&city=&checkin=&budget=`
+      )
+
+      .then((res) => {
+        console.log("DATA", res.data.data);
+        const d = res.data.data;
+
+        console.log("D", d.length);
+        var list = [];
+        for (var i = 0; i < d.length; i++) {
+          list.push({
+            id: d[i].id,
+            featured: d[i].is_featured,
+            imageUrl: "http://18.223.32.178:3000/" + d[i].images[i],
+            price: d[i].rent_fee,
+            adminImageUrl:
+              "https://www.pngitem.com/pimgs/m/130-1300380_female-user-image-icon-hd-png-download.png",
+            name: d[i].apartment_name,
+            address: d[i].adress1 + " " + d[i].address2,
+            noRooms: d[i].bedrooms,
+            noBaths: d[i].bathrooms,
+            noGuests: 2,
+            type: d[i].apartment_type,
+            stars: d[i],
+            hostName: "Adnan Javed",
+          });
+        }
+
+        setAppartmentList(list);
+      })
+      .then(() => {
+        console.log("APP NAME", appartmentList.length);
+      });
+  }, [appartmentList.length]);
+
   return (
     <div className="graybg">
       <div className="container">
@@ -110,7 +62,7 @@ const OurFeaturedHomes = () => {
         <div className="">
           <div className="featured-wrapper item-grid-view">
             <div className="row">
-              {featuredHomes.map((val, ind) => {
+              {appartmentList.map((val, ind) => {
                 return (
                   <AppartmentCard
                     featured={val.featured}
