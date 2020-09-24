@@ -1699,6 +1699,11 @@ top: 130px;
 .featured-wrapper .item-wrap {
     padding-left: 0;
     padding-right: 0;
+    width: 100%;
+}
+.featured-wrapper .item-wrap .hover-effect img{
+    height: 220px;
+    object-fit: cover;
 }
 .search-extra-services span.control-text {
     margin-left: 8px;
@@ -1943,4 +1948,36 @@ top: 130px;
 
 .profile-card a i{
     color: #ff0074;
+}
+
+.search-extra-services .extra-services-list li label {
+    padding: 0;
+    padding-right: 10px;
+}
+
+.search-extra-services .extra-services-list {
+    height: 110px;
+    overflow: auto;
+}
+
+
+.item-title-head .title a {
+    font-size: 17px;
+}
+
+.item-wrap .property-item a.hover-effect img {
+    height: 200px;
+    object-fit: cover;
+}
+.widget-taxonomies-card .taxonomy-card a img {
+    height: 190px;
+    object-fit: cover;
+}
+
+
+.left-bg{
+    background: url(../images/login-image.jpg) ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
 }
