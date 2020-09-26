@@ -9,30 +9,31 @@ import "react-toastify/dist/ReactToastify.css";
 const EditProfile = () => {
   const history = createBrowserHistory();
   var oldUserProfile = {};
-  const [imageUrl, setImageUrl] = useState(oldUserProfile.image);
 
-  useEffect(() => {
-    if (sessionStorage.getItem("userProfileDetails") != null) {
-      oldUserProfile = JSON.parse(sessionStorage.getItem("userProfileDetails"));
-    } else {
-      toast.error("Please login first");
-    }
-  }, imageUrl);
+  if (sessionStorage.getItem("userProfileDetails") != null) {
+    oldUserProfile = JSON.parse(sessionStorage.getItem("userProfileDetails"));
+    console.log("PROFILE ", oldUserProfile);
+  } else {
+    toast.error("Please login first");
+  }
 
   const [state, setstate] = useState({
     id: oldUserProfile.id,
-    first_name: "",
-    last_name: "",
-    phone: "",
-    country: "",
-    email: "",
-    city: "",
-    state: "",
-    zip_code: "",
-    address: "",
-    company_name: "",
+    first_name: oldUserProfile.first_name,
+    last_name: oldUserProfile.last_name,
+    phone: oldUserProfile.phone,
+    country: oldUserProfile.country,
+    email: oldUserProfile.email,
+    city: oldUserProfile.city,
+    state: oldUserProfile.state,
+    zip_code: oldUserProfile.zip_code,
+    address: oldUserProfile.address,
+    company_name: oldUserProfile.company_name,
   });
 
+  const [imageUrl, setImageUrl] = useState(
+    sessionStorage.getItem("userProfileImage")
+  );
   const InputEvent = (event) => {
     const { name, value } = event.target;
     setstate((preVal) => {
@@ -161,6 +162,7 @@ const EditProfile = () => {
                                 required
                                 onChange={InputEvent}
                                 type="text"
+                                value={state.first_name}
                                 name="first_name"
                                 class="form-control "
                                 placeholder="First Name"
@@ -175,6 +177,7 @@ const EditProfile = () => {
                                 onChange={InputEvent}
                                 type="text"
                                 name="last_name"
+                                value={state.last_name}
                                 class="form-control "
                                 placeholder="Last Name"
                               />
@@ -187,6 +190,7 @@ const EditProfile = () => {
                                 required
                                 onChange={InputEvent}
                                 type="email"
+                                value={state.email}
                                 name="email"
                                 class="form-control "
                                 placeholder="Email"
@@ -201,6 +205,7 @@ const EditProfile = () => {
                                 onChange={InputEvent}
                                 type="number"
                                 name="phone"
+                                value={state.phone}
                                 class="form-control "
                                 placeholder="Phone Number"
                               />
@@ -215,6 +220,7 @@ const EditProfile = () => {
                                 onChange={InputEvent}
                                 type="text"
                                 name="country"
+                                value={state.country}
                                 class="form-control "
                                 placeholder="City"
                               />
@@ -228,6 +234,7 @@ const EditProfile = () => {
                                 onChange={InputEvent}
                                 type="text"
                                 name="city"
+                                value={state.city}
                                 class="form-control "
                                 placeholder="State"
                               />
@@ -241,6 +248,7 @@ const EditProfile = () => {
                                 onChange={InputEvent}
                                 type="text"
                                 name="state"
+                                value={state.state}
                                 class="form-control "
                                 placeholder="State"
                               />
@@ -254,6 +262,7 @@ const EditProfile = () => {
                                 onChange={InputEvent}
                                 type="text"
                                 name="zip_code"
+                                value={state.zip_code}
                                 class="form-control "
                                 placeholder="Zip Code"
                               />
@@ -267,6 +276,7 @@ const EditProfile = () => {
                                 type="text"
                                 name="company_name"
                                 class="form-control "
+                                value={state.company_name}
                                 placeholder="Company name (Optional)"
                               />
                             </div>
@@ -279,6 +289,7 @@ const EditProfile = () => {
                                 onChange={InputEvent}
                                 type="text"
                                 name="address"
+                                value={state.address}
                                 class="form-control "
                                 placeholder="Address"
                               />

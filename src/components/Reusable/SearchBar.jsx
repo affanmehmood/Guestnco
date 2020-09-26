@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Datetime from "react-datetime";
 
 const moment = require("moment");
@@ -10,6 +10,7 @@ const SearchBar = (props) => {
     arrival: "",
     depart: "",
   });
+
   const InputEvent = (event) => {
     const { name, value } = event.target;
     setState((preVal) => {
@@ -37,8 +38,22 @@ const SearchBar = (props) => {
   };
   const SearchNow = (e) => {
     e.preventDefault();
+    sessionStorage.setItem("searchObj", JSON.stringify(state));
     props.setSearchQuery(state);
   };
+  useEffect(() => {
+    const obj = JSON.parse(sessionStorage.getItem("searchObj"));
+    if (obj == null) return;
+    setState((preVal) => {
+      return {
+        ...preVal,
+        city: obj.city,
+        budget: obj.budget,
+        arrival: obj.arrival,
+        depart: obj.depart,
+      };
+    });
+  }, SearchBar);
   return (
     <div id="guesco-main-search" className="main-search " data-sticky="0">
       <div className="container-fluid">
@@ -47,6 +62,7 @@ const SearchBar = (props) => {
             <div className="search-destination">
               <input
                 type="name"
+                value={state.city}
                 name="city"
                 onChange={InputEvent}
                 autocomplete="off"
@@ -58,6 +74,7 @@ const SearchBar = (props) => {
               <input
                 type="name"
                 name="budget"
+                value={state.budget}
                 onChange={InputEvent}
                 autocomplete="off"
                 className="form-control"
@@ -66,10 +83,18 @@ const SearchBar = (props) => {
             </div>
             <div className="search-date-range main-search-date-range-js">
               <div className="search-date-range-arrive">
-                <Datetime onChange={startDateChange} />
+                <Datetime
+                  value={state.arrival}
+                  placeholder="Check In"
+                  onChange={startDateChange}
+                />
               </div>
               <div className="search-date-range-depart">
-                <Datetime onChange={endDateChange} />
+                <Datetime
+                  value={state.depart}
+                  placeholder="Check Out"
+                  onChange={endDateChange}
+                />
               </div>
             </div>
 

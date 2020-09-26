@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import imgeight from "../../images/person.jpg";
-import propertyimage from "../../images/listing-image-2.jpg";
-import propertyimage1 from "../../images/listing-image-1.jpg";
-import propertyimage3 from "../../images/listing-image-3.jpg";
-import propertyimage4 from "../../images/listing-image-4.jpg";
 
 import { Link } from "react-router-dom";
 
@@ -65,6 +60,7 @@ const OurFeaturedHomes = () => {
               {appartmentList.map((val, ind) => {
                 return (
                   <AppartmentCard
+                    id={val.id}
                     featured={val.featured}
                     imageUrl={val.imageUrl}
                     price={val.price}

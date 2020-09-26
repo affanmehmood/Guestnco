@@ -14,6 +14,10 @@ const Header = (props) => {
     email: "",
     password: "",
   });
+  function goToHome() {
+    history.push("/");
+    window.location.reload();
+  }
   function Login(e) {
     e.preventDefault();
     axios
@@ -38,6 +42,12 @@ const Header = (props) => {
         toast.error(err.message);
       });
   }
+  function Logout() {
+    sessionStorage.clear();
+    localStorage.clear();
+    history.push("/");
+    window.location.reload();
+  }
   const InputEvent = (event) => {
     const { name, value } = event.target;
     setstate((preVal) => {
@@ -61,7 +71,7 @@ const Header = (props) => {
               </Link>
             </li>
           </ul>
-          <Link to="javascript:void(0)" className="btn btn-add-new-listing">
+          <Link onClick={Logout} className="btn btn-add-new-listing">
             Logout
           </Link>
         </div>
@@ -150,10 +160,10 @@ const Header = (props) => {
         <div className="container-fluid">
           <div className="header-inner table-block">
             <div className="header-comp-logo">
-              <h1>
-                <Link className="guestco_logo" href="/">
-                  <img src={whitelogo} alt="" className="transparentlogo" />
-                  <img src={logo} alt="" className="blacklogo" />
+              <h1 onClick={goToHome}>
+                <Link className="guestco_logo">
+                  <img src={whitelogo} className="transparentlogo" />
+                  <img src={logo} className="blacklogo" />
                 </Link>
               </h1>
             </div>
@@ -274,46 +284,92 @@ const Header = (props) => {
           </div>
         </div>
       </header>
-      <div className="modal fade custom-modal-login" id="modal-register" tabindex="-1" aria-hidden="true">
+      <div
+        className="modal fade custom-modal-login"
+        id="modal-register"
+        tabindex="-1"
+        aria-hidden="true"
+      >
         <div className="modal-dialog clearfix" role="document">
-            <div className="modal-body-left pull-left left-bg">
-                <div className="login-register-title">
-                    Create an account </div>
+          <div className="modal-body-left pull-left left-bg">
+            <div className="login-register-title">Create an account </div>
+          </div>
+          <div className="modal-body-right pull-right">
+            <div className="modal-content">
+              <div className="modal-header">
+                <button
+                  type="button"
+                  className="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">×</span>
+                </button>
+                <h4 className="modal-title">Register</h4>
+              </div>
+              <div className="modal-body">
+                <form>
+                  <div className="form-group">
+                    <input
+                      type="text"
+                      name="username"
+                      className="form-control "
+                      placeholder="Name"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <input
+                      type="password"
+                      name="password"
+                      className="form-control"
+                      placeholder="Email"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <input
+                      type="password"
+                      name="password"
+                      className="form-control"
+                      placeholder="Mobile"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <input
+                      type="password"
+                      name="password"
+                      className="form-control"
+                      placeholder="Gender"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <input
+                      type="password"
+                      name="password"
+                      className="form-control"
+                      placeholder="DOB"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <input
+                      type="password"
+                      name="password"
+                      className="form-control"
+                      placeholder="Country"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="btn btn-primary btn-full-width"
+                  >
+                    Register
+                  </button>
+                </form>
+              </div>
             </div>
-            <div className="modal-body-right pull-right">
-                <div className="modal-content">
-                    <div className="modal-header">
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        <h4 className="modal-title">Register</h4>
-                    </div>
-                    <div className="modal-body">
-                        <form>
-                            <div className="form-group">
-                                <input type="text" name="username" className="form-control " placeholder="Name"/>
-                            </div>
-                            <div className="form-group">
-                                <input type="password" name="password" className="form-control" placeholder="Email"/>
-                            </div>
-                            <div className="form-group">
-                                <input type="password" name="password" className="form-control" placeholder="Mobile"/>
-                            </div>
-                            <div className="form-group">
-                                <input type="password" name="password" className="form-control" placeholder="Gender"/>
-                            </div>
-                            <div className="form-group">
-                                <input type="password" name="password" className="form-control" placeholder="DOB"/>
-                            </div>
-                            <div className="form-group">
-                                <input type="password" name="password" className="form-control" placeholder="Country"/>
-                            </div>
-                          
-                            <button type="submit" className="btn btn-primary btn-full-width">Register</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-    </div>
+      </div>
       <div
         className="modal fade custom-modal-login"
         id="modal-login"

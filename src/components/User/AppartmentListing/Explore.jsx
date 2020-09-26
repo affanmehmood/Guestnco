@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+import { useHistory, Link } from "react-router-dom";
+
 const Explore = () => {
   // Appartments data
   const [appartmentList, setAppartmentList] = useState([]);
@@ -19,6 +21,7 @@ const Explore = () => {
         for (var i = 0; i < d.length; i++) {
           if (d[i].images[0] != null) {
             list.push({
+              id: d[i].id,
               imageUrl: "http://18.223.32.178:3000/" + d[i].images[i],
               name: d[i].adress1,
             });
@@ -31,6 +34,7 @@ const Explore = () => {
         console.log("APP NAME", appartmentList.length);
       });
   }, [appartmentList.length]);
+  const history = useHistory();
 
   return (
     <div id="" class="widget widget-taxonomies-card widget-categories">
@@ -41,7 +45,14 @@ const Explore = () => {
         {appartmentList.map((val, ind) => {
           return (
             <div class="taxonomy-card">
-              <a class="taxonomy-link hover-effect" href="#">
+              <a
+                onClick={() => {
+                  sessionStorage.setItem("idFromAptCard", val.id);
+                  history.push("/details-2");
+                }}
+                class="taxonomy-link hover-effect"
+                href="#"
+              >
                 <div class="taxonomy-title">{val.name}</div>
                 <img
                   class="img-responsive"

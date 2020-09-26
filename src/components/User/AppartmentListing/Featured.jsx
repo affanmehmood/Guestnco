@@ -55,6 +55,7 @@ const Featured = () => {
         {appartmentList.map((val, ind) => {
           return (
             <FeaturedItemCard
+              id={val.id}
               featured={val.featured}
               imageUrl={val.imageUrl}
               price={val.price}

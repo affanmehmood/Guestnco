@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 
 const Search = () => {
   const [appartmentList, setAppartmentList] = useState([]);
+
   const getSearchQuery = (query) => {
     console.log("Search query", query);
     axios
@@ -47,13 +48,16 @@ const Search = () => {
             });
           }
         }
-
+        sessionStorage.removeItem("searchObj");
         setAppartmentList(list);
       })
       .then(() => {
         console.log("APP NAME", appartmentList.length);
       });
   };
+  if (sessionStorage.getItem("searchObj")) {
+    getSearchQuery(JSON.parse(sessionStorage.getItem("searchObj")));
+  }
   return (
     <div>
       <div className="inner-page">
@@ -85,39 +89,44 @@ const Search = () => {
           <div className="container">
             <div className="row">
               <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-                <div className="sort-wrap clearfix">
-                  <div className="pull-left">
-                    <div id="listings_found" className="number-of-listings">
-                      {appartmentList.length} Rentals
+                {appartmentList.length > 0 ? (
+                  <div className="sort-wrap clearfix">
+                    <div className="pull-left">
+                      <div id="listings_found" className="number-of-listings">
+                        {appartmentList.length} Rentals
+                      </div>
+                    </div>
+                    <div className="pull-right">
+                      <ul className="list-inline">
+                        <li>
+                          <strong>Sort By:</strong>
+                        </li>
+                        <li>
+                          <select
+                            id="sort_listings"
+                            className="selectpicker bs-select-hidden"
+                            title="Default Order"
+                            data-live-search-style="begins"
+                            data-live-search="false"
+                          >
+                            <option value="">Default Order</option>
+                            <option value="a_price">Price (Low to High)</option>
+                            <option value="d_price">Price (High to Low)</option>
+                            <option value="d_rating">Rating</option>
+                            <option selected value="featured_top">
+                              Featured First
+                            </option>
+                            <option value="a_date">Date Old to New</option>
+                            <option value="d_date">Date New to Old</option>
+                          </select>
+                        </li>
+                      </ul>
                     </div>
                   </div>
-                  <div className="pull-right">
-                    <ul className="list-inline">
-                      <li>
-                        <strong>Sort By:</strong>
-                      </li>
-                      <li>
-                        <select
-                          id="sort_listings"
-                          className="selectpicker bs-select-hidden"
-                          title="Default Order"
-                          data-live-search-style="begins"
-                          data-live-search="false"
-                        >
-                          <option value="">Default Order</option>
-                          <option value="a_price">Price (Low to High)</option>
-                          <option value="d_price">Price (High to Low)</option>
-                          <option value="d_rating">Rating</option>
-                          <option selected value="featured_top">
-                            Featured First
-                          </option>
-                          <option value="a_date">Date Old to New</option>
-                          <option value="d_date">Date New to Old</option>
-                        </select>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+                ) : (
+                  ""
+                )}
+
                 <div
                   id="listings_module_section"
                   className="listing-wrap item-list-view"
@@ -149,7 +158,7 @@ const Search = () => {
                         Load More
                       </Link>
                     ) : (
-                      ""
+                      "Please Search Something"
                     )}
                   </div>
                 </div>

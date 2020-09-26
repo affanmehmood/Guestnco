@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Footer from "../../Reusable/Footer";
 import Header from "../../Reusable/header";
+import { useHistory } from "react-router-dom";
 
 import { ToastContainer, toast, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Checkout = () => {
+  const history = useHistory();
   const [instantS, setInstantS] = useState(
     JSON.parse(sessionStorage.getItem("instantBoking"))
   );
@@ -89,6 +91,7 @@ const Checkout = () => {
         .post("http://18.223.32.178:3000/user/updatebooking", obj)
         .then((response) => {
           toast.success(response.data.message);
+          history.push("/orderlisting");
         });
     }
     console.log("CHECKED OUT", state);

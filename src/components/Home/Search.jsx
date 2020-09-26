@@ -1,9 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import Datetime from "react-datetime";
+
+const moment = require("moment");
 
 const Search = () => {
   const history = useHistory();
+  const [state, setstate] = useState({
+    city: "",
+    budget: "",
+    arrival: "",
+    depart: "",
+  });
+  const InputEvent = (event) => {
+    const { name, value } = event.target;
+    setstate((preVal) => {
+      return {
+        ...preVal,
+        [name]: value,
+      };
+    });
+  };
+  const startDateChange = (date) => {
+    setstate((preVal) => {
+      return {
+        ...preVal,
+        arrival: moment.isMoment(date) ? date.format() : date,
+      };
+    });
+  };
+  const endDateChange = (date) => {
+    setstate((preVal) => {
+      return {
+        ...preVal,
+        depart: moment.isMoment(date) ? date.format() : date,
+      };
+    });
+  };
   const gotoSearch = () => {
+    sessionStorage.setItem("searchObj", JSON.stringify(state));
     history.push("/search");
   };
   return (
@@ -14,9 +49,9 @@ const Search = () => {
             <div className="search-destination">
               <input
                 type="text"
-                name="location_search"
+                name="city"
                 autocomplete="off"
-                value=""
+                onChange={InputEvent}
                 className="form-control input-search"
                 placeholder="City"
               />
@@ -24,33 +59,19 @@ const Search = () => {
             <div className="search-guests search-budget-js">
               <input
                 type="text"
-                name=""
+                name="budget"
                 autocomplete="off"
-                value=""
+                onChange={InputEvent}
                 className="form-control"
                 placeholder="Budget"
               />
             </div>
             <div className="search-date-range main-search-date-range-js">
               <div className="search-date-range-arrive">
-                <input
-                  type="text"
-                  autocomplete="off"
-                  name="arrive"
-                  value=""
-                  className="form-control"
-                  placeholder="Check In"
-                />
+                <Datetime placeholder="Check In" onChange={startDateChange} />
               </div>
               <div className="search-date-range-depart">
-                <input
-                  type="text"
-                  autocomplete="off"
-                  name="depart"
-                  value=""
-                  className="form-control"
-                  placeholder="Check Out"
-                />
+                <Datetime placeholder="Check Out" onChange={endDateChange} />
               </div>
             </div>
             <div className="search-button">

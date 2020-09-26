@@ -10,7 +10,7 @@ export default function Orderlisting() {
   const [datatable, setDatatable] = useState({
     columns: [
       {
-        label: "Order #",
+        label: "Booking #",
         field: "orderno",
         width: 100,
         attributes: {
@@ -26,13 +26,13 @@ export default function Orderlisting() {
       },
 
       {
-        label: "Check-in Date",
+        label: "Checkin",
         field: "checkin",
         sort: "asc",
         width: 100,
       },
       {
-        label: "check-out Date",
+        label: "Checkout",
         field: "checkout",
         sort: "asc",
         width: 100,
@@ -185,9 +185,9 @@ export default function Orderlisting() {
                             <span>Home</span>
                           </a>
                         </li>
-                        <li className="active">Order Listing</li>
+                        <li className="active">Booking Listing</li>
                       </ol>
-                      <h1 className="listing-title">Order Listing</h1>
+                      <h1 className="listing-title">Booking Listing</h1>
                     </div>
                   </div>
                 </div>

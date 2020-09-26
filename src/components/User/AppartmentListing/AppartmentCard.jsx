@@ -1,5 +1,6 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
+
 const AppartmentCard = (props) => {
   const featured = props.featured;
   const imageUrl = props.imageUrl;
@@ -14,6 +15,7 @@ const AppartmentCard = (props) => {
   const stars = props.stars;
   const hostName = props.hostName;
   const id = props.id;
+
   function checkFeatured() {
     if (featured == true) {
       return (
@@ -61,9 +63,9 @@ const AppartmentCard = (props) => {
     <div class="col-md-12 item-wrap infobox_trigger guesco-matchHeight">
       <div class="media property-item">
         <div class="media-left">
-          <div class="item-media item-media-thumb">
+          <div onClick={GoToDetails} class="item-media item-media-thumb">
             {checkFeatured()}
-            <a onClick={GoToDetails} class="hover-effect">
+            <Link to="details-2" class="hover-effect">
               <img
                 width="450"
                 height="300"
@@ -71,7 +73,7 @@ const AppartmentCard = (props) => {
                 class="img-responsive wp-post-image"
                 alt=""
               />{" "}
-            </a>
+            </Link>
             <div class="item-media-price">
               <span class="item-price">
                 <sup>AED</sup>
@@ -94,7 +96,7 @@ const AppartmentCard = (props) => {
           <div class="item-title-head table-block">
             <div class="title-head-left">
               <h2 class="title">
-                <a onClick={GoToDetails}>{name}</a>
+                <Link to="details-2">{name}</Link>
               </h2>
               <address class="item-address">{address}</address>
             </div>

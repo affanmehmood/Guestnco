@@ -1,9 +1,11 @@
 import React from "react";
 
+import { useHistory } from "react-router-dom";
 import imgeight from "../../images/person.jpg";
 
 import { Link } from "react-router-dom";
 const AppartmentCard = (props) => {
+  const id = props.id;
   const featured = props.featured;
   const imageUrl = props.imageUrl;
   const price = props.price;
@@ -52,12 +54,17 @@ const AppartmentCard = (props) => {
         return "Excellet";
     }
   }
+  const history = useHistory();
+  function GoToDetails() {
+    sessionStorage.setItem("idFromAptCard", id);
+    history.push("/details-2");
+  }
   return (
     <div className="col-md-4 col-12">
       <div className="item-wrap infobox_trigger guestco-matchHeight">
         <div className="media property-item">
           <div className="media-left">
-            <div className="item-media item-media-thumb">
+            <div onClick={GoToDetails} className="item-media item-media-thumb">
               {checkFeatured()}
               <Link className="hover-effect" to="details-2">
                 <img

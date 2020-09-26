@@ -1,6 +1,9 @@
 import React from "react";
 
+import { useHistory, Link } from "react-router-dom";
+
 const FeaturedItemCard = (props) => {
+  const id = props.id;
   const featured = props.featured;
   const imageUrl = props.imageUrl;
   const price = props.price;
@@ -30,13 +33,18 @@ const FeaturedItemCard = (props) => {
     }
     return items;
   }
+  const history = useHistory();
+  function GoToDetails() {
+    sessionStorage.setItem("idFromAptCard", id);
+    history.push("/details-2");
+  }
   return (
     <div class="item-list-view">
       <div class="media property-item">
         <div class="media-left">
-          <div class="item-media item-media-thumb">
+          <div onClick={GoToDetails} class="item-media item-media-thumb">
             {checkFeatured()}
-            <a href="#">
+            <a to="details-2">
               <img
                 width="450"
                 height="300"
@@ -52,7 +60,7 @@ const FeaturedItemCard = (props) => {
           <div class="item-title-head">
             <div class="title-head-left">
               <h2 class="title">
-                <a href="#">{name}</a>
+                <Link to="details-2">{name}</Link>
               </h2>
               <span class="item-price">AED{price}/night</span>
               <span class="list-inline rating stars">{forStar()}</span>
