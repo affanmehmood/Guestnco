@@ -17,12 +17,13 @@ export default function Ordersumary() {
   const [days, setDays] = useState("");
   const [rentFrequency, setRentFrequency] = useState("");
 
-  const [orderNo, setOrderNo] = useState(0);
+  const [orderNo, setOrderNo] = useState(
+    sessionStorage.getItem("idForBookDetails")
+  );
   const [orderDate, setOrderDate] = useState("");
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("");
-  const [orderDescription, setOrderDescription] = useState("");
   const [totalAmount, setTotalAmount] = useState("");
   const [datatable, setDatatable] = useState({
     columns: [
@@ -77,7 +78,7 @@ export default function Ordersumary() {
     axios
       .get("http://18.223.32.178:3000/user/bookings/" + id)
       .then((response) => {
-        var data = []; // get this from bookingId
+        var data = {}; // get this from bookingId
 
         response.data.data.forEach((element) => {
           // searching
@@ -88,15 +89,15 @@ export default function Ordersumary() {
 
         const list = data.services;
 
-        console.log("Data", response.data.data[0]);
+        console.log("Data", data);
 
         setUserName(userProfile.first_name + " " + userProfile.last_name);
         setUserEmail(userProfile.email);
         setPaymentMethod("Unknown");
 
-        setApartmentName(response.data.data[0].apartment_name);
+        setApartmentName(data.apartment_name);
 
-        var date = new Date(response.data.data[0].checkin_date);
+        var date = new Date(data.checkin_date);
         setCheckinDate(
           date.getFullYear() +
             "/" +
@@ -111,7 +112,7 @@ export default function Ordersumary() {
             date.getSeconds()
         );
 
-        date = new Date(response.data.data[0].checkout_date);
+        date = new Date(data.checkout_date);
         setCheckoutDate(
           date.getFullYear() +
             "/" +
@@ -126,12 +127,12 @@ export default function Ordersumary() {
             date.getSeconds()
         );
 
-        setDays(response.data.data[0].days);
-        setRentFrequency(response.data.data[0].rent_frequency);
+        setDays(data.days);
+        setRentFrequency(data.rent_frequency);
 
-        setOrderNo(response.data.data[0].booking_id);
+        setOrderNo(data.booking_id);
 
-        date = new Date(response.data.data[0].booking_time);
+        date = new Date(data.booking_time);
         setOrderDate(
           date.getFullYear() +
             "/" +
@@ -147,9 +148,9 @@ export default function Ordersumary() {
         );
 
         setTotalAmount(
-          parseInt(response.data.data[0].service_fee) +
-            parseInt(response.data.data[0].rent_fee) +
-            parseInt(response.data.data[0].cleaning_fee)
+          parseInt(data.service_fee) +
+            parseInt(data.rent_fee) +
+            parseInt(data.cleaning_fee)
         );
 
         const onk = {

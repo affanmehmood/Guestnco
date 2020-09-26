@@ -67,7 +67,7 @@ const InstantBooking = (props) => {
       const instant = {
         extra_services: servicesFinal.length == 0 ? null : servicesFinal,
         user_id: parseInt(
-          JSON.parse(sessionStorage.getItem("userProfileImage").id)
+          JSON.parse(sessionStorage.getItem("userProfileDetails").id)
         ),
         apartment_id: AppartmentDetails.id,
         checkin_date: instantBookingState.arrival,
