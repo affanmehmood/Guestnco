@@ -96,7 +96,9 @@ const AppartmentCard = (props) => {
           <div class="item-title-head table-block">
             <div class="title-head-left">
               <h2 class="title">
-                <Link to="details-2">{name}</Link>
+                <Link onClick={GoToDetails} to="details-2">
+                  {name}
+                </Link>
               </h2>
               <address class="item-address">{address}</address>
             </div>

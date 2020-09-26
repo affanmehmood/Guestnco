@@ -67,7 +67,7 @@ const SearchBar = (props) => {
                 onChange={InputEvent}
                 autocomplete="off"
                 className="form-control input-search"
-                placeholder="City"
+                placeholder="Area"
               />
             </div>
             <div className="search-guests search-budget-js">
@@ -85,14 +85,14 @@ const SearchBar = (props) => {
               <div className="search-date-range-arrive">
                 <Datetime
                   value={state.arrival}
-                  placeholder="Check In"
+                  defaultValue="Check In"
                   onChange={startDateChange}
                 />
               </div>
               <div className="search-date-range-depart">
                 <Datetime
                   value={state.depart}
-                  placeholder="Check Out"
+                  defaultValue="Check Out"
                   onChange={endDateChange}
                 />
               </div>

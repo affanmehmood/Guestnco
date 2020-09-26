@@ -166,13 +166,13 @@ const Checkout = () => {
           <div style={{ background: "white" }} className="container">
             <div className="">
               <div className="checkout-wrapper">
-                <form className="row">
+                <form className="row displayflexcenter">
                   <div
                     style={{ background: "white" }}
-                    className="col-md-4 col-xs-12"
+                    className="col-md-6 col-xs-12"
                   >
                     <div className="checkout-right-wrapper">
-                      <h3>Checkout Details</h3>
+                      <h3>Booking Details</h3>
                       <div className="checkout-table">
                         <table
                           className="table table-striped"
@@ -225,30 +225,34 @@ const Checkout = () => {
                         <br />
 
                         <div class="row">
-                          <div class="col-md-6">
+                          <div class="col-md-12">
                             <div class="form-group">
-                              <label for="">Select Card #</label>
+                              {/* <label for="">Select Card #</label> */}
                               <select
                                 onChange={PaymentSelected}
                                 class="form-control common-select"
+                                placeholder='Select'
                               >
-                                <option>Select Card</option>
-                                {paymentMethods.map((value, index) => {
+                                <option value={1} >Transfert</option>
+                                <option value={2}>Cash upon arrival</option>
+                                <option value={3}>Paypal (Pilot phase)</option>
+                                
+                                {/* {paymentMethods.map((value, index) => {
                                   return <option>{value.card_no}</option>;
-                                })}
+                                })} */}
                               </select>
                             </div>
                           </div>
-                          <div class="col-md-6">
+                          {/* <div class="col-md-6">
                             <div class="form-group">
                               <label for="">Select Card Type</label>
-                              <div class="form-control common-select">
+                              <div class="form-control common-select cardtype">
                                 {selectedPaymentMethod.payment_type}
                               </div>
                             </div>
-                          </div>
+                          </div> */}
                         </div>
-                        <div class="text-right">
+                        {/* <div class="text-right">
                           <a
                             href="javascript:void(0)"
                             data-toggle="modal"
@@ -257,7 +261,7 @@ const Checkout = () => {
                           >
                             Add Payment Method
                           </a>
-                        </div>
+                        </div> */}
                       </div>
                       <div className="checkbox ">
                         <label>
@@ -266,7 +270,7 @@ const Checkout = () => {
                             type="checkbox"
                             onChange={ToggleEvent}
                           />{" "}
-                          I agree text{" "}
+                          By continuing you agree to the Terms and Conditions and Privacy Policies.{" "}
                         </label>
                       </div>
 
@@ -276,7 +280,7 @@ const Checkout = () => {
                           type="submit button"
                           className="btn btn-primary btn-long"
                         >
-                          Checkout{" "}
+                          Confirm Booking{" "}
                         </a>
                       </div>
                     </div>
@@ -316,14 +320,23 @@ const Checkout = () => {
                     <div class="col-md-6 col-xs-12">
                       <div class="form-group">
                         <label for="">Payment Type</label>
-                        <input
+                        <select
+                                
+                                class="form-control common-select"
+                              >
+                                <option>Credit Card</option>
+                                <option>Debit Card</option>
+                                <option>Other</option>
+                                
+                              </select>
+                        {/* <input
                           required
                           onChange={InputEventAddPayment}
                           type="text"
                           name="type"
                           class="form-control "
                           placeholder="Type"
-                        />
+                        /> */}
                       </div>
                     </div>
                     <div class="col-md-6 col-xs-12">
@@ -378,7 +391,7 @@ const Checkout = () => {
                         />
                       </div>
                     </div>
-                    <div class="col-md-6 col-xs-12">
+                    {/* <div class="col-md-6 col-xs-12">
                       <div class="form-group">
                         <label for="">Created Date</label>
                         <input
@@ -390,7 +403,7 @@ const Checkout = () => {
                           placeholder="Created Date"
                         />
                       </div>
-                    </div>
+                    </div> */}
                   </div>
 
                   <button type="submit" class="btn btn-primary btn-full-width">

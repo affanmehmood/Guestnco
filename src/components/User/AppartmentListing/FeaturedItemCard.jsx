@@ -60,7 +60,9 @@ const FeaturedItemCard = (props) => {
           <div class="item-title-head">
             <div class="title-head-left">
               <h2 class="title">
-                <Link to="details-2">{name}</Link>
+                <Link onClick={GoToDetails} to="details-2">
+                  {name}
+                </Link>
               </h2>
               <span class="item-price">AED{price}/night</span>
               <span class="list-inline rating stars">{forStar()}</span>

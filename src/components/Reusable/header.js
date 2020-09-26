@@ -4,7 +4,7 @@ import whitelogo from "../../images/white-logo.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { createBrowserHistory } from "history";
-
+import Register from "./register";
 import { ToastContainer, toast, Zoom, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -284,92 +284,7 @@ const Header = (props) => {
           </div>
         </div>
       </header>
-      <div
-        className="modal fade custom-modal-login"
-        id="modal-register"
-        tabindex="-1"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog clearfix" role="document">
-          <div className="modal-body-left pull-left left-bg">
-            <div className="login-register-title">Create an account </div>
-          </div>
-          <div className="modal-body-right pull-right">
-            <div className="modal-content">
-              <div className="modal-header">
-                <button
-                  type="button"
-                  className="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">×</span>
-                </button>
-                <h4 className="modal-title">Register</h4>
-              </div>
-              <div className="modal-body">
-                <form>
-                  <div className="form-group">
-                    <input
-                      type="text"
-                      name="username"
-                      className="form-control "
-                      placeholder="Name"
-                    />
-                  </div>
-                  <div className="form-group">
-                    <input
-                      type="password"
-                      name="password"
-                      className="form-control"
-                      placeholder="Email"
-                    />
-                  </div>
-                  <div className="form-group">
-                    <input
-                      type="password"
-                      name="password"
-                      className="form-control"
-                      placeholder="Mobile"
-                    />
-                  </div>
-                  <div className="form-group">
-                    <input
-                      type="password"
-                      name="password"
-                      className="form-control"
-                      placeholder="Gender"
-                    />
-                  </div>
-                  <div className="form-group">
-                    <input
-                      type="password"
-                      name="password"
-                      className="form-control"
-                      placeholder="DOB"
-                    />
-                  </div>
-                  <div className="form-group">
-                    <input
-                      type="password"
-                      name="password"
-                      className="form-control"
-                      placeholder="Country"
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="btn btn-primary btn-full-width"
-                  >
-                    Register
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Register />
       <div
         className="modal fade custom-modal-login"
         id="modal-login"

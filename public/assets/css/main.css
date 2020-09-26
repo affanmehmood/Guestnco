@@ -1981,3 +1981,32 @@ top: 130px;
     background-repeat: no-repeat;
     background-position: 50% 50%;
 }
+.search-date-range-arrive input {
+    padding-left: 40px;
+}
+
+.search-date-range-depart input {
+    padding-left: 40px;
+}
+.search-date-range-arrive .search-date-range-arrive {
+    width: 100%;
+}
+
+.search-date-range-depart .search-date-range-depart {
+    width: 100%;
+}
+.search-date-range-arrive .search-date-range-arrive input,
+.search-date-range-depart .search-date-range-depart input {
+    padding-left: 40px;
+}
+@media only screen and (min-width:1024px) {
+    .displayflexcenter{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.cardtype{
+    padding-top: 10px !important;
+    padding-left: 13px !important;
+}

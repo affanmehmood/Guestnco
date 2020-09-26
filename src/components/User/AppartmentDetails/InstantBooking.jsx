@@ -67,7 +67,7 @@ const InstantBooking = (props) => {
       const instant = {
         extra_services: servicesFinal.length == 0 ? null : servicesFinal,
         user_id: parseInt(
-          JSON.parse(sessionStorage.getItem("userProfileDetails").id)
+          JSON.parse(sessionStorage.getItem("userProfileDetails")).id
         ),
         apartment_id: AppartmentDetails.id,
         checkin_date: instantBookingState.arrival,
@@ -165,12 +165,12 @@ const InstantBooking = (props) => {
                   <div id="single-listing-date-range" class="search-date-range">
                     <div class="search-date-range-arrive">
                       <div className="search-date-range-arrive">
-                        <Datetime onChange={startDateChange} />
+                        <Datetime defaultValue='Checkin'  onChange={startDateChange} />
                       </div>
                     </div>
                     <div class="search-date-range-depart">
                       <div className="search-date-range-depart">
-                        <Datetime onChange={endDateChange} />
+                        <Datetime defaultValue='Checkout' onChange={endDateChange} />
                       </div>
                     </div>
                   </div>

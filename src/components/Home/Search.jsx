@@ -53,7 +53,7 @@ const Search = () => {
                 autocomplete="off"
                 onChange={InputEvent}
                 className="form-control input-search"
-                placeholder="City"
+                placeholder="Area"
               />
             </div>
             <div className="search-guests search-budget-js">
@@ -68,10 +68,10 @@ const Search = () => {
             </div>
             <div className="search-date-range main-search-date-range-js">
               <div className="search-date-range-arrive">
-                <Datetime placeholder="Check In" onChange={startDateChange} />
+                <Datetime defaultValue="Check In" onChange={startDateChange} />
               </div>
               <div className="search-date-range-depart">
-                <Datetime placeholder="Check Out" onChange={endDateChange} />
+                <Datetime defaultValue="Check Out" onChange={endDateChange} />
               </div>
             </div>
             <div className="search-button">

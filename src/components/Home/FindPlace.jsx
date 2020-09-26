@@ -20,24 +20,10 @@ const FindPlace = () => {
         <div style={{ clear: "both", width: "100%", height: "30px" }}></div>
         <div className="taxonomy-grid taxonomy-grid-2">
           <div className="row">
-            <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div className="col-lg-3 col-md-3 col-sm-3 col-xs-6">
               <div className="taxonomy-item taxonomy-card">
                 <Link className="taxonomy-link hover-effect" to="listing">
-                  <div className="taxonomy-title">Apartment</div>
-                  <img
-                    className="img-responsive"
-                    src={appartment}
-                    width="555"
-                    height="262"
-                    alt="listing_type"
-                  />
-                </Link>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-              <div className="taxonomy-item taxonomy-card">
-                <Link className="taxonomy-link hover-effect" to="listing">
-                  <div className="taxonomy-title">Bed &amp; Breakfast</div>
+  <div className="taxonomy-title">{'Loft & Modern'}</div>
                   <img
                     className="img-responsive"
                     src={breakfast}
@@ -48,10 +34,25 @@ const FindPlace = () => {
                 </Link>
               </div>
             </div>
+            <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+              <div className="taxonomy-item taxonomy-card">
+                <Link className="taxonomy-link hover-effect" to="listing">
+                  <div className="taxonomy-title">Apartments</div>
+                  <img
+                    className="img-responsive"
+                    src={appartment}
+                    width="555"
+                    height="262"
+                    alt="listing_type"
+                  />
+                </Link>
+              </div>
+            </div>
+        
             <div className="col-lg-3 col-md-3 col-sm-3 col-xs-6">
               <div className="taxonomy-item taxonomy-card">
                 <Link className="taxonomy-link hover-effect" to="listing">
-                  <div className="taxonomy-title">Condo</div>
+                  <div className="taxonomy-title">Studio</div>
                   <img
                     className="img-responsive"
                     src={image3}
@@ -63,9 +64,12 @@ const FindPlace = () => {
               </div>
             </div>
             <div className="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+             
+            </div>
+            <div className="col-lg-3 col-md-3 col-sm-3 col-xs-6">
               <div className="taxonomy-item taxonomy-card">
                 <Link className="taxonomy-link hover-effect" to="listing">
-                  <div className="taxonomy-title">House</div>
+                  <div className="taxonomy-title">Villa</div>
                   <img
                     className="img-responsive"
                     src={homeimg}
@@ -79,7 +83,7 @@ const FindPlace = () => {
             <div className="col-lg-3 col-md-3 col-sm-3 col-xs-6">
               <div className="taxonomy-item taxonomy-card">
                 <Link className="taxonomy-link hover-effect" to="listing">
-                  <div className="taxonomy-title">Loft</div>
+                  <div className="taxonomy-title">Townhouse</div>
                   <img
                     className="img-responsive"
                     src={loft}
@@ -90,20 +94,7 @@ const FindPlace = () => {
                 </Link>
               </div>
             </div>
-            <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-              <div className="taxonomy-item taxonomy-card">
-                <Link className="taxonomy-link hover-effect" to="listing">
-                  <div className="taxonomy-title">Studio</div>
-                  <img
-                    className="img-responsive"
-                    src={studio}
-                    width="555"
-                    height="262"
-                    alt="listing_type"
-                  />
-                </Link>
-              </div>
-            </div>
+          
           </div>
         </div>
         <div className=" loadmore text-center">

@@ -17,13 +17,12 @@ export default function Ordersumary() {
   const [days, setDays] = useState("");
   const [rentFrequency, setRentFrequency] = useState("");
 
-  const [orderNo, setOrderNo] = useState(
-    sessionStorage.getItem("idForBookDetails")
-  );
+  const [orderNo, setOrderNo] = useState(0);
   const [orderDate, setOrderDate] = useState("");
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("");
+  const [orderDescription, setOrderDescription] = useState("");
   const [totalAmount, setTotalAmount] = useState("");
   const [datatable, setDatatable] = useState({
     columns: [

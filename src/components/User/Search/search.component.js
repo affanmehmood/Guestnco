@@ -158,7 +158,7 @@ const Search = () => {
                         Load More
                       </Link>
                     ) : (
-                      "Please Search Something"
+                      "0 Searched records"
                     )}
                   </div>
                 </div>
